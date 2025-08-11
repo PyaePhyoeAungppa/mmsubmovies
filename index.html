@@ -3,441 +3,44 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- Viewport for responsive design, already present -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Series & Pricing Cards</title>
+    <!-- SEO Enhancements -->
+    <!-- Meta description for search engines -->
+    <meta name="description"
+        content="Discover a curated collection of popular TV series with detailed descriptions, ratings, and episodes. Explore shows like House of David, The Witcher, Game of Thrones, and more.">
+    <!-- Keywords for search engines (optional but can be helpful) -->
+    <meta name="keywords"
+        content="TV series, movies, ratings, episodes, House of David, Ironheart, The Witcher, Game of Thrones, The Sandman, Dune Prophecy, WandaVision, The Boys, Bad Boy, Loki">
+    <!-- Canonical URL to prevent duplicate content issues -->
+    <link rel="canonical" href="https://yourwebsite.com/your-page-path">
+    <!-- Open Graph tags for social media sharing -->
+    <meta property="og:title" content="Series & Pricing Cards">
+    <meta property="og:description"
+        content="Discover a curated collection of popular TV series with detailed descriptions, ratings, and episodes.">
+    <meta property="og:image" content="https://yourwebsite.com/image-for-social-media.jpg">
+    <meta property="og:url" content="https://yourwebsite.com/your-page-path">
+    <meta property="og:type" content="website">
+    <!-- Twitter Card tags for Twitter sharing -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Series & Pricing Cards">
+    <meta name="twitter:description"
+        content="Discover a curated collection of popular TV series with detailed descriptions, ratings, and episodes.">
+    <meta name="twitter:image" content="https://yourwebsite.com/image-for-social-media.jpg">
+
+    <!-- Performance Enhancements -->
+    <!-- Preconnect to the CDN domains to speed up resource fetching -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <style>
-        /* Import Poppins font */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
 
-        :root {
-            --primary-color: #ff4d4d;
-            --secondary-color: #0088cc;
-            --background-dark: #0d0d0d;
-            --background-light: #111;
-            --text-light: #f0f0f0;
-            --text-muted: #a0a0a0;
-            --star-color: #ffc107;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--background-dark);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            color: var(--text-light);
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        /* Mobile-first styles (full screen) */
-        .app-container {
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Desktop styles with centering and border-radius */
-        @media (min-width: 768px) {
-            .app-container {
-                width: 430px;
-                height: 90vh;
-                border-radius: 20px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            }
-        }
-
-        /* Swiper container styles */
-        .swiper-container {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Card styles */
-        .card {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0) 60%);
-            z-index: 1;
-        }
-
-        .card-content {
-            position: relative;
-            z-index: 2;
-            padding: 25px;
-            text-align: left;
-            box-sizing: border-box;
-        }
-
-        .series-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            line-height: 1.2;
-        }
-
-        .series-info {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-top: 15px;
-        }
-
-        .series-info .info-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .rating {
-            font-weight: 600;
-            color: var(--star-color);
-        }
-
-        .rating i {
-            color: var(--star-color);
-        }
-
-        /* New styles for the description and "see more" link */
-        .series-description {
-            margin-top: 10px;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .series-description .short-description {
-            margin: 0;
-            line-height: 1.4;
-        }
-
-        .series-description .see-more {
-            color: var(--primary-color);
-            cursor: pointer;
-            font-weight: 600;
-            margin-left: 5px;
-        }
-
-        .series-description .see-more:hover {
-            text-decoration: underline;
-        }
-
-        /* Modal for full description */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 100;
-            display: none;
-            /* Initially hidden */
-            place-items: center;
-            /* Center the modal content */
-        }
-
-        .modal-content {
-            background: var(--background-light);
-            padding: 30px;
-            margin: 20px;
-            max-width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            border-radius: 10px;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-content h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-top: 0;
-            color: var(--primary-color);
-        }
-
-        .modal-content p {
-            margin-top: 15px;
-            line-height: 1.6;
-            color: var(--text-light);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .close-btn:hover {
-            color: var(--text-light);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* New slide styling for the info card */
-        .info-card {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            background: var(--background-light);
-            color: var(--text-light);
-            height: 100%;
-            box-sizing: border-box;
-        }
-
-        .info-card h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .info-card p {
-            font-size: 1rem;
-            max-width: 300px;
-            color: var(--text-muted);
-            margin: 0 auto;
-        }
-
-        /* Premium pricing card specific styles */
-        .pricing-card {
-            background: linear-gradient(135deg, #1f1f1f, #0d0d0d);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .pricing-card .card-content {
-            padding: 25px;
-            text-align: center;
-        }
-
-        .pricing-card .logo {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            border: 2px solid var(--primary-color);
-            overflow: hidden;
-            background-color: #2a2a2a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 700;
-            font-size: 1.5rem;
-        }
-
-        .pricing-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .price {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 20px;
-        }
-
-        .price small {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: var(--text-muted);
-            margin-left: 5px;
-        }
-
-        .pricing-details {
-            font-size: 1rem;
-            color: var(--text-muted);
-            text-align: center;
-            max-width: 300px;
-            margin: 0 auto;
-        }
-
-        .pricing-details ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 15px;
-            text-align: left;
-        }
-
-        .pricing-details li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .pricing-details li .fas {
-            color: #4caf50;
-            margin-right: 12px;
-            font-size: 1.2em;
-        }
-
-        .verified-bridge {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-top: 20px;
-            gap: 8px;
-            font-size: 1.1rem;
-        }
-
-        .verified-bridge i {
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 30px;
-            background-color: var(--secondary-color);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .contact-btn:hover {
-            background-color: #006699;
-            transform: translateY(-5px);
-        }
-
-        /* Swiper Navigation & Pagination */
-        .swiper-button-prev,
-        .swiper-button-next {
-            color: var(--text-light);
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-
-        .swiper-button-prev:hover,
-        .swiper-button-next:hover {
-            opacity: 1;
-        }
-
-        .swiper-pagination-bullet {
-            background-color: rgba(255, 255, 255, 0.4);
-            opacity: 1;
-        }
-
-        .swiper-pagination-bullet-active {
-            background-color: var(--primary-color);
-        }
-
-        /* Corrected CSS selectors to apply a different background to each slide's card */
-        .swiper-slide:nth-of-type(1) .card {
-            background-image: url('https://image.tmdb.org/t/p/original/5MhDawWtf7c1FKtlJge48Eix9iC.jpg');
-        }
-
-        .swiper-slide:nth-of-type(2) .card {
-            background-image: url('https://m.media-amazon.com/images/M/MV5BN2EzMGZhOTktYjVhZi00NmIwLWIxZDEtNWUxZTQyNjhkYWQ4XkEyXkFqcGc@._V1_.jpg');
-        }
-
-        .swiper-slide:nth-of-type(3) .card {
-            background-image: url('https://www.yourdecoration.com/cdn/shop/files/gbeye-fp4983-the-witcher-teaser-poster-61x91-5cm_3ab24575-6ac1-4fd0-b71c-4555cb3fc60f.jpg?v=1721810496');
-        }
-
-        .swiper-slide:nth-of-type(4) .card {
-            background-image: url('https://m.media-amazon.com/images/M/MV5BMTNhMDJmNmYtNDQ5OS00ODdlLWE0ZDAtZTgyYTIwNDY3OTU3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg');
-        }
-
-        .swiper-slide:nth-of-type(5) .card {
-            background-image: url('https://comicbook.com/wp-content/uploads/sites/4/2022/07/b87bfa41-24d7-4041-8bbe-e219c41aba52.jpg?w=1024');
-        }
-
-        .swiper-slide:nth-of-type(6) .card {
-            background-image: url('https://image.tmdb.org/t/p/original/lmZpYJCjWcCZ6lGF0Vw2Rd8Mmmb.jpg');
-        }
-
-        .swiper-slide:nth-of-type(7) .card {
-            background-image: url('https://hips.hearstapps.com/hmg-prod/images/screen-shot-2021-02-02-at-10-04-43-am-1612278326.png');
-        }
-
-        .swiper-slide:nth-of-type(8) .card {
-            background-image: url('https://i.redd.it/which-season-of-the-boys-had-the-best-promotional-posters-v0-rdr6y2yymh1a1.jpg?width=1200&format=pjpg&auto=webp&s=984ba6b2add1d85be522588465a3263021e4f02c');
-        }
-
-        .swiper-slide:nth-of-type(9) .card {
-            background-image: url('https://m.media-amazon.com/images/M/MV5BYzMxN2FmNDgtYzM5Yy00ZWUzLWJkMDMtZmNjYmI5Mzk1YzBlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg');
-        }
-
-        .swiper-slide:nth-of-type(10) .card {
-            background-image: url('https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/1500x1500/products/90302/98771/Loki-season-2-original-tv-one-sheet-poster-buy-now-at-starstills__88779.1698076395.jpg?c=2');
-        }
-
-        .swiper-slide:nth-of-type(11) .card {
-            background-image: url('https://m.media-amazon.com/images/M/MV5BNzU0OTI4YTQtNGQ1ZS00ZjA4LTg3MTMtZjkyZWNjN2RiZDJmXkEyXkFqcGc@._V1_.jpg');
-        }
-
-        .swiper-slide:nth-of-type(12) .card {
-            background-image: url('https://m.media-amazon.com/images/I/71M8YFEakfL._UF894,1000_QL80_.jpg');
-        }
-
-        .swiper-slide:nth-of-type(13) .card {
-            background-image: url('https://m.media-amazon.com/images/M/MV5BMDdkYWZiZWYtMzA0Yi00NzNlLThkODktY2Q3N2NjN2ExZmMwXkEyXkFqcGc@._V1_.jpg');
-        }
-
-        .swiper-slide:nth-of-type(14) .card {
-            background-image: url('https://m.media-amazon.com/images/M/MV5BNGY1YjBiNzMtYWZhNC00OWViLWE0MzItNjc4YzczOGNiM2I0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg');
-        }
-
-        .swiper-slide:nth-of-type(15) .card {
-            background-image: url('https://i.ibb.co/7j5R951/The-Expanse.jpg');
-        }
-    </style>
 </head>
 
 <body>
@@ -447,7 +50,7 @@
             <div class="swiper-wrapper">
 
                 <!-- Slide 1: House of David -->
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-video-url="https://www.youtube.com/embed/luTHd0QrBdE">
                     <div class="card">
                         <div class="card-content">
                             <div class="series-title">House of David</div>
@@ -477,7 +80,8 @@
                 </div>
 
                 <!-- Slide 2: Ironheart -->
-                <div class="swiper-slide">
+                <div class="swiper-slide"
+                    data-video-url="https://www.youtube.com/embed/r6j-wSIqJJ0?si=4ar9OIOMMa-rnMTI">
                     <div class="card">
                         <div class="card-content">
                             <div class="series-title">Ironheart</div>
@@ -508,7 +112,8 @@
                 </div>
 
                 <!-- Slide 3: The Witcher -->
-                <div class="swiper-slide">
+                <div class="swiper-slide"
+                    data-video-url="https://www.youtube.com/embed/ndl1W4ltcmg?si=gJqLB-SCbY2dOklz">
                     <div class="card">
                         <div class="card-content">
                             <div class="series-title">The Witcher</div>
@@ -538,7 +143,8 @@
                 </div>
 
                 <!-- Slide 4: Game of Thrones -->
-                <div class="swiper-slide">
+                <div class="swiper-slide"
+                    data-video-url="https://www.youtube.com/embed/KPLWWIOCOOQ?si=XKQEpImCwAyNBH9m">
                     <div class="card">
                         <div class="card-content">
                             <div class="series-title">Game of Thrones</div>
@@ -583,7 +189,8 @@
                 </div>
 
                 <!-- Slide 5: The Sandman -->
-                <div class="swiper-slide">
+                <div class="swiper-slide"
+                    data-video-url="https://www.youtube.com/embed/ZJXamnPUm0I?si=BmsJr4pdUZRx6air">
                     <div class="card">
                         <div class="card-content">
                             <div class="series-title">The Sandman</div>
@@ -630,7 +237,8 @@
                 </div>
 
                 <!-- Slide 6: Dune: Prophecy -->
-                <div class="swiper-slide">
+                <div class="swiper-slide"
+                    data-video-url="https://www.youtube.com/embed/CzVHWNosS2o?si=avje6Kq5LJv8K72G">
                     <div class="card">
                         <div class="card-content">
                             <div class="series-title">Dune: Prophecy</div>
@@ -668,7 +276,8 @@
                 </div>
 
                 <!-- Slide 7: WandaVision -->
-                <div class="swiper-slide">
+                <div class="swiper-slide"
+                    data-video-url="https://www.youtube.com/embed/UBhlqe2OTt4?si=TxDlPnCoY4fsSMEw">
                     <div class="card">
                         <div class="card-content">
                             <div class="series-title">WandaVision</div>
@@ -699,7 +308,8 @@
                 </div>
 
                 <!-- Slide 8: The Boys -->
-                <div class="swiper-slide">
+                <div class="swiper-slide"
+                    data-video-url="https://www.youtube.com/embed/tcrNsIaQkb4?si=s3weibpPBkXjxDiy">
                     <div class="card">
                         <div class="card-content">
                             <div class="series-title">The Boys</div>
@@ -741,7 +351,8 @@
                 </div>
 
                 <!-- Slide 9: Bad Boy -->
-                <div class="swiper-slide">
+                <div class="swiper-slide"
+                    data-video-url="https://www.youtube.com/embed/AGv2tuTV3FE?si=gO0WQ2ONi6p-u1Cq">
                     <div class="card">
                         <div class="card-content">
                             <div class="series-title">Bad Boy</div>
@@ -770,7 +381,8 @@
                 </div>
 
                 <!-- Slide 10: Loki -->
-                <div class="swiper-slide">
+                <div class="swiper-slide"
+                    data-video-url="https://www.youtube.com/embed/nW948Va-l10?si=5jNXUhlx3WTmqBrU">
                     <div class="card">
                         <div class="card-content">
                             <div class="series-title">Loki</div>
@@ -798,7 +410,8 @@
                 </div>
 
                 <!-- Slide 11: Chernobyl -->
-                <div class="swiper-slide">
+                <div class="swiper-slide"
+                    data-video-url="https://www.youtube.com/embed/s9APLXM9Ei8?si=mbwLKf8gDukR8gMM">
                     <div class="card">
                         <div class="card-content">
                             <div class="series-title">Chernobyl</div>
@@ -837,7 +450,8 @@
                 </div>
 
                 <!-- Slide 12: Wednesday -->
-                <div class="swiper-slide">
+                <div class="swiper-slide"
+                    data-video-url="https://www.youtube.com/embed/03u4xyj0TH4?si=Wq_jxrQT-jdeoeAQ">
                     <div class="card">
                         <div class="card-content">
                             <div class="series-title">Wednesday</div>
@@ -871,7 +485,8 @@
                 </div>
 
                 <!-- Slide 13: 3 Body Problem -->
-                <div class="swiper-slide">
+                <div class="swiper-slide"
+                    data-video-url="https://www.youtube.com/embed/SdvzhCL7vIA?si=DP5y7OwNl-C3hHwl">
                     <div class="card">
                         <div class="card-content">
                             <div class="series-title">3 Body Problem</div>
@@ -906,7 +521,8 @@
                 </div>
 
                 <!-- Slide 14: Adolescence -->
-                <div class="swiper-slide">
+                <div class="swiper-slide"
+                    data-video-url="https://www.youtube.com/embed/Wk5OxqtpBR4?si=Z5cMeVdWHUQQntlh">
                     <div class="card">
                         <div class="card-content">
                             <div class="series-title">Adolescence</div>
@@ -935,7 +551,51 @@
                                     စိတ်ဝင်စားဖို့ ကောင်းတာပါ။ စောစောစီးစီး တရားခံအထိ Spoil ပြီးသွားပြီ ဆိုတော့
                                     နောက်ဆက်တွဲတွေကို ဆက်မပြောတော့ဘဲ ကိုယ်တိုင်ပဲလက်မလွတ်တမ်း ကြည့်ဖြစ်အောင်
                                     ကြည့်ဖို့ ညွှန်းပေးလိုက်ချင်ပါတော့တယ်။
-                                    
+                                </p>
+                                <span class="see-more">See more...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide"
+                    data-video-url="https://www.youtube.com/embed/Wk5OxqtpBR4?si=Z5cMeVdWHUQQntlh">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="series-title">The Last of Us</div>
+                            <div class="series-info">
+                                <div class="info-item rating"><i class="fas fa-star"></i>8.6 / 10</div>
+                                <div class="info-item">Seasons: 2</div>
+                                <div class="info-item">Episodes: 16</div>
+                            </div>
+                            <div class="series-description">
+                                <p class="short-description">မှိုပိုးတစ်မျိုးကြောင့် လူတွေ
+                                    အသားစားတဲ့ဇွန်ဘီးတွေလိုဖြစ်သွားပြီး ကမ္ဘာပျက်သွားပြီးနောက် နှစ် ၂၀
+                                    မှာအခြေပြုထားပါတယ်။
+
+                                    နယ်မြေတိုင်းမှာ သီးသန့်ဇုံတွေနဲ့ FEDRA အဖွဲ့ကစစ်အာဏာရှင်အဖြစ်
+                                    တင်းတင်းကြပ်ကြပ်အုပ်ချုပ်နေပါပြီ။
+
+                                    ဇုံတွေထဲက ခိုးထွက်ရင် ခိုးဝင်ရင်ကို ကြိုးပေးသတ်ပါတယ်။ သူတို့တွေကို
+                                    ပိုးစုန်းကြူးတွေဆိုတဲ့ တော်လှန်ရေးအဖွဲ့တွေကလည်းတိုက်ခိုက်နေပါတယ်...</p>
+                                <p class="full-description" style="display: none;">မှိုပိုးတစ်မျိုးကြောင့် လူတွေ
+                                    အသားစားတဲ့ဇွန်ဘီးတွေလိုဖြစ်သွားပြီး ကမ္ဘာပျက်သွားပြီးနောက် နှစ် ၂၀
+                                    မှာအခြေပြုထားပါတယ်။
+
+                                    နယ်မြေတိုင်းမှာ သီးသန့်ဇုံတွေနဲ့ FEDRA အဖွဲ့ကစစ်အာဏာရှင်အဖြစ်
+                                    တင်းတင်းကြပ်ကြပ်အုပ်ချုပ်နေပါပြီ။
+
+                                    ဇုံတွေထဲက ခိုးထွက်ရင် ခိုးဝင်ရင်ကို ကြိုးပေးသတ်ပါတယ်။ သူတို့တွေကို
+                                    ပိုးစုန်းကြူးတွေဆိုတဲ့ တော်လှန်ရေးအဖွဲ့တွေကလည်းတိုက်ခိုက်နေပါတယ်။
+
+                                    ဂျိုအယ်ကတော့ ဘော့စ်တွန် သီးသန့်နယ်မြေထဲကမှောင်ခိုသမားတစ်ယောက်ပါပဲ။ တစ်နေ့မှာတော့
+                                    သူ့ရဲ့ညီကိုရှာဖို့ခိုးထွက်ဖို့ကြိုးစားချိန်မှာ
+
+                                    ပိုးစုန်းကြူးတော်လှန်ရေးအဖွဲ့ကလည်းဗရိုနီကာဆိုတဲ့ ကလေးမလေးကို
+                                    အရမ်းအရေးကြီးတဲ့အကြောင်းတစ်ခုနဲ့ ကယ်ထုတ်ဖို့ ကြိုးစားနေပါပြီ။
+
+                                    ဂျိုအယ်နဲ့ ပိုးစုန်းကြူးအဖွဲ့တွေ့ပြီး ဗရိုနီကာနဲ့ဘယ်လိုစွန့်စားခန်းတွေ
+                                    ဖွင့်မလဲဆိုတာကိုတော့..
                                 </p>
                                 <span class="see-more">See more...</span>
                             </div>
@@ -957,7 +617,7 @@
                 <div class="swiper-slide">
                     <div class="card pricing-card">
                         <div class="card-content">
-                            <img src="assets/logo.jpeg" class="logo" alt="Logo Image">
+                            <img src="assets/images/logo.jpeg" class="logo" alt="Logo Image">
                             <div class="pricing-title">Lifetime Access</div>
                             <div class="price">10000<small> MMK</small></div>
                             <div class="pricing-details">
@@ -975,85 +635,100 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- Add Navigation -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
         </div>
+
+        <!-- <div class="swiper-pagination"></div> -->
+
+        <!-- Add Navigation -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
     </div>
 
-    <!-- Modal HTML structure (hidden by default) -->
+    <!-- Modal for "See more" -->
     <div class="modal-overlay">
         <div class="modal-content">
-            <button class="close-btn">&times;</button>
-            <h3 id="modal-title"></h3>
-            <p id="modal-description"></p>
+            <span class="close-btn">&times;</span>
+            <!-- This is the container for the video iframe -->
+            <div class="video-container"></div>
+            <div id="modal-title" class="modal-title"></div>
+            <div id="modal-description" class="modal-description"></div>
         </div>
     </div>
-
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         // Initialize Swiper
-        const swiper = new Swiper('.swiper-container', {
-            direction: 'horizontal',
-            autoplay: {
-                delay: 3500,
-                disableOnInteraction: false,
-            },
-            speed: 800,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            keyboard: {
-                enabled: true,
-                onlyInViewport: false,
-            },
-            slidesPerView: 1,
-            spaceBetween: 0,
-            centeredSlides: true,
-        });
+        document.addEventListener('DOMContentLoaded', function () {
+            // Swiper initialization
+            const swiper = new Swiper('.swiper-container', {
+                loop: true,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
 
-        const appContainer = document.querySelector('.app-container');
-        const modalOverlay = document.querySelector('.modal-overlay');
-        const modalTitle = document.getElementById('modal-title');
-        const modalDescription = document.getElementById('modal-description');
-        const closeBtn = document.querySelector('.close-btn');
+            const appContainer = document.querySelector('.app-container');
+            const modalOverlay = document.querySelector('.modal-overlay');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+            const videoContainer = document.querySelector('.video-container'); // Get the new video container
+            const closeBtn = document.querySelector('.close-btn');
 
-        // Event listener for the "see more" link using event delegation
-        appContainer.addEventListener('click', (e) => {
-            if (e.target.classList.contains('see-more')) {
-                // Stop the autoplay
-                swiper.autoplay.stop();
+            // Event listener for the "see more" link using event delegation
+            appContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('see-more')) {
+                    // Stop the autoplay
+                    swiper.autoplay.stop();
 
-                const cardContent = e.target.closest('.card-content');
-                const seriesTitle = cardContent.querySelector('.series-title').textContent;
-                const fullDescription = cardContent.querySelector('.full-description').textContent;
+                    const cardContent = e.target.closest('.card-content');
+                    const seriesTitle = cardContent.querySelector('.series-title').textContent;
+                    const fullDescription = cardContent.querySelector('.full-description').textContent;
 
-                // Populate modal with content
-                modalTitle.textContent = seriesTitle;
-                modalDescription.textContent = fullDescription;
+                    // Get the video URL from the parent swiper-slide
+                    const slideElement = e.target.closest('.swiper-slide');
+                    const videoUrl = slideElement.getAttribute('data-video-url');
 
-                // Show the modal
-                modalOverlay.style.display = 'grid';
-            }
-        });
+                    // Populate modal with content
+                    modalTitle.textContent = seriesTitle;
+                    modalDescription.textContent = fullDescription;
 
-        // Event listener to close the modal
-        closeBtn.addEventListener('click', () => {
-            modalOverlay.style.display = 'none';
-            // Restart the autoplay after a short delay to feel more natural
-            setTimeout(() => {
-                swiper.autoplay.start();
-            }, 500);
+                    // Dynamically create and append the iframe to the video container
+                    if (videoUrl) {
+                        const iframe = document.createElement('iframe');
+                        iframe.src = videoUrl + '?autoplay=1&amp;rel=0'; // Autoplay when modal is opened
+                        iframe.title = 'YouTube video player';
+                        iframe.frameborder = '0';
+                        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                        iframe.allowfullscreen = true;
+                        videoContainer.appendChild(iframe);
+                    }
+
+                    // Show the modal
+                    modalOverlay.style.display = 'grid';
+                }
+            });
+
+            // Event listener to close the modal
+            closeBtn.addEventListener('click', () => {
+                modalOverlay.style.display = 'none';
+
+                // Remove the iframe from the modal to stop the video
+                videoContainer.innerHTML = '';
+
+                // Restart the autoplay after a short delay to feel more natural
+                setTimeout(() => {
+                    swiper.autoplay.start();
+                }, 500);
+            });
         });
     </script>
 </body>
