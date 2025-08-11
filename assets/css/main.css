@@ -1,0 +1,454 @@
+/* Import Poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+:root {
+  --primary-color: #ff4d4d;
+  --secondary-color: #0088cc;
+  --background-dark: #0d0d0d;
+  --background-light: #111;
+  --text-light: #f0f0f0;
+  --text-muted: #a0a0a0;
+  --star-color: #ffc107;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text-light);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-image: url("https://cdn.mos.cms.futurecdn.net/98GnqFKaUMYU3GG5HxhLWZ.jpg");
+}
+
+/* Mobile-first styles (full screen) */
+.app-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Desktop styles with centering and border-radius */
+@media (min-width: 768px) {
+  .app-container {
+    width: 430px;
+    height: 90vh;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Swiper container styles */
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Card styles */
+.card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0) 60%
+  );
+  z-index: 1;
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: 25px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.series-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+.series-info {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.series-info .info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rating {
+  font-weight: 600;
+  color: var(--star-color);
+}
+
+.rating i {
+  color: var(--star-color);
+}
+
+/* New styles for the description and "see more" link */
+.series-description {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.series-description .short-description {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.series-description .see-more {
+  color: var(--primary-color);
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.series-description .see-more:hover {
+  text-decoration: underline;
+}
+
+/* Modal for full description */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  display: none;
+  /* Initially hidden */
+  place-items: center;
+  /* Center the modal content */
+}
+
+.modal-content {
+  background: var(--background-light);
+  padding: 30px;
+  margin: 20px;
+  max-width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.modal-content p {
+  margin-top: 15px;
+  line-height: 1.6;
+  color: var(--text-light);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: var(--text-light);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* New slide styling for the info card */
+.info-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background: var(--background-light);
+  color: var(--text-light);
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.info-card h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.info-card p {
+  font-size: 1rem;
+  max-width: 300px;
+  color: var(--text-muted);
+  margin: 0 auto;
+}
+
+/* Premium pricing card specific styles */
+.pricing-card {
+  background: linear-gradient(135deg, #1f1f1f, #0d0d0d);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.pricing-card .card-content {
+  padding: 25px;
+  text-align: center;
+}
+
+.pricing-card .logo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  overflow: hidden;
+  background-color: #2a2a2a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.pricing-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.price small {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-left: 5px;
+}
+
+.pricing-details {
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.pricing-details ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  text-align: left;
+}
+
+.pricing-details li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.pricing-details li .fas {
+  color: #4caf50;
+  margin-right: 12px;
+  font-size: 1.2em;
+}
+
+.verified-bridge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-color);
+  font-weight: 600;
+  margin-top: 20px;
+  gap: 8px;
+  font-size: 1.1rem;
+}
+
+.verified-bridge i {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+
+.contact-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 30px;
+  background-color: var(--secondary-color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: #006699;
+  transform: translateY(-5px);
+}
+
+/* Swiper Navigation & Pagination */
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--text-light);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  opacity: 1;
+}
+
+.swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.4);
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--primary-color);
+}
+
+/* Corrected CSS selectors to apply a different background to each slide's card */
+.swiper-slide:nth-of-type(1) .card {
+  background-image: url("https://image.tmdb.org/t/p/original/5MhDawWtf7c1FKtlJge48Eix9iC.jpg");
+}
+
+.swiper-slide:nth-of-type(2) .card {
+  background-image: url("https://m.media-amazon.com/images/M/MV5BN2EzMGZhOTktYjVhZi00NmIwLWIxZDEtNWUxZTQyNjhkYWQ4XkEyXkFqcGc@._V1_.jpg");
+}
+
+.swiper-slide:nth-of-type(3) .card {
+  background-image: url("https://www.yourdecoration.com/cdn/shop/files/gbeye-fp4983-the-witcher-teaser-poster-61x91-5cm_3ab24575-6ac1-4fd0-b71c-4555cb3fc60f.jpg?v=1721810496");
+}
+
+.swiper-slide:nth-of-type(4) .card {
+  background-image: url("https://m.media-amazon.com/images/M/MV5BMTNhMDJmNmYtNDQ5OS00ODdlLWE0ZDAtZTgyYTIwNDY3OTU3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg");
+}
+
+.swiper-slide:nth-of-type(5) .card {
+  background-image: url("https://comicbook.com/wp-content/uploads/sites/4/2022/07/b87bfa41-24d7-4041-8bbe-e219c41aba52.jpg?w=1024");
+}
+
+.swiper-slide:nth-of-type(6) .card {
+  background-image: url("https://image.tmdb.org/t/p/original/lmZpYJCjWcCZ6lGF0Vw2Rd8Mmmb.jpg");
+}
+
+.swiper-slide:nth-of-type(7) .card {
+  background-image: url("https://hips.hearstapps.com/hmg-prod/images/screen-shot-2021-02-02-at-10-04-43-am-1612278326.png");
+}
+
+.swiper-slide:nth-of-type(8) .card {
+  background-image: url("https://i.redd.it/which-season-of-the-boys-had-the-best-promotional-posters-v0-rdr6y2yymh1a1.jpg?width=1200&format=pjpg&auto=webp&s=984ba6b2add1d85be522588465a3263021e4f02c");
+}
+
+.swiper-slide:nth-of-type(9) .card {
+  background-image: url("https://m.media-amazon.com/images/M/MV5BYzMxN2FmNDgtYzM5Yy00ZWUzLWJkMDMtZmNjYmI5Mzk1YzBlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg");
+}
+
+.swiper-slide:nth-of-type(10) .card {
+  background-image: url("https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/1500x1500/products/90302/98771/Loki-season-2-original-tv-one-sheet-poster-buy-now-at-starstills__88779.1698076395.jpg?c=2");
+}
+
+.swiper-slide:nth-of-type(11) .card {
+  background-image: url("https://m.media-amazon.com/images/M/MV5BNzU0OTI4YTQtNGQ1ZS00ZjA4LTg3MTMtZjkyZWNjN2RiZDJmXkEyXkFqcGc@._V1_.jpg");
+}
+
+.swiper-slide:nth-of-type(12) .card {
+  background-image: url("https://m.media-amazon.com/images/I/71M8YFEakfL._UF894,1000_QL80_.jpg");
+}
+
+.swiper-slide:nth-of-type(13) .card {
+  background-image: url("https://m.media-amazon.com/images/M/MV5BMDdkYWZiZWYtMzA0Yi00NzNlLThkODktY2Q3N2NjN2ExZmMwXkEyXkFqcGc@._V1_.jpg");
+}
+
+.swiper-slide:nth-of-type(14) .card {
+  background-image: url("https://m.media-amazon.com/images/M/MV5BNGY1YjBiNzMtYWZhNC00OWViLWE0MzItNjc4YzczOGNiM2I0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg");
+}
+
+.swiper-slide:nth-of-type(15) .card {
+  background-image: url("https://www.channelmyanmar.to/wp-content/uploads/2023/03/MV5BYWI3ODJlMzktY2U5NC00ZjdlLWE1MGItNWQxZDk3NWNjN2RhXkEyXkFqcGc@._V1_-768x1137.jpg");
+}
+
+/* .swiper-slide .card:hover{
+    transform: scale(1.1);
+} */
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
