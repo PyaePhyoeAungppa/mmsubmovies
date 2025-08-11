@@ -706,9 +706,13 @@
     <script>
         // Initialize Swiper
         document.addEventListener('DOMContentLoaded', function () {
-            // Swiper initialization
+            // Swiper initialization with explicit slide configuration
             const swiper = new Swiper('.swiper-container', {
                 loop: false,
+                slidesPerView: 1, // Explicitly set to 1 slide per view
+                spaceBetween: 0, // Remove any space between slides
+                centeredSlides: false, // Ensure slides aren't centered
+                width: null, // Let Swiper calculate width automatically
                 autoplay: {
                     delay: 5000,
                     disableOnInteraction: false,
@@ -721,13 +725,28 @@
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
                 },
+                // Add these properties to ensure proper slide behavior
+                watchOverflow: true,
+                normalizeSlideIndex: true,
+                // Force recalculation on resize
+                on: {
+                    init: function () {
+                        // Force update after initialization
+                        setTimeout(() => {
+                            this.update();
+                        }, 100);
+                    },
+                    resize: function () {
+                        this.update();
+                    }
+                }
             });
 
             const appContainer = document.querySelector('.app-container');
             const modalOverlay = document.querySelector('.modal-overlay');
             const modalTitle = document.getElementById('modal-title');
             const modalDescription = document.getElementById('modal-description');
-            const videoContainer = document.querySelector('.video-container'); // Get the new video container
+            const videoContainer = document.querySelector('.video-container');
             const closeBtn = document.querySelector('.close-btn');
 
             // Event listener for the "see more" link using event delegation
@@ -751,7 +770,7 @@
                     // Dynamically create and append the iframe to the video container
                     if (videoUrl) {
                         const iframe = document.createElement('iframe');
-                        iframe.src = videoUrl + '?autoplay=1&amp;rel=0'; // Autoplay when modal is opened
+                        iframe.src = videoUrl + '?autoplay=1&rel=0';
                         iframe.title = 'YouTube video player';
                         iframe.frameborder = '0';
                         iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
