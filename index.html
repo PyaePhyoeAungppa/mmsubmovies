@@ -44,8 +44,25 @@
 </head>
 
 <body>
-
+    <marquee direction="left" scrollamount="6" behavior="scroll" style="position: fixed;top: 5px;z-index: 999999999;">
+        📢 အပတ်စဉ်တိုင်း Series
+        အသစ်တွေတင်ပေးနေပါတယ်&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📢 ရာသက်ပန်
+         မန်ဘာကြေး 5,000
+        ကျပ်ထဲနဲ့ကြည့်ရှုနိုင်ပါပြီ။&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📢 လစဉ်ကြေးပေးရန်မလိုပါ။
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        📢 မြန်မာစာတန်းထိုးဖြင့် ကြည်လင်ပြတ်သားစွာကြည့်ရှုနိုင်ပါသည်။
+    </marquee>
+        <marquee direction="right" scrollamount="6" behavior="scroll" style="position: fixed;bottom: 5px;">
+        📢 အပတ်စဉ်တိုင်း Series
+        အသစ်တွေတင်ပေးနေပါတယ်&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📢 ရာသက်ပန်
+         မန်ဘာကြေး 5,000
+        ကျပ်ထဲနဲ့ကြည့်ရှုနိုင်ပါပြီ။&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📢 လစဉ်ကြေးပေးရန်မလိုပါ။
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        📢 မြန်မာစာတန်းထိုးဖြင့် ကြည်လင်ပြတ်သားစွာကြည့်ရှုနိုင်ပါသည်။
+    </marquee>
     <div class="app-container">
+
+
         <div class="swiper-container">
             <div class="swiper-wrapper">
 
@@ -606,7 +623,9 @@
                 <!-- Slide 15: Info card with new description -->
                 <div class="swiper-slide">
                     <div class="info-card">
-                        <h2>ကြိုက်တဲ့ စီးရီးတွေ အားလုံးကို တစ်နေရာတည်းမှာပဲ ကြည့်ပါ</h2>
+                        <p style="color: var(--star-color);">ကြိုက်တဲ့ စီးရီးတွေ အားလုံးကို တစ်နေရာတည်းမှာပဲ ကြည့်ပါ</p>
+                        <div>Lifetime Access</div>
+                        <div class="price">5,000<small> MMK</small></div>
                         <p class="description-text">We're adding new content regularly to keep you entertained. Enjoy an
                             ever-expanding library with exclusive titles, behind-the-scenes content, and original shows.
                             There's always something new to discover!</p>
@@ -614,8 +633,8 @@
                 </div>
 
                 <!-- Slide 16: Pricing card with logo placeholder -->
-                <div class="swiper-slide">
-                    <div class="card pricing-card">
+                <!-- <div class="swiper-slide">
+                    <div class="info-card">
                         <div class="card-content">
                             <img src="assets/images/logo.jpeg" class="logo" alt="Logo Image">
                             <div class="pricing-title">Lifetime Access</div>
@@ -633,7 +652,7 @@
                                 rel="noopener noreferrer">Contact on Telegram</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -661,9 +680,9 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Swiper initialization
             const swiper = new Swiper('.swiper-container', {
-                loop: true,
+                loop: false,
                 autoplay: {
-                    delay: 2500,
+                    delay: 5000,
                     disableOnInteraction: false,
                 },
                 pagination: {
