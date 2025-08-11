@@ -22,7 +22,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-image: url("https://cdn.mos.cms.futurecdn.net/98GnqFKaUMYU3GG5HxhLWZ.jpg");
+  /* background-image: url("https://cdn.mos.cms.futurecdn.net/98GnqFKaUMYU3GG5HxhLWZ.jpg"); */
 }
 
 /* Mobile-first styles (full screen) */
@@ -431,10 +431,6 @@ body {
   background-image: url("https://www.channelmyanmar.to/wp-content/uploads/2023/03/MV5BYWI3ODJlMzktY2U5NC00ZjdlLWE1MGItNWQxZDk3NWNjN2RhXkEyXkFqcGc@._V1_-768x1137.jpg");
 }
 
-/* .swiper-slide .card:hover{
-    transform: scale(1.1);
-} */
-
 .video-container {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
@@ -451,4 +447,24 @@ body {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    background: #f0f0f0; /* optional background */
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.marquee-text {
+    display: inline-block;
+    padding-left: 100%; /* start off-screen to the right */
+    animation: marquee 12s linear infinite;
+    font-size: 1.5rem;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
