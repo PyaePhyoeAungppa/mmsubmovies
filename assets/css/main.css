@@ -372,62 +372,65 @@ body {
 
 /* Corrected CSS selectors to apply a different background to each slide's card */
 .swiper-slide:nth-of-type(1) .card {
+  background-image: url("https://www.channelmyanmar.to/wp-content/uploads/2022/11/dgyy1p0-b61713c1-6a28-4e5c-bf3c-f1e1a15e9fae-768x1136.jpg");
+}
+.swiper-slide:nth-of-type(2) .card {
   background-image: url("https://image.tmdb.org/t/p/original/5MhDawWtf7c1FKtlJge48Eix9iC.jpg");
 }
 
-.swiper-slide:nth-of-type(2) .card {
+.swiper-slide:nth-of-type(3) .card {
   background-image: url("https://m.media-amazon.com/images/M/MV5BN2EzMGZhOTktYjVhZi00NmIwLWIxZDEtNWUxZTQyNjhkYWQ4XkEyXkFqcGc@._V1_.jpg");
 }
 
-.swiper-slide:nth-of-type(3) .card {
+.swiper-slide:nth-of-type(4) .card {
   background-image: url("https://www.yourdecoration.com/cdn/shop/files/gbeye-fp4983-the-witcher-teaser-poster-61x91-5cm_3ab24575-6ac1-4fd0-b71c-4555cb3fc60f.jpg?v=1721810496");
 }
 
-.swiper-slide:nth-of-type(4) .card {
+.swiper-slide:nth-of-type(5) .card {
   background-image: url("https://m.media-amazon.com/images/M/MV5BMTNhMDJmNmYtNDQ5OS00ODdlLWE0ZDAtZTgyYTIwNDY3OTU3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg");
 }
 
-.swiper-slide:nth-of-type(5) .card {
+.swiper-slide:nth-of-type(6) .card {
   background-image: url("https://comicbook.com/wp-content/uploads/sites/4/2022/07/b87bfa41-24d7-4041-8bbe-e219c41aba52.jpg?w=1024");
 }
 
-.swiper-slide:nth-of-type(6) .card {
+.swiper-slide:nth-of-type(7) .card {
   background-image: url("https://image.tmdb.org/t/p/original/lmZpYJCjWcCZ6lGF0Vw2Rd8Mmmb.jpg");
 }
 
-.swiper-slide:nth-of-type(7) .card {
+.swiper-slide:nth-of-type(8) .card {
   background-image: url("https://hips.hearstapps.com/hmg-prod/images/screen-shot-2021-02-02-at-10-04-43-am-1612278326.png");
 }
 
-.swiper-slide:nth-of-type(8) .card {
+.swiper-slide:nth-of-type(9) .card {
   background-image: url("https://i.redd.it/which-season-of-the-boys-had-the-best-promotional-posters-v0-rdr6y2yymh1a1.jpg?width=1200&format=pjpg&auto=webp&s=984ba6b2add1d85be522588465a3263021e4f02c");
 }
 
-.swiper-slide:nth-of-type(9) .card {
+.swiper-slide:nth-of-type(10) .card {
   background-image: url("https://m.media-amazon.com/images/M/MV5BYzMxN2FmNDgtYzM5Yy00ZWUzLWJkMDMtZmNjYmI5Mzk1YzBlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg");
 }
 
-.swiper-slide:nth-of-type(10) .card {
+.swiper-slide:nth-of-type(11) .card {
   background-image: url("https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/1500x1500/products/90302/98771/Loki-season-2-original-tv-one-sheet-poster-buy-now-at-starstills__88779.1698076395.jpg?c=2");
 }
 
-.swiper-slide:nth-of-type(11) .card {
+.swiper-slide:nth-of-type(12) .card {
   background-image: url("https://m.media-amazon.com/images/M/MV5BNzU0OTI4YTQtNGQ1ZS00ZjA4LTg3MTMtZjkyZWNjN2RiZDJmXkEyXkFqcGc@._V1_.jpg");
 }
 
-.swiper-slide:nth-of-type(12) .card {
+.swiper-slide:nth-of-type(13) .card {
   background-image: url("https://m.media-amazon.com/images/I/71M8YFEakfL._UF894,1000_QL80_.jpg");
 }
 
-.swiper-slide:nth-of-type(13) .card {
+.swiper-slide:nth-of-type(14) .card {
   background-image: url("https://m.media-amazon.com/images/M/MV5BMDdkYWZiZWYtMzA0Yi00NzNlLThkODktY2Q3N2NjN2ExZmMwXkEyXkFqcGc@._V1_.jpg");
 }
 
-.swiper-slide:nth-of-type(14) .card {
+.swiper-slide:nth-of-type(15) .card {
   background-image: url("https://m.media-amazon.com/images/M/MV5BNGY1YjBiNzMtYWZhNC00OWViLWE0MzItNjc4YzczOGNiM2I0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg");
 }
 
-.swiper-slide:nth-of-type(15) .card {
+.swiper-slide:nth-of-type(16) .card {
   background-image: url("https://www.channelmyanmar.to/wp-content/uploads/2023/03/MV5BYWI3ODJlMzktY2U5NC00ZjdlLWE1MGItNWQxZDk3NWNjN2RhXkEyXkFqcGc@._V1_-768x1137.jpg");
 }
 
@@ -450,21 +453,25 @@ body {
 }
 
 .marquee-container {
-    width: 100%;
-    overflow: hidden;
-    background: #f0f0f0; /* optional background */
-    white-space: nowrap;
-    box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  background: #f0f0f0; /* optional background */
+  white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .marquee-text {
-    display: inline-block;
-    padding-left: 100%; /* start off-screen to the right */
-    animation: marquee 12s linear infinite;
-    font-size: 1.5rem;
+  display: inline-block;
+  padding-left: 100%; /* start off-screen to the right */
+  animation: marquee 12s linear infinite;
+  font-size: 1.5rem;
 }
 
 @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
