@@ -372,7 +372,7 @@ body {
 
 /* Corrected CSS selectors to apply a different background to each slide's card */
 .swiper-slide:nth-of-type(1) .card {
-  background-image: url("https://www.channelmyanmar.to/wp-content/uploads/2022/11/dgyy1p0-b61713c1-6a28-4e5c-bf3c-f1e1a15e9fae-768x1136.jpg");
+  background-image: url("https://assets.teenvogue.com/photos/6807b02700045157aef67255/master/w_1600%2Cc_limit/491459146_18050962967522143_3181026116073475950_n.jpg");
 }
 .swiper-slide:nth-of-type(2) .card {
   background-image: url("https://image.tmdb.org/t/p/original/5MhDawWtf7c1FKtlJge48Eix9iC.jpg");
