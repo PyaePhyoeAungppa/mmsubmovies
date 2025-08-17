@@ -1,724 +1,954 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <!-- Viewport for responsive design, already present -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MM Sub Movies - Series VIP</title>
-    <link rel="icon" type="image/jpeg" href="https://mmsubmovies.vercel.app/assets/logo.jpeg">
+    <link
+      rel="icon"
+      type="image/jpeg"
+      href="https://mmsubmovies.vercel.app/assets/logo.jpeg"
+    />
 
     <!-- SEO Enhancements -->
     <!-- Meta description for search engines -->
-    <meta name="description"
-        content="Discover a curated collection of popular TV series with detailed descriptions, ratings, and episodes. Explore shows like House of David, The Witcher, Game of Thrones, and more.">
+    <meta
+      name="description"
+      content="Discover a curated collection of popular TV series with detailed descriptions, ratings, and episodes. Explore shows like House of David, The Witcher, Game of Thrones, and more."
+    />
     <!-- Keywords for search engines (optional but can be helpful) -->
-    <meta name="keywords"
-        content="TV series, movies, ratings, episodes, House of David, Ironheart, The Witcher, Game of Thrones, The Sandman, Dune Prophecy, WandaVision, The Boys, Bad Boy, Loki">
+    <meta
+      name="keywords"
+      content="TV series, movies, ratings, episodes, House of David, Ironheart, The Witcher, Game of Thrones, The Sandman, Dune Prophecy, WandaVision, The Boys, Bad Boy, Loki"
+    />
     <!-- Canonical URL to prevent duplicate content issues -->
-    <link rel="canonical" href="https://mmsubmovies.vercel.app/">
+    <link rel="canonical" href="https://mmsubmovies.vercel.app/" />
     <!-- Open Graph tags for social media sharing -->
-    <meta property="og:title" content="Series & Pricing Cards">
-    <meta property="og:description"
-        content="Discover a curated collection of popular TV series with detailed descriptions, ratings, and episodes.">
-    <meta property="og:image" content="https://mmsubmovies.vercel.app/assets/logo.jpeg">
-    <meta property="og:url" content="https://mmsubmovies.vercel.app/">
-    <meta property="og:type" content="website">
+    <meta property="og:title" content="Series & Pricing Cards" />
+    <meta
+      property="og:description"
+      content="Discover a curated collection of popular TV series with detailed descriptions, ratings, and episodes."
+    />
+    <meta
+      property="og:image"
+      content="https://mmsubmovies.vercel.app/assets/logo.jpeg"
+    />
+    <meta property="og:url" content="https://mmsubmovies.vercel.app/" />
+    <meta property="og:type" content="website" />
     <!-- Twitter Card tags for Twitter sharing -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Series & Pricing Cards">
-    <meta name="twitter:description"
-        content="Discover a curated collection of popular TV series with detailed descriptions, ratings, and episodes.">
-    <meta name="twitter:image" content="https://mmsubmovies.vercel.app/image-for-social-media.jpg">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Series & Pricing Cards" />
+    <meta
+      name="twitter:description"
+      content="Discover a curated collection of popular TV series with detailed descriptions, ratings, and episodes."
+    />
+    <meta
+      name="twitter:image"
+      content="https://mmsubmovies.vercel.app/image-for-social-media.jpg"
+    />
 
     <!-- Performance Enhancements -->
     <!-- Preconnect to the CDN domains to speed up resource fetching -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://unpkg.com" />
 
     <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
     <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
-
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-P0LJ5X264P"></script>
-<script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-P0LJ5X264P"
+  ></script>
+  <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-    gtag('config', 'G-P0LJ5X264P');
-</script>
+    gtag("config", "G-P0LJ5X264P");
+  </script>
 
-<body>
-    <a href="https://t.me/xenon_miller155" style="
-       z-index: 999999999;
-       position: fixed;
-       right: 20px;
-       bottom: 80px;
-       text-decoration: none;
-       background: linear-gradient(45deg, #28a746a3, #4caf4f8b);
-       color: #fff;
-       padding: 12px 20px;
-       font-size: 16px;
-       font-weight: bold;
-       border-radius: 25px;
-       border: none;
-       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-       transition: all 0.3s ease;
-   " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.3)';"
-        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.2)';">
-        ဝယ်ယူမည်
+  <body>
+    <a
+      href="https://t.me/xenon_miller155"
+      style="
+        z-index: 999999999;
+        position: fixed;
+        right: 20px;
+        bottom: 80px;
+        text-decoration: none;
+        background: linear-gradient(45deg, #28a746a3, #4caf4f8b);
+        color: #fff;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 25px;
+        border: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      "
+      onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.3)';"
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.2)';"
+    >
+      ဝယ်ယူမည်
     </a>
 
-    <marquee direction="left" scrollamount="6" behavior="scroll" style="position: fixed;top: 5px;z-index: 999999999;">
-        📢 အပတ်စဉ်တိုင်း Series
-        အသစ်တွေတင်ပေးနေပါတယ်&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📢
-        ရာသက်ပန်
-        မန်ဘာကြေး 5,000
-        ကျပ်ထဲနဲ့ကြည့်ရှုနိုင်ပါပြီ။&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📢
-        လစဉ်ကြေးပေးရန်မလိုပါ။
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        📢 မြန်မာစာတန်းထိုးဖြင့် ကြည်လင်ပြတ်သားစွာကြည့်ရှုနိုင်ပါသည်။
+    <marquee
+      direction="left"
+      scrollamount="6"
+      behavior="scroll"
+      style="position: fixed; top: 5px; z-index: 999999999"
+    >
+      📢 အပတ်စဉ်တိုင်း Series
+      အသစ်တွေတင်ပေးနေပါတယ်&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📢
+      ရာသက်ပန် မန်ဘာကြေး 5,000
+      ကျပ်ထဲနဲ့ကြည့်ရှုနိုင်ပါပြီ။&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📢
+      လစဉ်ကြေးပေးရန်မလိုပါ။
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      📢 မြန်မာစာတန်းထိုးဖြင့် ကြည်လင်ပြတ်သားစွာကြည့်ရှုနိုင်ပါသည်။
     </marquee>
-    <marquee direction="right" scrollamount="6" behavior="scroll" style="position: fixed;bottom: 5px;">
-        📢 အပတ်စဉ်တိုင်း Series
-        အသစ်တွေတင်ပေးနေပါတယ်&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📢
-        ရာသက်ပန်
-        မန်ဘာကြေး 5,000
-        ကျပ်ထဲနဲ့ကြည့်ရှုနိုင်ပါပြီ။&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📢
-        လစဉ်ကြေးပေးရန်မလိုပါ။
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        📢 မြန်မာစာတန်းထိုးဖြင့် ကြည်လင်ပြတ်သားစွာကြည့်ရှုနိုင်ပါသည်။
+    <marquee
+      direction="right"
+      scrollamount="6"
+      behavior="scroll"
+      style="position: fixed; bottom: 5px"
+    >
+      📢 အပတ်စဉ်တိုင်း Series
+      အသစ်တွေတင်ပေးနေပါတယ်&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📢
+      ရာသက်ပန် မန်ဘာကြေး 5,000
+      ကျပ်ထဲနဲ့ကြည့်ရှုနိုင်ပါပြီ။&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📢
+      လစဉ်ကြေးပေးရန်မလိုပါ။
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      📢 မြန်မာစာတန်းထိုးဖြင့် ကြည်လင်ပြတ်သားစွာကြည့်ရှုနိုင်ပါသည်။
     </marquee>
     <div class="app-container">
-
-
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-
-                <div class="swiper-slide"
-                    data-video-url="https://www.youtube.com/embed/03u4xyj0TH4?si=is7aNWtrTYuYGm9Z">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="series-title">Wednesday Season 2</div>
-                            <div class="series-info">
-                                <div class="info-item rating"><i class="fas fa-star"></i>Ongoing</div>
-                                <div class="info-item">Seasons: 2</div>
-                                <div class="info-item">Episodes: 8</div>
-                            </div>
-                            <div class="series-description">
-                                <p class="short-description">ဒီ Season မှာတော့ Wednesday က သူ့အနေနဲ့ Nevermore ကို
-                                    သိပြီးပြီလို့ထင်ပြီး ကျောင်းကိုသူ့သဘောနဲ့သူပထမဆုံးအကြိမ် ပြန်လာခဲ့တယ်။
-                                    သူပြန်ရောက်တော့ Nevermore ကျောင်းက သူထင်ထားသလိုမဟုတ်တော့ဘူး။
-                                    သူ့အနေနဲ့နဲ့အရာအားလုံးကိုထိန်းချုပ်နိုင်မယ်ထင်
-                                    လျှို့ဝှက်ချက်တွေအားလုံးကိုသူသိပြီးပြီထင်ပေမဲ့
-                                    သူမသိသေးတဲ့လျှို့ဝှက်ချက်တွေကသူ့ကိုစောင်ကြိုနေခဲ့တယ်
-
-                                    ...</p>
-                                <p class="full-description" style="display: none;">ဒီ Season မှာတော့ Wednesday က
-                                    သူ့အနေနဲ့ Nevermore ကို သိပြီးပြီလို့ထင်ပြီး ကျောင်းကိုသူ့သဘောနဲ့သူပထမဆုံးအကြိမ်
-                                    ပြန်လာခဲ့တယ်။ သူပြန်ရောက်တော့ Nevermore ကျောင်းက သူထင်ထားသလိုမဟုတ်တော့ဘူး။
-                                    သူ့အနေနဲ့နဲ့အရာအားလုံးကိုထိန်းချုပ်နိုင်မယ်ထင်
-                                    လျှို့ဝှက်ချက်တွေအားလုံးကိုသူသိပြီးပြီထင်ပေမဲ့
-                                    သူမသိသေးတဲ့လျှို့ဝှက်ချက်တွေကသူ့ကိုစောင်ကြိုနေခဲ့တယ်
-                                </p>
-                                <span class="see-more">See more...</span>
-                            </div>
-                        </div>
-                    </div>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/-VIAsu_G7so?si=tU8aSOLjp9wgHmbe"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">Chief of War</div>
+                <div class="series-info">
+                  <div class="info-item rating">
+                    <i class="fas fa-star"></i>Ongoing
+                  </div>
+                  <div class="info-item">Seasons: 2</div>
+                  <div class="info-item">Episodes: 8</div>
                 </div>
-
-                <!-- Slide 1: House of David -->
-                <div class="swiper-slide" data-video-url="https://www.youtube.com/embed/luTHd0QrBdE">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="series-title">House of David</div>
-                            <div class="series-info">
-                                <div class="info-item rating"><i class="fas fa-star"></i>7.4 / 10</div>
-                                <div class="info-item">Seasons: 1</div>
-                                <div class="info-item">Episodes: 8</div>
-                            </div>
-                            <div class="series-description">
-                                <p class="short-description">ဒီဇာတ်လမ်းတွဲလေးကတော့ ၂၀၂၅ မှာ ပူပူနွေးနွေး
-                                    ထွက်ရှိထားပြီးတော့ ခရစ်ယာန်ကျမ်းစာထဲက အစ္စရေးနဲ့ ဂျူးဒက်က ဒုတိယမျိုးဆက်
-                                    ရှေးဟောင်းဘုရင်တစ်ပါးဖြစ်တဲ့ ဒေးဗစ်အကြောင်းကို historical fiction အနေနဲ့
-                                    ပြန်လည်ရိုက်ကူးတင်ဆက်ထားတာပါ။
-                                </p>
-                                <p class="full-description" style="display: none;">ဒီဇာတ်လမ်းတွဲလေးကတော့ ၂၀၂၅ မှာ
-                                    ပူပူနွေးနွေး ထွက်ရှိထားပြီးတော့ ခရစ်ယာန်ကျမ်းစာထဲက အစ္စရေးနဲ့ ဂျူးဒက်က ဒုတိယမျိုးဆက်
-                                    ရှေးဟောင်းဘုရင်တစ်ပါးဖြစ်တဲ့ ဒေးဗစ်အကြောင်းကို historical fiction အနေနဲ့
-                                    ပြန်လည်ရိုက်ကူးတင်ဆက်ထားတာပါ။
-                                    ဒီဇာတ်လမ်းတွဲလေးမှာတော့ ဒေးဗစ်က အညတရ သိုးထိန်းဘဝကနေ သမိုင်းတလျှောက်
-                                    ကျော်ဇော်မဲ့ဘုရင်တစ်ပါး ဘယ်လိုလုပ်ဖြစ်လာမလဲဆိုတာကို စိတ်ဝင်စားဖွယ်
-                                    ကြည့်ရှုရမှာဖြစ်ပါတယ်။
-                                </p>
-                                <span class="see-more">See more...</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    ၁၈ ရာစု အဆုံးမှာ ဟာဝိုင်အီကျွန်းစုတွေရဲ့ အဓိက
+                    တိုင်းပြည်လေးခုဖြစ်တဲ့ အိုအာဟူ၊ ဘစ်အိုင်းလန်း၊ မာဝီ နဲ့
+                    ခါဝိုင်အီ စစ်ပွဲတွေအကြောင်း အခြေခံထားပါတယ်။ ဇာတ်လိုက်ကတော့
+                    ကာအီရားနာဆိုတဲ့ မာဝီမင်းသားပါပဲ။ ဒီမျိုးနွယ်စုတွေရဲ့
+                    ဟောကိန်းအရ ငှက်မွေးဝတ်ရုံနဲ့ ‌တောက်ပနေတဲ့ကြယ်နဲ့အတူ
+                    ထွက်ပေါ်လာတဲ့ ဘုရင်ဟာ တိုင်းပြည်အားလုံးကို စုစည်းပြီး
+                    ငြိမ်းချမ်းစေလိမ့်မယ်လို့ပါပါတယ်...
+                  </p>
+                  <p class="full-description" style="display: none">
+                    ၁၈ ရာစု အဆုံးမှာ ဟာဝိုင်အီကျွန်းစုတွေရဲ့ အဓိက
+                    တိုင်းပြည်လေးခုဖြစ်တဲ့ အိုအာဟူ၊ ဘစ်အိုင်းလန်း၊ မာဝီ နဲ့
+                    ခါဝိုင်အီ စစ်ပွဲတွေအကြောင်း အခြေခံထားပါတယ်။ ဇာတ်လိုက်ကတော့
+                    ကာအီရားနာဆိုတဲ့ မာဝီမင်းသားပါပဲ။ ဒီမျိုးနွယ်စုတွေရဲ့
+                    ဟောကိန်းအရ ငှက်မွေးဝတ်ရုံနဲ့ ‌တောက်ပနေတဲ့ကြယ်နဲ့အတူ
+                    ထွက်ပေါ်လာတဲ့ ဘုရင်ဟာ တိုင်းပြည်အားလုံးကို စုစည်းပြီး
+                    ငြိမ်းချမ်းစေလိမ့်မယ်လို့ပါပါတယ်။ ဒီဟောကိန်းဟာ
+                    သူ့ကိုပြောတာပဲလို့ ယုံကြည်ထားတဲ့ ဘုရင်ကာဟယ်ကီလီဟာ
+                    တိုင်းပြည်တွေကို သိမ်းဖို့ကြိုးစားပါတော့တယ်။ ဒါကို
+                    သွေးမြေကျရတာတွေမကြိုက်တဲ့ ကာအီရားနာက ကူညီမလား
+                    ဘယ်လိုတားဆီးဖို့ ကြိုးစားမလဲဆိုတာ ဆက်ကြည့်သွားရမှာပါ။
+                  </p>
+                  <span class="see-more">See more...</span>
                 </div>
+              </div>
+            </div>
+          </div>
 
-                <!-- Slide 2: Ironheart -->
-                <div class="swiper-slide"
-                    data-video-url="https://www.youtube.com/embed/r6j-wSIqJJ0?si=4ar9OIOMMa-rnMTI">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="series-title">Ironheart</div>
-                            <div class="series-info">
-                                <div class="info-item">Not yet released</div>
-                                <div class="info-item">Seasons: 1</div>
-                                <div class="info-item">Episodes: 6</div>
-                            </div>
-                            <div class="series-description">
-                                <p class="short-description">ဒစ္စနေးက တင်ဆက်လိုက်တဲ့ စီးရီးအသစ်လာပါပြီ။
-                                    မာဗယ်စူပါဟီးရိုးဖြစ်ပြီး Black Panther 2 မှာ မိတ်ဆက်ခဲ့ပြီးဖြစ်ပါတယ်။
-                                    အိုင်ရန်မန်းရဲ့ ဝတ်စုံကို အတုခိုးပြီး ဝတ်စုံအသစ် တီထွင်လိုက်တဲ့ ဉာဏ်ကြီးရှင်
-                                    သိပ္ပံပညာရှင်မလေးတစ်ယောက်အကြောင်းပဲဖြစ်ပါတယ်။...</p>
-                                <p class="full-description" style="display: none;">ဒစ္စနေးက တင်ဆက်လိုက်တဲ့
-                                    စီးရီးအသစ်လာပါပြီ။
-                                    မာဗယ်စူပါဟီးရိုးဖြစ်ပြီး Black Panther 2 မှာ မိတ်ဆက်ခဲ့ပြီးဖြစ်ပါတယ်။
-                                    အိုင်ရန်မန်းရဲ့ ဝတ်စုံကို အတုခိုးပြီး ဝတ်စုံအသစ် တီထွင်လိုက်တဲ့ ဉာဏ်ကြီးရှင်
-                                    သိပ္ပံပညာရှင်မလေးတစ်ယောက်အကြောင်းပဲဖြစ်ပါတယ်။
-                                    တီထွင်တာတွေ အများကြီးလုပ်ချင်ပေမဲ့ ဘက်ဂျက်လည်းမရှိတဲ့အခါ လုပ်မိလုပ်ရာလုပ်ရင်း
-                                    လမ်းမှားရောက်သွားရာကနေ စူပါဟီးရို ဘယ်လိုဖြစ်လာမလဲ မြင်ရမှာပါ။
-                                    အထူးပြုလုပ်ချက်တွေနဲ့ ရိုက်ချက်တွေက အဆင်ပြေတာမို့ ဖျော်ဖြေရေးအနေနဲ့တော့
-                                    သေချာပေါက်ကြည့်လို့ရမဲ့ စီးရီးပဲဖြစ်ပါတယ်။
-                                </p>
-                                <span class="see-more">See more...</span>
-                            </div>
-                        </div>
-                    </div>
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/03u4xyj0TH4?si=is7aNWtrTYuYGm9Z"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">Wednesday Season 2</div>
+                <div class="series-info">
+                  <div class="info-item rating">
+                    <i class="fas fa-star"></i>Ongoing
+                  </div>
+                  <div class="info-item">Seasons: 2</div>
+                  <div class="info-item">Episodes: 8</div>
                 </div>
-
-                <!-- Slide 3: The Witcher -->
-                <div class="swiper-slide"
-                    data-video-url="https://www.youtube.com/embed/ndl1W4ltcmg?si=gJqLB-SCbY2dOklz">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="series-title">The Witcher</div>
-                            <div class="series-info">
-                                <div class="info-item rating"><i class="fas fa-star"></i>8.0 / 10</div>
-                                <div class="info-item">Seasons: 3</div>
-                                <div class="info-item">Episodes: 24</div>
-                            </div>
-                            <div class="series-description">
-                                <p class="short-description">ဝစ်ချာဆိုတာ မှော်ပညာနဲ့ ပြောင်းလဲခံထားရတဲ့လူသားတွေပါ
-                                    တိုက်ရည်ခိုက်ရည်ကောင်းပြီး အေးစက်စက် လူသားတွေပါပဲ
-                                    မှော်ပညာ အသေးစားနဲ့ဆေးရည်တွေကိုလည်း အသုံးချနိုင်ပါတယ်
-                                    အောက်လမ်းနည်းနည်းဆန်လို့ လူတွေမုန်းတီးခံရပါတယ်...</p>
-                                <p class="full-description" style="display: none;">ဝစ်ချာဆိုတာ မှော်ပညာနဲ့
-                                    ပြောင်းလဲခံထားရတဲ့လူသားတွေပါ
-                                    တိုက်ရည်ခိုက်ရည်ကောင်းပြီး အေးစက်စက် လူသားတွေပါပဲ
-                                    မှော်ပညာ အသေးစားနဲ့ဆေးရည်တွေကိုလည်း အသုံးချနိုင်ပါတယ်
-                                    အောက်လမ်းနည်းနည်းဆန်လို့ လူတွေမုန်းတီးခံရပါတယ်
-                                    သူတို့က သူရဲကောင်းမဟုတ် လူဆိုးမဟုတ်တွေပါပဲ
-                                    မိစ္ဆာကောင်တွေကို ကြေးစားလိုက်သတ်ပြိး အသက်မွေးပါတယ်
-                                    ဒီစိးရီးမှာတော့ မိစ္ဆာတွေ စုန်းတွေ နတ်ဘုရားတွေ တိုင်းပြည်ကိစ္စတွေနဲ့
-                                    ဇာတ်လမ်းဖွဲ့ထားပဲ ဖြစ်ပါတယ်</p>
-                                <span class="see-more">See more...</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    ဒီ Season မှာတော့ Wednesday က သူ့အနေနဲ့ Nevermore ကို
+                    သိပြီးပြီလို့ထင်ပြီး ကျောင်းကိုသူ့သဘောနဲ့သူပထမဆုံးအကြိမ်
+                    ပြန်လာခဲ့တယ်။ သူပြန်ရောက်တော့ Nevermore ကျောင်းက
+                    သူထင်ထားသလိုမဟုတ်တော့ဘူး။
+                    သူ့အနေနဲ့နဲ့အရာအားလုံးကိုထိန်းချုပ်နိုင်မယ်ထင်
+                    လျှို့ဝှက်ချက်တွေအားလုံးကိုသူသိပြီးပြီထင်ပေမဲ့
+                    သူမသိသေးတဲ့လျှို့ဝှက်ချက်တွေကသူ့ကိုစောင်ကြိုနေခဲ့တယ် ...
+                  </p>
+                  <p class="full-description" style="display: none">
+                    ဒီ Season မှာတော့ Wednesday က သူ့အနေနဲ့ Nevermore ကို
+                    သိပြီးပြီလို့ထင်ပြီး ကျောင်းကိုသူ့သဘောနဲ့သူပထမဆုံးအကြိမ်
+                    ပြန်လာခဲ့တယ်။ သူပြန်ရောက်တော့ Nevermore ကျောင်းက
+                    သူထင်ထားသလိုမဟုတ်တော့ဘူး။
+                    သူ့အနေနဲ့နဲ့အရာအားလုံးကိုထိန်းချုပ်နိုင်မယ်ထင်
+                    လျှို့ဝှက်ချက်တွေအားလုံးကိုသူသိပြီးပြီထင်ပေမဲ့
+                    သူမသိသေးတဲ့လျှို့ဝှက်ချက်တွေကသူ့ကိုစောင်ကြိုနေခဲ့တယ်
+                  </p>
+                  <span class="see-more">See more...</span>
                 </div>
+              </div>
+            </div>
+          </div>
 
-                <!-- Slide 4: Game of Thrones -->
-                <div class="swiper-slide"
-                    data-video-url="https://www.youtube.com/embed/KPLWWIOCOOQ?si=XKQEpImCwAyNBH9m">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="series-title">Game of Thrones</div>
-                            <div class="series-info">
-                                <div class="info-item rating"><i class="fas fa-star"></i>9.2 / 10</div>
-                                <div class="info-item">Seasons: 8</div>
-                                <div class="info-item">Episodes: 73</div>
-                            </div>
-                            <div class="series-description">
-                                <p class="short-description">ခုနှစ်ပြည်ထောင်တိုင်းရဲ့ ပလ္လင်ကို လုကြမယ့်
-                                    မျိုးနွယ်စုတွေ…မိသားစုတွေ….
-                                    နဂါးတွေ…လူရိုင်းတွေ…လူသန်ကြီးတွေ…မကောင်းဆိုးဝါးတွေ…စတဲ့
-                                    မျိုးနွယ်မတူကြသူတွေတိုက်ခိုက်ကြမှာ ဖြစ်ပြီး
-                                    ကြမ်းကြုတ်ရက်စက်မှုတွေ…..မေတ္တာတရားတွေ…လိမ်လည်လှည့်ဖျားမှုတွေ…ရိုးသားဖြောင့်မတ်သစ္စာစောင့်သိမှုတွေကို
-                                    တွေ့မြင်ကြရမှာဖြစ်ပါတယ်။
-
-                                    ဇာတ်လမ်းက တကယ့်ကို
-                                    မထင်မှတ်တာတွေပဲရိုက်ပြထားပြီးသတ်တာဖြတ်တာတွေပီပြင်လွန်းတာကြောင့်...
-                                </p>
-                                <p class="full-description" style="display: none;">ခုနှစ်ပြည်ထောင်တိုင်းရဲ့ ပလ္လင်ကို
-                                    လုကြမယ့် မျိုးနွယ်စုတွေ…မိသားစုတွေ….
-                                    နဂါးတွေ…လူရိုင်းတွေ…လူသန်ကြီးတွေ…မကောင်းဆိုးဝါးတွေ…စတဲ့
-                                    မျိုးနွယ်မတူကြသူတွေတိုက်ခိုက်ကြမှာ ဖြစ်ပြီး
-                                    ကြမ်းကြုတ်ရက်စက်မှုတွေ…..မေတ္တာတရားတွေ…လိမ်လည်လှည့်ဖျားမှုတွေ…ရိုးသားဖြောင့်မတ်သစ္စာစောင့်သိမှုတွေကို
-                                    တွေ့မြင်ကြရမှာဖြစ်ပါတယ်။
-
-                                    ဇာတ်လမ်းက တကယ့်ကို မထင်မှတ်တာတွေပဲရိုက်ပြထားပြီးသတ်တာဖြတ်တာတွေပီပြင်လွန်းတာကြောင့်
-                                    စိတ်မခိုင်သူများမကြည့်သင့်ပါဘူး။
-                                    အမှန်တရားမရှိတဲ့ အရိုင်းဆန်ဆန်ခေတ်တစ်ခုကိုမြင်ရမှာဖြစ်ပြီး
-                                    ပွင့်လင်းလွန်းစွာတင်ဆက်ထားပါတယ်။တကယ်လဲ လူ့လောကကြီးဆိုတာ အင်အားကြီးသူက
-                                    အနိုင်ကျင့်ဗိုလ်ကျတဲ့ တောနက်ကြီးတစ်ခုပဲ မဟုတ်လား။
-
-                                    Adventure | Drama | Fantasy | 18+ အမျိုးအစားဖြစ်ပြီး IMDb Rating က (9.2/10)
-                                    ထိရရှိထားတာဖြစ်ပါတယ်။
-
-                                    Rating မြင့်သလို ဇာတ်ညွှန်းကလဲ ဆွဲဆောင်မှုအပြည့်ရှိတဲ့ TV Series တစ်ခုဖြစ်ပြီး
-                                    ကမ္ဘာ့အကောင်းဆုံးရုပ်ရှင်စီးရီးထဲမှာ Top ပါပဲ။</p>
-                                <span class="see-more">See more...</span>
-                            </div>
-                        </div>
-                    </div>
+          <!-- Slide 1: House of David -->
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/luTHd0QrBdE"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">House of David</div>
+                <div class="series-info">
+                  <div class="info-item rating">
+                    <i class="fas fa-star"></i>7.4 / 10
+                  </div>
+                  <div class="info-item">Seasons: 1</div>
+                  <div class="info-item">Episodes: 8</div>
                 </div>
-
-                <!-- Slide 5: The Sandman -->
-                <div class="swiper-slide"
-                    data-video-url="https://www.youtube.com/embed/ZJXamnPUm0I?si=BmsJr4pdUZRx6air">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="series-title">The Sandman</div>
-                            <div class="series-info">
-                                <div class="info-item rating"><i class="fas fa-star"></i>7.7 / 10</div>
-                                <div class="info-item">Seasons: 2</div>
-                                <div class="info-item">Episodes: 18</div>
-                            </div>
-                            <div class="series-description">
-                                <p class="short-description">American Gods တို့ Norse Mythology တို့ကို ရေးခဲ့တဲ့
-                                    စာရေးဆရာကြီး
-                                    နီးလ်ဂိုင်မန်ရဲ့ လက်ရာတွေထဲက Sandman ဆိုတဲ့ နတ်ဘုရား စွမ်းအားရှင်
-                                    တစ်ယောက်အကြောင်းပါပဲ။
-
-                                    ဇာတ်လမ်းအစမှာတော့ ကမ္ဘာနှစ်ခုကို အရင်ပြသထားပါတယ်။ လူသားတွေ
-                                    နေတဲ့ နိုးထကမ္ဘာနဲ့ အိပ်မက်ကမ္ဘာပေါ့။ အိပ်မက်ကမ္ဘာရဲ့ နတ်ဘုရားဟာ သူ့ဆီ
-                                    ကနေ ထွက်ပြေးပြီး လူတွေကို ဒုက္ခပေးနေတဲ့ အိပ်မက်ဆိုးတစ်ကောင်ကို
-                                    လိုက်ဖမ်းနေခဲ့ပါတယ်။ ဖမ်းမိသွားတဲ့အချိန်လေးမှာပဲ ဘာမှမလုပ်ခင် သူ့ကို
-                                    လူသားတစ်စုက မှော်အစီအရင်တွေနဲ့ ထောင်ချောက်ဆင်ဖမ်းတာခံလိုက်ရပါတယ်...</p>
-                                <p class="full-description" style="display: none;">American Gods တို့ Norse Mythology
-                                    တို့ကို ရေးခဲ့တဲ့ စာရေးဆရာကြီး
-                                    နီးလ်ဂိုင်မန်ရဲ့ လက်ရာတွေထဲက Sandman ဆိုတဲ့ နတ်ဘုရား စွမ်းအားရှင်
-                                    တစ်ယောက်အကြောင်းပါပဲ။
-
-                                    ဇာတ်လမ်းအစမှာတော့ ကမ္ဘာနှစ်ခုကို အရင်ပြသထားပါတယ်။ လူသားတွေ
-                                    နေတဲ့ နိုးထကမ္ဘာနဲ့ အိပ်မက်ကမ္ဘာပေါ့။ အိပ်မက်ကမ္ဘာရဲ့ နတ်ဘုရားဟာ သူ့ဆီ
-                                    ကနေ ထွက်ပြေးပြီး လူတွေကို ဒုက္ခပေးနေတဲ့ အိပ်မက်ဆိုးတစ်ကောင်ကို
-                                    လိုက်ဖမ်းနေခဲ့ပါတယ်။ ဖမ်းမိသွားတဲ့အချိန်လေးမှာပဲ ဘာမှမလုပ်ခင် သူ့ကို
-                                    လူသားတစ်စုက မှော်အစီအရင်တွေနဲ့ ထောင်ချောက်ဆင်ဖမ်းတာခံလိုက်ရပါတယ်။
-                                    ဒါပေမဲ့ တကယ်တော့လည်း လူသားတွေ ဖမ်းချင်တာက သေမင်းတမန်တော်ကိုပါ။
-                                    ယုံထောင်ကြောင်မိဖြစ်ပြီး အိပ်မက်နတ်ဘုရားက အချောင်ဖမ်းခံလိုက်ရပါတယ်။
-                                    နောက်မှသိရတာက အိပ်မက်နတ်ဘုရားဟာ Endless ဆိုတဲ့ အဆုံးမဲ့နတ်ဘုရား (၇)
-                                    ပါးထဲက တစ်ပါးဖြစ်နေတာပါပဲ။ အဲဒီ ၇ ပါးကတော့ ကံကြမ္မာ၊ ခွဲခွာမှု၊ အိပ်မက်၊
-                                    ဖျက်ဆီးခြင်း၊ ရမက်၊ သောက၊ ထင်ယောင်ထင်မှား ဆိုတဲ့ ဘုရား(၇)ပါးပါပဲ။
-                                    
-                                    သူတို့က သာမန်နတ်ဘုရားတော်တော်များများထက် စွမ်းအားကြီးကြပါတယ်။
-                                    ဒီစီးရီးမှာတော့ အိပ်မက်နတ်ဘုရား အဖမ်းခံရချိန်မှာ အိပ်မက်ဆိုးတွေ သောင်းကျန်းပြီး
-                                    ကမ္ဘာကြီးကို ဒုက္ခပေးနေကြတာကိုတွေ့ရမှာပါ။ ဒါပေမဲ့ အိပ်မက်နတ်ဘုရား လွတ်မြောက်
-                                    လာချိန်မှာ ဘာတွေဆက်ဖြစ်မလဲဆိုတာကို ကြည့်လိုက်ပါဦး…..</p>
-                                <span class="see-more">See more...</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    ဒီဇာတ်လမ်းတွဲလေးကတော့ ၂၀၂၅ မှာ ပူပူနွေးနွေး
+                    ထွက်ရှိထားပြီးတော့ ခရစ်ယာန်ကျမ်းစာထဲက အစ္စရေးနဲ့ ဂျူးဒက်က
+                    ဒုတိယမျိုးဆက် ရှေးဟောင်းဘုရင်တစ်ပါးဖြစ်တဲ့ ဒေးဗစ်အကြောင်းကို
+                    historical fiction အနေနဲ့ ပြန်လည်ရိုက်ကူးတင်ဆက်ထားတာပါ။
+                  </p>
+                  <p class="full-description" style="display: none">
+                    ဒီဇာတ်လမ်းတွဲလေးကတော့ ၂၀၂၅ မှာ ပူပူနွေးနွေး
+                    ထွက်ရှိထားပြီးတော့ ခရစ်ယာန်ကျမ်းစာထဲက အစ္စရေးနဲ့ ဂျူးဒက်က
+                    ဒုတိယမျိုးဆက် ရှေးဟောင်းဘုရင်တစ်ပါးဖြစ်တဲ့ ဒေးဗစ်အကြောင်းကို
+                    historical fiction အနေနဲ့ ပြန်လည်ရိုက်ကူးတင်ဆက်ထားတာပါ။
+                    ဒီဇာတ်လမ်းတွဲလေးမှာတော့ ဒေးဗစ်က အညတရ သိုးထိန်းဘဝကနေ
+                    သမိုင်းတလျှောက် ကျော်ဇော်မဲ့ဘုရင်တစ်ပါး
+                    ဘယ်လိုလုပ်ဖြစ်လာမလဲဆိုတာကို စိတ်ဝင်စားဖွယ်
+                    ကြည့်ရှုရမှာဖြစ်ပါတယ်။
+                  </p>
+                  <span class="see-more">See more...</span>
                 </div>
+              </div>
+            </div>
+          </div>
 
-                <!-- Slide 6: Dune: Prophecy -->
-                <div class="swiper-slide"
-                    data-video-url="https://www.youtube.com/embed/CzVHWNosS2o?si=avje6Kq5LJv8K72G">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="series-title">Dune: Prophecy</div>
-                            <div class="series-info">
-                                <div class="info-item rating"><i class="fas fa-star"></i>7.0 / 10</div>
-                                <div class="info-item">Seasons: 1</div>
-                                <div class="info-item">Episodes: 8</div>
-                            </div>
-                            <div class="series-description">
-                                <p class="short-description">ပေါ အထရေးဒီး နန်းမတက်ခင် နှစ် ၁၀,၀၀၀ အလို ကာလမှာပဲ
-                                    ဖြစ်ပါတယ်။
-                                    မဟာစစ်ပွဲကြီးလို့ခေါ်တဲ့ လူသားတွေက ဦးနှောက်ရှိတဲ့စက်တွေထိန်းချုပ်ထားတာကို
-                                    တော်လှန်ရေးလုပ်ခဲ့တဲ့ ကာလအပြီးပါပဲ။
-
-                                    အဲဒီကာလမှာ စက်တွေကို ကန့်သတ်ပစ်လိုက်ပြီး ကရီနိုအိမ်တော်က ဧကရာဇ်နေရာကို ရယူထားပါတယ်။
-                                    အခြား အင်အားကြီးအိမ်တော်ကြီးတွေက နိုင်ငံရေးကစားကွက်မျိုးစုံနဲ့ အားပြိုင်နေတဲ့
-                                    ကာလဖြစ်ပါတယ်...</p>
-                                <p class="full-description" style="display: none;">ပေါ အထရေးဒီး နန်းမတက်ခင် နှစ် ၁၀,၀၀၀
-                                    အလို ကာလမှာပဲ ဖြစ်ပါတယ်။
-                                    မဟာစစ်ပွဲကြီးလို့ခေါ်တဲ့ လူသားတွေက ဦးနှောက်ရှိတဲ့စက်တွေထိန်းချုပ်ထားတာကို
-                                    တော်လှန်ရေးလုပ်ခဲ့တဲ့ ကာလအပြီးပါပဲ။
-
-                                    အဲဒီကာလမှာ စက်တွေကို ကန့်သတ်ပစ်လိုက်ပြီး ကရီနိုအိမ်တော်က ဧကရာဇ်နေရာကို ရယူထားပါတယ်။
-                                    အခြား အင်အားကြီးအိမ်တော်ကြီးတွေက နိုင်ငံရေးကစားကွက်မျိုးစုံနဲ့ အားပြိုင်နေတဲ့
-                                    ကာလဖြစ်ပါတယ်။
-                                    ဒီစီးရီးမှာ အမှန်ပြောသူ ညီအစ်မအဖွဲ့တွေရဲ့ သမိုင်းအစကို ဖော်ပြထားပြီး
-                                    အိမ်တော်ကြီးတွေကို နောက်ကွယ်ကနေ ထိန်းချုပ်ဖို့ စီမံပုံတွေကိုလည်း တွေ့ရမှာပါ။
-
-                                    ဖရေးမန်းတွေနဲ့ အရားခစ်က တိုက်ပွဲတွေရယ် ပုန်ကုန်မှုတွေရယ်လည်း ပါမှာဖြစ်ပြီး
-                                    ဇာတ်အိမ်ကြီးတဲ့ စီးရီးမို့ အားရပါးရ ကြည့်လို့ကောင်းမှာပါ။</p>
-                                <span class="see-more">See more...</span>
-                            </div>
-                        </div>
-                    </div>
+          <!-- Slide 2: Ironheart -->
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/r6j-wSIqJJ0?si=4ar9OIOMMa-rnMTI"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">Ironheart</div>
+                <div class="series-info">
+                  <div class="info-item">Not yet released</div>
+                  <div class="info-item">Seasons: 1</div>
+                  <div class="info-item">Episodes: 6</div>
                 </div>
-
-                <!-- Slide 7: WandaVision -->
-                <div class="swiper-slide"
-                    data-video-url="https://www.youtube.com/embed/UBhlqe2OTt4?si=TxDlPnCoY4fsSMEw">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="series-title">WandaVision</div>
-                            <div class="series-info">
-                                <div class="info-item rating"><i class="fas fa-star"></i>8.3 / 10</div>
-                                <div class="info-item">Seasons: 1</div>
-                                <div class="info-item">Episodes: 9</div>
-                            </div>
-                            <div class="series-description">
-                                <p class="short-description">စီးရီးကိုတော့ sit-com ဟာသ ပုံစံနဲ့ အစပြုထားပါတယ်။
-                                    ဝန်ဒါနဲ့ ဗီရှင်တို့ဟာ ပျော်ရွှင်စွာ လက်ထပ်ထားတဲ့ စုံတွဲအဖြစ် တည်ရှိနေကြပါတယ်။
-                                    သူတို့တွေ ဘယ်လိုလက်ထပ်ခဲ့တယ် ဘာမှာရောက်နေတယ်
-                                    ဘယ်ကလာတယ်ဆိုတာကို သူတို့ကိုယ်တိုင်တောင် မမှတ်မိတော့ပါဘူး
-                                    ...</p>
-                                <p class="full-description" style="display: none;">စီးရီးကိုတော့ sit-com ဟာသ ပုံစံနဲ့
-                                    အစပြုထားပါတယ်။
-                                    ဝန်ဒါနဲ့ ဗီရှင်တို့ဟာ ပျော်ရွှင်စွာ လက်ထပ်ထားတဲ့ စုံတွဲအဖြစ် တည်ရှိနေကြပါတယ်။
-                                    သူတို့တွေ ဘယ်လိုလက်ထပ်ခဲ့တယ် ဘာမှာရောက်နေတယ်
-                                    ဘယ်ကလာတယ်ဆိုတာကို သူတို့ကိုယ်တိုင်တောင် မမှတ်မိတော့ပါဘူး။
-                                    သန်းနို့စ် မသေခင်ကလား သေအပြီးလား ဝန်ဒါ soul stone ထဲမှာ ရောက်နေတာလား
-                                    အခြား အပြိုင်စကြဝဠာလား အခြား reality လား ဆိုတာ မသိနိုင်သေးပါဘူး။
-                                    အပိုင်းအစကတော့ ရယ်စရာတွေ ပျော်စရာတွေနဲ့ပဲ အစပြုထားပါတယ်။
-                                    လျို့ဝှက်ချက်တွေကိုတော့ စောင့်ကြည့်ကြတာပေါ့ဗျာ။</p>
-                                <span class="see-more">See more...</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    ဒစ္စနေးက တင်ဆက်လိုက်တဲ့ စီးရီးအသစ်လာပါပြီ။
+                    မာဗယ်စူပါဟီးရိုးဖြစ်ပြီး Black Panther 2 မှာ
+                    မိတ်ဆက်ခဲ့ပြီးဖြစ်ပါတယ်။ အိုင်ရန်မန်းရဲ့ ဝတ်စုံကို
+                    အတုခိုးပြီး ဝတ်စုံအသစ် တီထွင်လိုက်တဲ့ ဉာဏ်ကြီးရှင်
+                    သိပ္ပံပညာရှင်မလေးတစ်ယောက်အကြောင်းပဲဖြစ်ပါတယ်။...
+                  </p>
+                  <p class="full-description" style="display: none">
+                    ဒစ္စနေးက တင်ဆက်လိုက်တဲ့ စီးရီးအသစ်လာပါပြီ။
+                    မာဗယ်စူပါဟီးရိုးဖြစ်ပြီး Black Panther 2 မှာ
+                    မိတ်ဆက်ခဲ့ပြီးဖြစ်ပါတယ်။ အိုင်ရန်မန်းရဲ့ ဝတ်စုံကို
+                    အတုခိုးပြီး ဝတ်စုံအသစ် တီထွင်လိုက်တဲ့ ဉာဏ်ကြီးရှင်
+                    သိပ္ပံပညာရှင်မလေးတစ်ယောက်အကြောင်းပဲဖြစ်ပါတယ်။ တီထွင်တာတွေ
+                    အများကြီးလုပ်ချင်ပေမဲ့ ဘက်ဂျက်လည်းမရှိတဲ့အခါ
+                    လုပ်မိလုပ်ရာလုပ်ရင်း လမ်းမှားရောက်သွားရာကနေ စူပါဟီးရို
+                    ဘယ်လိုဖြစ်လာမလဲ မြင်ရမှာပါ။ အထူးပြုလုပ်ချက်တွေနဲ့
+                    ရိုက်ချက်တွေက အဆင်ပြေတာမို့ ဖျော်ဖြေရေးအနေနဲ့တော့
+                    သေချာပေါက်ကြည့်လို့ရမဲ့ စီးရီးပဲဖြစ်ပါတယ်။
+                  </p>
+                  <span class="see-more">See more...</span>
                 </div>
+              </div>
+            </div>
+          </div>
 
-                <!-- Slide 8: The Boys -->
-                <div class="swiper-slide"
-                    data-video-url="https://www.youtube.com/embed/tcrNsIaQkb4?si=s3weibpPBkXjxDiy">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="series-title">The Boys</div>
-                            <div class="series-info">
-                                <div class="info-item rating"><i class="fas fa-star"></i>8.7 / 10</div>
-                                <div class="info-item">Seasons: 4</div>
-                                <div class="info-item">Episodes: 32</div>
-                            </div>
-                            <div class="series-description">
-                                <p class="short-description">စူပါ ပါဝါရှိပြီး လူတွေကိုအကျိုးပြုနေတဲ့ Hero တွေရှိသလို
-                                    အနိုင့်ကျင်ပြီး ကိုယ်ကျိုးအတွက် အသုံးချနေတဲ့ သူရဲကောင်းဟန်ဆောင်ထားတဲ့
-                                    မိစ္ဆာလိုကောင်တွေလည်းအများကြီးရှိပါတယ်…
-                                    ဒီလိုကောင်တွေကြောင့် တစ်ချို့သောသူတွေ အများစွာထိခိုက်နေပေမယ့်လည်း
-                                    Supervillain လိုကောင်တွေဟာ အင်အားကြီးတာရော အဖွဲ့အစည်းတစ်ခုအနေနဲ့ရှိနေတာရော
-                                    ထောက်ခံနေတဲ့သူတွေများနေတာကြောင့် ဒေါသတွေကိုမြိုသိပ်နေရတဲ့သူတွေအများကြီးရှိပါတယ်…
-                                    ဒီအထဲမှာမှ ဘဝက သေလည်းမထူးဘူး …ဒီလိုစူပါပါဝါရနေတဲ့ အရူးတွေကို
-                                    ရသလောက်ပြန်သတ်မယ်ဆိုပြီး The Boys ဆိုတဲ့အဖွဲ့အစည်းလေးပေါ်ပေါက်လာတဲ့အချိန်မှာတော့...
-                                </p>
-                                <p class="full-description" style="display: none;">စူပါ ပါဝါရှိပြီး
-                                    လူတွေကိုအကျိုးပြုနေတဲ့ Hero တွေရှိသလို အနိုင့်ကျင်ပြီး ကိုယ်ကျိုးအတွက် အသုံးချနေတဲ့
-                                    သူရဲကောင်းဟန်ဆောင်ထားတဲ့ မိစ္ဆာလိုကောင်တွေလည်းအများကြီးရှိပါတယ်…
-                                    ဒီလိုကောင်တွေကြောင့် တစ်ချို့သောသူတွေ အများစွာထိခိုက်နေပေမယ့်လည်း
-                                    Supervillain လိုကောင်တွေဟာ အင်အားကြီးတာရော အဖွဲ့အစည်းတစ်ခုအနေနဲ့ရှိနေတာရော
-                                    ထောက်ခံနေတဲ့သူတွေများနေတာကြောင့် ဒေါသတွေကိုမြိုသိပ်နေရတဲ့သူတွေအများကြီးရှိပါတယ်…
-                                    ဒီအထဲမှာမှ ဘဝက သေလည်းမထူးဘူး …ဒီလိုစူပါပါဝါရနေတဲ့ အရူးတွေကို
-                                    ရသလောက်ပြန်သတ်မယ်ဆိုပြီး The Boys ဆိုတဲ့အဖွဲ့အစည်းလေးပေါ်ပေါက်လာတဲ့အချိန်မှာတော့….
-
-                                    SE1 ထဲက ရှယ်ကြမ်းသလို နောက်ပိုင်းမှာလည်းပိုတောင်ကြမ်းလာပါတယ်…ဒီစီးရီးက
-                                    စိတ်ဝင်စားဖို့ကောင်းတာက
-                                    ကျွန်တော်တို့မြင်တွေ့နေကြ ကိုးကွယ်ရတဲ့စူပါဟီးရိုးတွေမဟုတ်ဘဲ ဗီလိန်ကောင်တွေကို
-                                    လိုက်ဗျင်းပြီး အားနည်းနေတဲ့အဖွဲ့လေးနဲ့ ကျွန်တော်တို့ဟာ
-                                    တစ်သားထဲအလိုလိုဖြစ်သွားပါတယ်…ပြီးတော့ ဗီလိန်စူပါပါဝါကောင်တွေရဲ့အားနည်းချက်တွေကို
-                                    လိုက်ရှာပြီး ဗျင်းဖို့လိုက်စဉ်းစားရတာလည်း
-                                    တော်တော်စိတ်ဝင်စားစရာကောင်းပါတယ်…</p>
-                                <span class="see-more">See more...</span>
-                            </div>
-                        </div>
-                    </div>
+          <!-- Slide 3: The Witcher -->
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/ndl1W4ltcmg?si=gJqLB-SCbY2dOklz"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">The Witcher</div>
+                <div class="series-info">
+                  <div class="info-item rating">
+                    <i class="fas fa-star"></i>8.0 / 10
+                  </div>
+                  <div class="info-item">Seasons: 3</div>
+                  <div class="info-item">Episodes: 24</div>
                 </div>
-
-                <!-- Slide 9: Bad Boy -->
-                <div class="swiper-slide"
-                    data-video-url="https://www.youtube.com/embed/AGv2tuTV3FE?si=gO0WQ2ONi6p-u1Cq">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="series-title">Bad Boy</div>
-                            <div class="series-info">
-                                <div class="info-item rating"><i class="fas fa-star"></i>6.5 / 10</div>
-                                <div class="info-item">This is a film</div>
-                                <div class="info-item">Run time: 1h 55m</div>
-                            </div>
-                            <div class="series-description">
-                                <p class="short-description">ဒင်း(Dean) ဆိုတဲ့ လူငယ်လေးတစ်ယောက်ဟာ သူ့အမေ ၊
-                                    သူညီငယ်လေးတို့နဲ့ အတူနေထိုင်တဲ့ ဆယ်ကျော်သက်လူငယ်လေးတစ်ယောက်ဖြစ်ပါတယ်။တစ်ညမှာတော့
-                                    သူအိပ်ဖို့လုပ်နေတုန်း တံခါးခေါက်သံတစ်ခုကြောင့် သူ့ဘဝဟာ ပြောင်းလဲသွားခဲ့ရပါတယ်...</p>
-                                <p class="full-description" style="display: none;">ဒင်း(Dean) ဆိုတဲ့ လူငယ်လေးတစ်ယောက်ဟာ
-                                    သူ့အမေ ၊ သူညီငယ်လေးတို့နဲ့ အတူနေထိုင်တဲ့
-                                    ဆယ်ကျော်သက်လူငယ်လေးတစ်ယောက်ဖြစ်ပါတယ်။တစ်ညမှာတော့ သူအိပ်ဖို့လုပ်နေတုန်း
-                                    တံခါးခေါက်သံတစ်ခုကြောင့် သူ့ဘဝဟာ ပြောင်းလဲသွားခဲ့ရပါတယ်။ပြုပြင်ပြင်ဆင်ရေး
-                                    အရာရှိတွေဟာ သူ့အိမ်ထဲကိုဝင်ရောက်လာပြီး အဝတ်အစားတောင် သေချာမဝတ်ထားခဲ့တဲ့ ဒင်း
-                                    တစ်ယောက် အကြောင်းတစ်ခုခုကြောင့် လူငယ်ထိန်းသိမ်းရေး စခန်းကို အပို့ခံလိုက်ရပါတယ်။ ဒင်း
-                                    တစ်ယောက် လူငယ်ပြစ်မှုကျူးလွန်သူတွေနဲ့ ပြည့်နှက်နဲ့တဲ့ ထိန်းသိမ်းရေး စခန်းထဲမှာ
-                                    ဘယ်လိုမျိုး ရှင်သန်နေထိုင်သွားမလဲ နောက်ဆုံးမှာရော ပြန်ထွက်သွားနိုင်မလား ဆိုတာကို
-                                    စိတ်ဝင်စားစွာ စောင့်ကြည့်ရမယ့် ဇာတ်လမ်းတွဲလေး ဖြစ်ပါတယ်။</p>
-                                <span class="see-more">See more...</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    ဝစ်ချာဆိုတာ မှော်ပညာနဲ့ ပြောင်းလဲခံထားရတဲ့လူသားတွေပါ
+                    တိုက်ရည်ခိုက်ရည်ကောင်းပြီး အေးစက်စက် လူသားတွေပါပဲ မှော်ပညာ
+                    အသေးစားနဲ့ဆေးရည်တွေကိုလည်း အသုံးချနိုင်ပါတယ်
+                    အောက်လမ်းနည်းနည်းဆန်လို့ လူတွေမုန်းတီးခံရပါတယ်...
+                  </p>
+                  <p class="full-description" style="display: none">
+                    ဝစ်ချာဆိုတာ မှော်ပညာနဲ့ ပြောင်းလဲခံထားရတဲ့လူသားတွေပါ
+                    တိုက်ရည်ခိုက်ရည်ကောင်းပြီး အေးစက်စက် လူသားတွေပါပဲ မှော်ပညာ
+                    အသေးစားနဲ့ဆေးရည်တွေကိုလည်း အသုံးချနိုင်ပါတယ်
+                    အောက်လမ်းနည်းနည်းဆန်လို့ လူတွေမုန်းတီးခံရပါတယ် သူတို့က
+                    သူရဲကောင်းမဟုတ် လူဆိုးမဟုတ်တွေပါပဲ မိစ္ဆာကောင်တွေကို
+                    ကြေးစားလိုက်သတ်ပြိး အသက်မွေးပါတယ် ဒီစိးရီးမှာတော့ မိစ္ဆာတွေ
+                    စုန်းတွေ နတ်ဘုရားတွေ တိုင်းပြည်ကိစ္စတွေနဲ့ ဇာတ်လမ်းဖွဲ့ထားပဲ
+                    ဖြစ်ပါတယ်
+                  </p>
+                  <span class="see-more">See more...</span>
                 </div>
+              </div>
+            </div>
+          </div>
 
-                <!-- Slide 10: Loki -->
-                <div class="swiper-slide"
-                    data-video-url="https://www.youtube.com/embed/nW948Va-l10?si=5jNXUhlx3WTmqBrU">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="series-title">Loki</div>
-                            <div class="series-info">
-                                <div class="info-item rating"><i class="fas fa-star"></i>8.2 / 10</div>
-                                <div class="info-item">Seasons: 2</div>
-                                <div class="info-item">Episodes: 12</div>
-                            </div>
-                            <div class="series-description">
-                                <p class="short-description">လိုကီဟာ Endgame မှာတက်ဆာရက်နဲ့အတူ လွတ်မြောက်သွားတာကို
-                                    အားလုံးအသိပါ။ အခုကတော့လွတ်မြောက်သွားတဲ့လိုကီကို TVA ဆိုတဲ့ စကြဝဠာရဲ့
-                                    အချိန်စီးကြောင်းတွေကို စောင့်ရှောက်သူတွေက ဖမ်းဆီးခဲ့ပါတယ်။ သူ့ကို
-                                    ပြစ်ဒဏ်ချမှတ်ပြီးအချိန်စီးကြောင်းကို ပြန်တည့်မတ်ဖို့ ကြိုးစားခဲ့ပေမယ့်
-                                    လှည့်စားခြင်းနတ်ဘုရားဆိုတဲ့အတိုင်း TVA ထဲမှာပါပြဿနာတွေ ပေါင်းစုံ ဖြစ်လာတဲ့အခါ...</p>
-                                <p class="full-description" style="display: none;">လိုကီဟာ Endgame မှာတက်ဆာရက်နဲ့အတူ
-                                    လွတ်မြောက်သွားတာကို အားလုံးအသိပါ။ အခုကတော့လွတ်မြောက်သွားတဲ့လိုကီကို TVA ဆိုတဲ့
-                                    စကြဝဠာရဲ့ အချိန်စီးကြောင်းတွေကို စောင့်ရှောက်သူတွေက ဖမ်းဆီးခဲ့ပါတယ်။ သူ့ကို
-                                    ပြစ်ဒဏ်ချမှတ်ပြီးအချိန်စီးကြောင်းကို ပြန်တည့်မတ်ဖို့ ကြိုးစားခဲ့ပေမယ့်
-                                    လှည့်စားခြင်းနတ်ဘုရားဆိုတဲ့အတိုင်း TVA ထဲမှာပါပြဿနာတွေ ပေါင်းစုံ ဖြစ်လာတဲ့အခါ….
-                                </p>
-                                <span class="see-more">See more...</span>
-                            </div>
-                        </div>
-                    </div>
+          <!-- Slide 4: Game of Thrones -->
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/KPLWWIOCOOQ?si=XKQEpImCwAyNBH9m"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">Game of Thrones</div>
+                <div class="series-info">
+                  <div class="info-item rating">
+                    <i class="fas fa-star"></i>9.2 / 10
+                  </div>
+                  <div class="info-item">Seasons: 8</div>
+                  <div class="info-item">Episodes: 73</div>
                 </div>
-
-                <!-- Slide 11: Chernobyl -->
-                <div class="swiper-slide"
-                    data-video-url="https://www.youtube.com/embed/s9APLXM9Ei8?si=mbwLKf8gDukR8gMM">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="series-title">Chernobyl</div>
-                            <div class="series-info">
-                                <div class="info-item rating"><i class="fas fa-star"></i>9.5 / 10</div>
-                                <div class="info-item">Seasons: 1</div>
-                                <div class="info-item">Episodes: 5</div>
-                            </div>
-                            <div class="series-description">
-                                <p class="short-description">၁၉၈၆ ဧပရယ်လမှာ ဆိုဗီယက်ပြည်ထောင်စု၊ ယူကရိန်း နဲ့ ဘီလာရုစ်
-                                    နယ်မြေကြား ချာနိုဘယ်မှာဖြစ်ခဲ့တဲ့ ကမ္ဘာကျော် အနုမြူဓာတ်အားပေးစက်ရုံ
-                                    ပေါက်ကွဲမှုအကြောင်း ဖြစ်ရပ်မှန်ကို အခြေခံပြီး တင်ဆင်ထားတာပါ။
-                                    အမေရိကန် နဲ့ အားပြိုင်နေချိန်မှာ ဖြစ်ခဲ့တဲ့ အဖြစ်ဆိုးဖြစ်တဲ့အတွက် တရားဝင်ကြေညာတဲ့
-                                    အသေအပျောက်စာရင်းဟာ အတော်ကိုလျှော့ပေါ့ထားမယ့်ပုံပေါ်ပါတယ်။
-                                    သမိုင်းရဲ့အကြီးဆုံးအနုမြူကပ်ဘေးကို ကျော်လွှားဖို့ ပါဝင်ခဲ့ကြတဲ့
-                                    သူရဲကောင်းတွေအကြောင်းကို အဓိက ဇာတ်ကောင် သိပ္ပံပညာရှင်နှစ်ယောက်ကို အခြေတည်ပြီး
-                                    ရိုက်ကူးပြထားပါတယ်...</p>
-                                <p class="full-description" style="display: none;">၁၉၈၆ ဧပရယ်လမှာ ဆိုဗီယက်ပြည်ထောင်စု၊
-                                    ယူကရိန်း နဲ့ ဘီလာရုစ် နယ်မြေကြား ချာနိုဘယ်မှာဖြစ်ခဲ့တဲ့ ကမ္ဘာကျော်
-                                    အနုမြူဓာတ်အားပေးစက်ရုံ ပေါက်ကွဲမှုအကြောင်း ဖြစ်ရပ်မှန်ကို အခြေခံပြီး တင်ဆင်ထားတာပါ။
-                                    အမေရိကန် နဲ့ အားပြိုင်နေချိန်မှာ ဖြစ်ခဲ့တဲ့ အဖြစ်ဆိုးဖြစ်တဲ့အတွက် တရားဝင်ကြေညာတဲ့
-                                    အသေအပျောက်စာရင်းဟာ အတော်ကိုလျှော့ပေါ့ထားမယ့်ပုံပေါ်ပါတယ်။
-                                    သမိုင်းရဲ့အကြီးဆုံးအနုမြူကပ်ဘေးကို ကျော်လွှားဖို့ ပါဝင်ခဲ့ကြတဲ့
-                                    သူရဲကောင်းတွေအကြောင်းကို အဓိက ဇာတ်ကောင် သိပ္ပံပညာရှင်နှစ်ယောက်ကို အခြေတည်ပြီး
-                                    ရိုက်ကူးပြထားပါတယ်။
-                                    ဇာတ်လမ်းအစကိုတော့ ဓာတ်ပေါင်းဖိုပေါက်ကွဲတာကနေစထားတာမို့ စကတည်းက
-                                    အရှိန်က တက်သွားလိုက်တာ ပြန်ကိုမကျတော့ပါဘူး။
-                                    အဲဒီနောက်မှာတော့ ပြဿနာကိုဖြေရှင်းဖို့အပြင် နိုင်ငံသိက္ခာမကျဖို့
-                                    ဖုံးဖုံးကွယ်ကွယ်လုပ်ကြတာပါ။
-                                    ပေါင်းလိုက်တော့ မသေသင့်ဘဲ သေသွားရတဲ့ လူဦးရေ အတော်ကိုများသွားခဲ့မှာပါပဲ။
-                                    ကြည့်မိတဲ့လူအားလုံးကြိုက်ကြမယ်ထင်ပါတယ်။ ကြည့်ကိုကြည့်သင့်တဲ့ စီးရီးတစ်ခုပါပဲ။</p>
-                                <span class="see-more">See more...</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    ခုနှစ်ပြည်ထောင်တိုင်းရဲ့ ပလ္လင်ကို လုကြမယ့်
+                    မျိုးနွယ်စုတွေ…မိသားစုတွေ….
+                    နဂါးတွေ…လူရိုင်းတွေ…လူသန်ကြီးတွေ…မကောင်းဆိုးဝါးတွေ…စတဲ့
+                    မျိုးနွယ်မတူကြသူတွေတိုက်ခိုက်ကြမှာ ဖြစ်ပြီး
+                    ကြမ်းကြုတ်ရက်စက်မှုတွေ…..မေတ္တာတရားတွေ…လိမ်လည်လှည့်ဖျားမှုတွေ…ရိုးသားဖြောင့်မတ်သစ္စာစောင့်သိမှုတွေကို
+                    တွေ့မြင်ကြရမှာဖြစ်ပါတယ်။ ဇာတ်လမ်းက တကယ့်ကို
+                    မထင်မှတ်တာတွေပဲရိုက်ပြထားပြီးသတ်တာဖြတ်တာတွေပီပြင်လွန်းတာကြောင့်...
+                  </p>
+                  <p class="full-description" style="display: none">
+                    ခုနှစ်ပြည်ထောင်တိုင်းရဲ့ ပလ္လင်ကို လုကြမယ့်
+                    မျိုးနွယ်စုတွေ…မိသားစုတွေ….
+                    နဂါးတွေ…လူရိုင်းတွေ…လူသန်ကြီးတွေ…မကောင်းဆိုးဝါးတွေ…စတဲ့
+                    မျိုးနွယ်မတူကြသူတွေတိုက်ခိုက်ကြမှာ ဖြစ်ပြီး
+                    ကြမ်းကြုတ်ရက်စက်မှုတွေ…..မေတ္တာတရားတွေ…လိမ်လည်လှည့်ဖျားမှုတွေ…ရိုးသားဖြောင့်မတ်သစ္စာစောင့်သိမှုတွေကို
+                    တွေ့မြင်ကြရမှာဖြစ်ပါတယ်။ ဇာတ်လမ်းက တကယ့်ကို
+                    မထင်မှတ်တာတွေပဲရိုက်ပြထားပြီးသတ်တာဖြတ်တာတွေပီပြင်လွန်းတာကြောင့်
+                    စိတ်မခိုင်သူများမကြည့်သင့်ပါဘူး။ အမှန်တရားမရှိတဲ့
+                    အရိုင်းဆန်ဆန်ခေတ်တစ်ခုကိုမြင်ရမှာဖြစ်ပြီး
+                    ပွင့်လင်းလွန်းစွာတင်ဆက်ထားပါတယ်။တကယ်လဲ လူ့လောကကြီးဆိုတာ
+                    အင်အားကြီးသူက အနိုင်ကျင့်ဗိုလ်ကျတဲ့ တောနက်ကြီးတစ်ခုပဲ
+                    မဟုတ်လား။ Adventure | Drama | Fantasy | 18+
+                    အမျိုးအစားဖြစ်ပြီး IMDb Rating က (9.2/10)
+                    ထိရရှိထားတာဖြစ်ပါတယ်။ Rating မြင့်သလို ဇာတ်ညွှန်းကလဲ
+                    ဆွဲဆောင်မှုအပြည့်ရှိတဲ့ TV Series တစ်ခုဖြစ်ပြီး
+                    ကမ္ဘာ့အကောင်းဆုံးရုပ်ရှင်စီးရီးထဲမှာ Top ပါပဲ။
+                  </p>
+                  <span class="see-more">See more...</span>
                 </div>
+              </div>
+            </div>
+          </div>
 
-                <!-- Slide 12: Wednesday -->
-                <div class="swiper-slide"
-                    data-video-url="https://www.youtube.com/embed/03u4xyj0TH4?si=Wq_jxrQT-jdeoeAQ">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="series-title">Wednesday</div>
-                            <div class="series-info">
-                                <div class="info-item rating"><i class="fas fa-star"></i>8.0 / 10</div>
-                                <div class="info-item">Seasons: 2</div>
-                                <div class="info-item">Episodes: 9</div>
-                            </div>
-                            <div class="series-description">
-                                <p class="short-description">Wednesday ဟာ လူသတ်မှုနဲ့ ကျောင်းကနေ အထုတ်ခံရပြီး သင်းကွဲတွေ
-                                    လူထူးဆန်းတွေချည်းပဲ တက်တဲ့ နဲဗားမောဆိုတဲ့ကျောင်းကို ရောက်သွားခဲ့ပါ
-                                    တယ်။ အဲဒီကျောင်းအုပ်ဟာ သူ့ရဲ့အမေနဲ့ ကျောင်းနေဖက်ဖြစ်ခဲ့ပြီး၊ သူ့အမေနဲ့
-                                    အဖေကလည်း ဒီကျောင်းမှာပဲ တွေ့ပြီး ချစ်မိခဲ့ကြတာပါ။ အဲဒီကျောင်းမှာ
-                                    သွေးစုတ်ကောင်တွေ၊ ဝံပုလွေတွေ လို သဘာဝလွန်မျိုးနွယ်တွေ လာစုနေကြတာ
-                                    ဖြစ်ပါတယ်။ အဲဒီကျောင်းပတ်လည်မှာတော့ ထူးထူးဆန်းဆန်း လူတွေတစစီ
-                                    လုပ်ပြီး အသတ်ခံရတဲ့အမှုတွေ ဖြစ်နေပါတယ်...</p>
-                                <p class="full-description" style="display: none;">Wednesday ဟာ လူသတ်မှုနဲ့ ကျောင်းကနေ
-                                    အထုတ်ခံရပြီး သင်းကွဲတွေ
-                                    လူထူးဆန်းတွေချည်းပဲ တက်တဲ့ နဲဗားမောဆိုတဲ့ကျောင်းကို ရောက်သွားခဲ့ပါ
-                                    တယ်။ အဲဒီကျောင်းအုပ်ဟာ သူ့ရဲ့အမေနဲ့ ကျောင်းနေဖက်ဖြစ်ခဲ့ပြီး၊ သူ့အမေနဲ့
-                                    အဖေကလည်း ဒီကျောင်းမှာပဲ တွေ့ပြီး ချစ်မိခဲ့ကြတာပါ။ အဲဒီကျောင်းမှာ
-                                    သွေးစုတ်ကောင်တွေ၊ ဝံပုလွေတွေ လို သဘာဝလွန်မျိုးနွယ်တွေ လာစုနေကြတာ
-                                    ဖြစ်ပါတယ်။ အဲဒီကျောင်းပတ်လည်မှာတော့ ထူးထူးဆန်းဆန်း လူတွေတစစီ
-                                    လုပ်ပြီး အသတ်ခံရတဲ့အမှုတွေ ဖြစ်နေပါတယ်။ Wednesday တစ်ယောက်
-                                    ကျောင်းကိုရောက်အပြီးမှာတော့ သဘာဝလွန်ပဟေဠိတွေ ကြောက်စရာဖြစ်ရပ်
-                                    တွေနဲ့ တွေ့ကြုံပြီး ဘာဆက်ဖြစ်မလဲဆိုတာ ဆက်ကြည့်လိုက်ကြပါဦး။</p>
-                                <span class="see-more">See more...</span>
-                            </div>
-                        </div>
-                    </div>
+          <!-- Slide 5: The Sandman -->
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/ZJXamnPUm0I?si=BmsJr4pdUZRx6air"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">The Sandman</div>
+                <div class="series-info">
+                  <div class="info-item rating">
+                    <i class="fas fa-star"></i>7.7 / 10
+                  </div>
+                  <div class="info-item">Seasons: 2</div>
+                  <div class="info-item">Episodes: 18</div>
                 </div>
-
-                <!-- Slide 13: 3 Body Problem -->
-                <div class="swiper-slide"
-                    data-video-url="https://www.youtube.com/embed/SdvzhCL7vIA?si=DP5y7OwNl-C3hHwl">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="series-title">3 Body Problem</div>
-                            <div class="series-info">
-                                <div class="info-item rating"><i class="fas fa-star"></i>7.6 / 10</div>
-                                <div class="info-item">Seasons: 1</div>
-                                <div class="info-item">Episodes: 8</div>
-                            </div>
-                            <div class="series-description">
-                                <p class="short-description">စကြာဝဠာကြီးထဲမှာ တခြားသက်ရှိတွေများရှိမလားလို့
-                                    တွေးမိနေကြတဲ့ လေ့လာသူတွေဟာ တခြားသက်ရှိတွေကို ဆက်သွယ်လို့ ရလိုရငြား
-                                    အသံထုတ်လွှင့်စက်ကြီးတွေနဲ့ အရင်ကထုတ်လွှင့်နေရာကနေ
-                                    တရုတ်နိုင်ငံလေ့လာရေးစခန်းတစ်ခုမှာရှိတဲ့ ပညာရှင်တစ်ယောက်က နေရဲ့
-                                    ချဲ့ထုတ်နိုင်စွမ်းကိုတွေ့သွားတော့ အားနည်းလှတဲ့ ကမ္ဘာဂြိုလ်က ထုတ်လွှင့်စက်ကို
-                                    နေဘက်ကိုသာဦးတည်ပြီး လွှင့်လိုက်ရင် ချဲ့ပေးနိုင်မှာပဲဆိုတဲ့ အတွေးနဲ့ သူက
-                                    ထုတ်လွှင့်ချင်နေတာပါ...</p>
-                                <p class="full-description" style="display: none;">စကြာဝဠာကြီးထဲမှာ
-                                    တခြားသက်ရှိတွေများရှိမလားလို့ တွေးမိနေကြတဲ့ လေ့လာသူတွေဟာ တခြားသက်ရှိတွေကို
-                                    ဆက်သွယ်လို့ ရလိုရငြား အသံထုတ်လွှင့်စက်ကြီးတွေနဲ့ အရင်ကထုတ်လွှင့်နေရာကနေ
-                                    တရုတ်နိုင်ငံလေ့လာရေးစခန်းတစ်ခုမှာရှိတဲ့ ပညာရှင်တစ်ယောက်က နေရဲ့
-                                    ချဲ့ထုတ်နိုင်စွမ်းကိုတွေ့သွားတော့ အားနည်းလှတဲ့ ကမ္ဘာဂြိုလ်က ထုတ်လွှင့်စက်ကို
-                                    နေဘက်ကိုသာဦးတည်ပြီး လွှင့်လိုက်ရင် ချဲ့ပေးနိုင်မှာပဲဆိုတဲ့ အတွေးနဲ့ သူက
-                                    ထုတ်လွှင့်ချင်နေတာပါ…..ဒါပေမဲ့လည်း သူမွေးဖွားရာနိုင်ငံက တရုတ်ဖြစ်နေပြီး သူတို့ရဲ့
-                                    သမ္မတကြီးကလည်း မော်စီတုံးဖြစ်နေတာကြောင့် Red Sun လို့တင်စားထားတဲ့
-                                    သမ္မတကြီးဂုဏ်သိက္ခာအတွက် သူ့အထက်လူကြီးတွေက ခွင့်မပြုခဲ့ပါဘူး……လူတွေရဲ့ ဗီဇအရ
-                                    ခွင့်မပြုတာမှပိုလုပ်ချင်တဲ့သူကလည်း မရ ရအောင်ခိုးလွှင့်ခဲ့ရာကနေ အဲဒီလှိုင်းက
-                                    ဘယ်ကိုရောက်သွားမလဲဆိုတာ ဆက်လက်ခံစားကြည့်လိုက်ပါဦး</p>
-                                <span class="see-more">See more...</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    American Gods တို့ Norse Mythology တို့ကို ရေးခဲ့တဲ့
+                    စာရေးဆရာကြီး နီးလ်ဂိုင်မန်ရဲ့ လက်ရာတွေထဲက Sandman ဆိုတဲ့
+                    နတ်ဘုရား စွမ်းအားရှင် တစ်ယောက်အကြောင်းပါပဲ။
+                    ဇာတ်လမ်းအစမှာတော့ ကမ္ဘာနှစ်ခုကို အရင်ပြသထားပါတယ်။ လူသားတွေ
+                    နေတဲ့ နိုးထကမ္ဘာနဲ့ အိပ်မက်ကမ္ဘာပေါ့။ အိပ်မက်ကမ္ဘာရဲ့
+                    နတ်ဘုရားဟာ သူ့ဆီ ကနေ ထွက်ပြေးပြီး လူတွေကို ဒုက္ခပေးနေတဲ့
+                    အိပ်မက်ဆိုးတစ်ကောင်ကို လိုက်ဖမ်းနေခဲ့ပါတယ်။
+                    ဖမ်းမိသွားတဲ့အချိန်လေးမှာပဲ ဘာမှမလုပ်ခင် သူ့ကို လူသားတစ်စုက
+                    မှော်အစီအရင်တွေနဲ့ ထောင်ချောက်ဆင်ဖမ်းတာခံလိုက်ရပါတယ်...
+                  </p>
+                  <p class="full-description" style="display: none">
+                    American Gods တို့ Norse Mythology တို့ကို ရေးခဲ့တဲ့
+                    စာရေးဆရာကြီး နီးလ်ဂိုင်မန်ရဲ့ လက်ရာတွေထဲက Sandman ဆိုတဲ့
+                    နတ်ဘုရား စွမ်းအားရှင် တစ်ယောက်အကြောင်းပါပဲ။
+                    ဇာတ်လမ်းအစမှာတော့ ကမ္ဘာနှစ်ခုကို အရင်ပြသထားပါတယ်။ လူသားတွေ
+                    နေတဲ့ နိုးထကမ္ဘာနဲ့ အိပ်မက်ကမ္ဘာပေါ့။ အိပ်မက်ကမ္ဘာရဲ့
+                    နတ်ဘုရားဟာ သူ့ဆီ ကနေ ထွက်ပြေးပြီး လူတွေကို ဒုက္ခပေးနေတဲ့
+                    အိပ်မက်ဆိုးတစ်ကောင်ကို လိုက်ဖမ်းနေခဲ့ပါတယ်။
+                    ဖမ်းမိသွားတဲ့အချိန်လေးမှာပဲ ဘာမှမလုပ်ခင် သူ့ကို လူသားတစ်စုက
+                    မှော်အစီအရင်တွေနဲ့ ထောင်ချောက်ဆင်ဖမ်းတာခံလိုက်ရပါတယ်။
+                    ဒါပေမဲ့ တကယ်တော့လည်း လူသားတွေ ဖမ်းချင်တာက
+                    သေမင်းတမန်တော်ကိုပါ။ ယုံထောင်ကြောင်မိဖြစ်ပြီး
+                    အိပ်မက်နတ်ဘုရားက အချောင်ဖမ်းခံလိုက်ရပါတယ်။ နောက်မှသိရတာက
+                    အိပ်မက်နတ်ဘုရားဟာ Endless ဆိုတဲ့ အဆုံးမဲ့နတ်ဘုရား (၇) ပါးထဲက
+                    တစ်ပါးဖြစ်နေတာပါပဲ။ အဲဒီ ၇ ပါးကတော့ ကံကြမ္မာ၊ ခွဲခွာမှု၊
+                    အိပ်မက်၊ ဖျက်ဆီးခြင်း၊ ရမက်၊ သောက၊ ထင်ယောင်ထင်မှား ဆိုတဲ့
+                    ဘုရား(၇)ပါးပါပဲ။  သူတို့က သာမန်နတ်ဘုရားတော်တော်များများထက်
+                    စွမ်းအားကြီးကြပါတယ်။ ဒီစီးရီးမှာတော့ အိပ်မက်နတ်ဘုရား
+                    အဖမ်းခံရချိန်မှာ အိပ်မက်ဆိုးတွေ သောင်းကျန်းပြီး ကမ္ဘာကြီးကို
+                    ဒုက္ခပေးနေကြတာကိုတွေ့ရမှာပါ။ ဒါပေမဲ့ အိပ်မက်နတ်ဘုရား
+                    လွတ်မြောက် လာချိန်မှာ ဘာတွေဆက်ဖြစ်မလဲဆိုတာကို
+                    ကြည့်လိုက်ပါဦး…..
+                  </p>
+                  <span class="see-more">See more...</span>
                 </div>
+              </div>
+            </div>
+          </div>
 
-                <!-- Slide 14: Adolescence -->
-                <div class="swiper-slide"
-                    data-video-url="https://www.youtube.com/embed/Wk5OxqtpBR4?si=Z5cMeVdWHUQQntlh">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="series-title">Adolescence</div>
-                            <div class="series-info">
-                                <div class="info-item rating"><i class="fas fa-star"></i>8.6 / 10</div>
-                                <div class="info-item">Seasons: 1</div>
-                                <div class="info-item">Episodes: 4</div>
-                            </div>
-                            <div class="series-description">
-                                <p class="short-description">ဇာတ်လမ်းအစမှာတော့ ဂျေမီဆိုတဲ့ ၁၃
-                                    နှစ်အရွယ်ကောင်လေးရဲ့အိမ်ကို ရဲတွေ လက်နက်ကိုင်
-                                    တပ်ဖွဲ့တွေနဲ့ဝင်စီးနင်းတာကိုတွေ့ရမှာဖြစ်ပြီး သိပ်မကြာခင်မှာပဲ ဂျေမီ့ကို ရဲစခန်းကို
-                                    ဖမ်းခေါ်သွား
-                                    ခဲ့ပါတော့တယ်။အဲ့ဒီအခါမှာ မိဘဖြစ်သူတွေကအကျိုးအကြောင်းမေးတဲ့အခါမှာတော့ သူတို့သားကို
-                                    လူသတ်မှုသံသယရှိသူအနေနဲ့ ဖမ်းဆီးခေါ်ဆောင်သွားတာဖြစ်ကြောင်းသိလိုက်ရပါတော့တယ်...</p>
-                                <p class="full-description" style="display: none;">ဇာတ်လမ်းအစမှာတော့ ဂျေမီဆိုတဲ့ ၁၃
-                                    နှစ်အရွယ်ကောင်လေးရဲ့အိမ်ကို ရဲတွေ လက်နက်ကိုင်
-                                    တပ်ဖွဲ့တွေနဲ့ဝင်စီးနင်းတာကိုတွေ့ရမှာဖြစ်ပြီး သိပ်မကြာခင်မှာပဲ ဂျေမီ့ကို ရဲစခန်းကို
-                                    ဖမ်းခေါ်သွား
-                                    ခဲ့ပါတော့တယ်။အဲ့ဒီအခါမှာ မိဘဖြစ်သူတွေကအကျိုးအကြောင်းမေးတဲ့အခါမှာတော့ သူတို့သားကို
-                                    လူသတ်မှုသံသယရှိသူအနေနဲ့ ဖမ်းဆီးခေါ်ဆောင်သွားတာဖြစ်ကြောင်းသိလိုက်ရပါတော့တယ်။
-
-                                    ဒီလိုနဲ့ဂျေမီတစ်ယောက် ရဲစခန်းလုပ်ထုံးလုပ်စဉ်တွေအတိုင်း စစ်ဆေးတာတွေ စစ်မေးတာ
-                                    တွေကိုခံရပြီး သိပ်မကြာခင်မှာပဲ တရားခံပေါ်သွားပါတော့တယ်။ အထက်မှာပြောခဲ့သလိုပဲ
-                                    တရားခံတန်းပေါ်သွားပေမဲ့ နောက်ပိုင်း ဆက်လာမဲ့ အကြောင်းအရာတွေကမှ တကယ်
-                                    စိတ်ဝင်စားဖို့ ကောင်းတာပါ။ စောစောစီးစီး တရားခံအထိ Spoil ပြီးသွားပြီ ဆိုတော့
-                                    နောက်ဆက်တွဲတွေကို ဆက်မပြောတော့ဘဲ ကိုယ်တိုင်ပဲလက်မလွတ်တမ်း ကြည့်ဖြစ်အောင်
-                                    ကြည့်ဖို့ ညွှန်းပေးလိုက်ချင်ပါတော့တယ်။
-                                </p>
-                                <span class="see-more">See more...</span>
-                            </div>
-                        </div>
-                    </div>
+          <!-- Slide 6: Dune: Prophecy -->
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/CzVHWNosS2o?si=avje6Kq5LJv8K72G"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">Dune: Prophecy</div>
+                <div class="series-info">
+                  <div class="info-item rating">
+                    <i class="fas fa-star"></i>7.0 / 10
+                  </div>
+                  <div class="info-item">Seasons: 1</div>
+                  <div class="info-item">Episodes: 8</div>
                 </div>
-
-                <div class="swiper-slide"
-                    data-video-url="https://www.youtube.com/embed/Wk5OxqtpBR4?si=Z5cMeVdWHUQQntlh">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="series-title">The Last of Us</div>
-                            <div class="series-info">
-                                <div class="info-item rating"><i class="fas fa-star"></i>8.6 / 10</div>
-                                <div class="info-item">Seasons: 2</div>
-                                <div class="info-item">Episodes: 16</div>
-                            </div>
-                            <div class="series-description">
-                                <p class="short-description">မှိုပိုးတစ်မျိုးကြောင့် လူတွေ
-                                    အသားစားတဲ့ဇွန်ဘီးတွေလိုဖြစ်သွားပြီး ကမ္ဘာပျက်သွားပြီးနောက် နှစ် ၂၀
-                                    မှာအခြေပြုထားပါတယ်။
-
-                                    နယ်မြေတိုင်းမှာ သီးသန့်ဇုံတွေနဲ့ FEDRA အဖွဲ့ကစစ်အာဏာရှင်အဖြစ်
-                                    တင်းတင်းကြပ်ကြပ်အုပ်ချုပ်နေပါပြီ။
-
-                                    ဇုံတွေထဲက ခိုးထွက်ရင် ခိုးဝင်ရင်ကို ကြိုးပေးသတ်ပါတယ်။ သူတို့တွေကို
-                                    ပိုးစုန်းကြူးတွေဆိုတဲ့ တော်လှန်ရေးအဖွဲ့တွေကလည်းတိုက်ခိုက်နေပါတယ်...</p>
-                                <p class="full-description" style="display: none;">မှိုပိုးတစ်မျိုးကြောင့် လူတွေ
-                                    အသားစားတဲ့ဇွန်ဘီးတွေလိုဖြစ်သွားပြီး ကမ္ဘာပျက်သွားပြီးနောက် နှစ် ၂၀
-                                    မှာအခြေပြုထားပါတယ်။
-
-                                    နယ်မြေတိုင်းမှာ သီးသန့်ဇုံတွေနဲ့ FEDRA အဖွဲ့ကစစ်အာဏာရှင်အဖြစ်
-                                    တင်းတင်းကြပ်ကြပ်အုပ်ချုပ်နေပါပြီ။
-
-                                    ဇုံတွေထဲက ခိုးထွက်ရင် ခိုးဝင်ရင်ကို ကြိုးပေးသတ်ပါတယ်။ သူတို့တွေကို
-                                    ပိုးစုန်းကြူးတွေဆိုတဲ့ တော်လှန်ရေးအဖွဲ့တွေကလည်းတိုက်ခိုက်နေပါတယ်။
-
-                                    ဂျိုအယ်ကတော့ ဘော့စ်တွန် သီးသန့်နယ်မြေထဲကမှောင်ခိုသမားတစ်ယောက်ပါပဲ။ တစ်နေ့မှာတော့
-                                    သူ့ရဲ့ညီကိုရှာဖို့ခိုးထွက်ဖို့ကြိုးစားချိန်မှာ
-
-                                    ပိုးစုန်းကြူးတော်လှန်ရေးအဖွဲ့ကလည်းဗရိုနီကာဆိုတဲ့ ကလေးမလေးကို
-                                    အရမ်းအရေးကြီးတဲ့အကြောင်းတစ်ခုနဲ့ ကယ်ထုတ်ဖို့ ကြိုးစားနေပါပြီ။
-
-                                    ဂျိုအယ်နဲ့ ပိုးစုန်းကြူးအဖွဲ့တွေ့ပြီး ဗရိုနီကာနဲ့ဘယ်လိုစွန့်စားခန်းတွေ
-                                    ဖွင့်မလဲဆိုတာကိုတော့..
-                                </p>
-                                <span class="see-more">See more...</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    ပေါ အထရေးဒီး နန်းမတက်ခင် နှစ် ၁၀,၀၀၀ အလို ကာလမှာပဲ
+                    ဖြစ်ပါတယ်။ မဟာစစ်ပွဲကြီးလို့ခေါ်တဲ့ လူသားတွေက
+                    ဦးနှောက်ရှိတဲ့စက်တွေထိန်းချုပ်ထားတာကို တော်လှန်ရေးလုပ်ခဲ့တဲ့
+                    ကာလအပြီးပါပဲ။ အဲဒီကာလမှာ စက်တွေကို ကန့်သတ်ပစ်လိုက်ပြီး
+                    ကရီနိုအိမ်တော်က ဧကရာဇ်နေရာကို ရယူထားပါတယ်။ အခြား
+                    အင်အားကြီးအိမ်တော်ကြီးတွေက နိုင်ငံရေးကစားကွက်မျိုးစုံနဲ့
+                    အားပြိုင်နေတဲ့ ကာလဖြစ်ပါတယ်...
+                  </p>
+                  <p class="full-description" style="display: none">
+                    ပေါ အထရေးဒီး နန်းမတက်ခင် နှစ် ၁၀,၀၀၀ အလို ကာလမှာပဲ
+                    ဖြစ်ပါတယ်။ မဟာစစ်ပွဲကြီးလို့ခေါ်တဲ့ လူသားတွေက
+                    ဦးနှောက်ရှိတဲ့စက်တွေထိန်းချုပ်ထားတာကို တော်လှန်ရေးလုပ်ခဲ့တဲ့
+                    ကာလအပြီးပါပဲ။ အဲဒီကာလမှာ စက်တွေကို ကန့်သတ်ပစ်လိုက်ပြီး
+                    ကရီနိုအိမ်တော်က ဧကရာဇ်နေရာကို ရယူထားပါတယ်။ အခြား
+                    အင်အားကြီးအိမ်တော်ကြီးတွေက နိုင်ငံရေးကစားကွက်မျိုးစုံနဲ့
+                    အားပြိုင်နေတဲ့ ကာလဖြစ်ပါတယ်။ ဒီစီးရီးမှာ အမှန်ပြောသူ
+                    ညီအစ်မအဖွဲ့တွေရဲ့ သမိုင်းအစကို ဖော်ပြထားပြီး
+                    အိမ်တော်ကြီးတွေကို နောက်ကွယ်ကနေ ထိန်းချုပ်ဖို့
+                    စီမံပုံတွေကိုလည်း တွေ့ရမှာပါ။ ဖရေးမန်းတွေနဲ့ အရားခစ်က
+                    တိုက်ပွဲတွေရယ် ပုန်ကုန်မှုတွေရယ်လည်း ပါမှာဖြစ်ပြီး
+                    ဇာတ်အိမ်ကြီးတဲ့ စီးရီးမို့ အားရပါးရ ကြည့်လို့ကောင်းမှာပါ။
+                  </p>
+                  <span class="see-more">See more...</span>
                 </div>
+              </div>
+            </div>
+          </div>
 
-                <!-- Slide 15: Info card with new description -->
-                <div class="swiper-slide">
-                    <div class="info-card">
-                        <img src="https://mmsubmovies.vercel.app/assets/logo.jpeg"
-                            style="width: 100px;height: auto;margin: auto;" alt="Logo Image">
-                        <p style="color: var(--star-color);">ကြိုက်တဲ့ စီးရီးတွေ အားလုံးကို တစ်နေရာတည်းမှာပဲ ကြည့်ပါ</p>
-                        <div>Lifetime Access</div>
-                        <div class="price">5,000<small> MMK</small></div>
-
-
-                        <a href="https://t.me/xenon_miller155" style="
-       z-index: 999999999;
-       margin: auto;
-       text-decoration: none;
-       background: linear-gradient(45deg, #28a746a3, #4caf4f8b);
-       color: #fff;
-       padding: 12px 20px;
-       font-size: 16px;
-       font-weight: bold;
-       border-radius: 25px;
-       border: none;
-       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-       transition: all 0.3s ease;
-   " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.3)';"
-                            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.2)';">
-                            ဝယ်ယူမည်
-                        </a>
-                    </div>
+          <!-- Slide 7: WandaVision -->
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/UBhlqe2OTt4?si=TxDlPnCoY4fsSMEw"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">WandaVision</div>
+                <div class="series-info">
+                  <div class="info-item rating">
+                    <i class="fas fa-star"></i>8.3 / 10
+                  </div>
+                  <div class="info-item">Seasons: 1</div>
+                  <div class="info-item">Episodes: 9</div>
                 </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    စီးရီးကိုတော့ sit-com ဟာသ ပုံစံနဲ့ အစပြုထားပါတယ်။ ဝန်ဒါနဲ့
+                    ဗီရှင်တို့ဟာ ပျော်ရွှင်စွာ လက်ထပ်ထားတဲ့ စုံတွဲအဖြစ်
+                    တည်ရှိနေကြပါတယ်။ သူတို့တွေ ဘယ်လိုလက်ထပ်ခဲ့တယ်
+                    ဘာမှာရောက်နေတယ် ဘယ်ကလာတယ်ဆိုတာကို သူတို့ကိုယ်တိုင်တောင်
+                    မမှတ်မိတော့ပါဘူး ...
+                  </p>
+                  <p class="full-description" style="display: none">
+                    စီးရီးကိုတော့ sit-com ဟာသ ပုံစံနဲ့ အစပြုထားပါတယ်။ ဝန်ဒါနဲ့
+                    ဗီရှင်တို့ဟာ ပျော်ရွှင်စွာ လက်ထပ်ထားတဲ့ စုံတွဲအဖြစ်
+                    တည်ရှိနေကြပါတယ်။ သူတို့တွေ ဘယ်လိုလက်ထပ်ခဲ့တယ်
+                    ဘာမှာရောက်နေတယ် ဘယ်ကလာတယ်ဆိုတာကို သူတို့ကိုယ်တိုင်တောင်
+                    မမှတ်မိတော့ပါဘူး။ သန်းနို့စ် မသေခင်ကလား သေအပြီးလား ဝန်ဒါ
+                    soul stone ထဲမှာ ရောက်နေတာလား အခြား အပြိုင်စကြဝဠာလား အခြား
+                    reality လား ဆိုတာ မသိနိုင်သေးပါဘူး။ အပိုင်းအစကတော့ ရယ်စရာတွေ
+                    ပျော်စရာတွေနဲ့ပဲ အစပြုထားပါတယ်။ လျို့ဝှက်ချက်တွေကိုတော့
+                    စောင့်ကြည့်ကြတာပေါ့ဗျာ။
+                  </p>
+                  <span class="see-more">See more...</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-                <!-- Slide 16: Pricing card with logo placeholder -->
-                <!-- <div class="swiper-slide">
+          <!-- Slide 8: The Boys -->
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/tcrNsIaQkb4?si=s3weibpPBkXjxDiy"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">The Boys</div>
+                <div class="series-info">
+                  <div class="info-item rating">
+                    <i class="fas fa-star"></i>8.7 / 10
+                  </div>
+                  <div class="info-item">Seasons: 4</div>
+                  <div class="info-item">Episodes: 32</div>
+                </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    စူပါ ပါဝါရှိပြီး လူတွေကိုအကျိုးပြုနေတဲ့ Hero တွေရှိသလို
+                    အနိုင့်ကျင်ပြီး ကိုယ်ကျိုးအတွက် အသုံးချနေတဲ့
+                    သူရဲကောင်းဟန်ဆောင်ထားတဲ့
+                    မိစ္ဆာလိုကောင်တွေလည်းအများကြီးရှိပါတယ်… ဒီလိုကောင်တွေကြောင့်
+                    တစ်ချို့သောသူတွေ အများစွာထိခိုက်နေပေမယ့်လည်း Supervillain
+                    လိုကောင်တွေဟာ အင်အားကြီးတာရော
+                    အဖွဲ့အစည်းတစ်ခုအနေနဲ့ရှိနေတာရော
+                    ထောက်ခံနေတဲ့သူတွေများနေတာကြောင့်
+                    ဒေါသတွေကိုမြိုသိပ်နေရတဲ့သူတွေအများကြီးရှိပါတယ်… ဒီအထဲမှာမှ
+                    ဘဝက သေလည်းမထူးဘူး …ဒီလိုစူပါပါဝါရနေတဲ့ အရူးတွေကို
+                    ရသလောက်ပြန်သတ်မယ်ဆိုပြီး The Boys
+                    ဆိုတဲ့အဖွဲ့အစည်းလေးပေါ်ပေါက်လာတဲ့အချိန်မှာတော့...
+                  </p>
+                  <p class="full-description" style="display: none">
+                    စူပါ ပါဝါရှိပြီး လူတွေကိုအကျိုးပြုနေတဲ့ Hero တွေရှိသလို
+                    အနိုင့်ကျင်ပြီး ကိုယ်ကျိုးအတွက် အသုံးချနေတဲ့
+                    သူရဲကောင်းဟန်ဆောင်ထားတဲ့
+                    မိစ္ဆာလိုကောင်တွေလည်းအများကြီးရှိပါတယ်… ဒီလိုကောင်တွေကြောင့်
+                    တစ်ချို့သောသူတွေ အများစွာထိခိုက်နေပေမယ့်လည်း Supervillain
+                    လိုကောင်တွေဟာ အင်အားကြီးတာရော
+                    အဖွဲ့အစည်းတစ်ခုအနေနဲ့ရှိနေတာရော
+                    ထောက်ခံနေတဲ့သူတွေများနေတာကြောင့်
+                    ဒေါသတွေကိုမြိုသိပ်နေရတဲ့သူတွေအများကြီးရှိပါတယ်… ဒီအထဲမှာမှ
+                    ဘဝက သေလည်းမထူးဘူး …ဒီလိုစူပါပါဝါရနေတဲ့ အရူးတွေကို
+                    ရသလောက်ပြန်သတ်မယ်ဆိုပြီး The Boys
+                    ဆိုတဲ့အဖွဲ့အစည်းလေးပေါ်ပေါက်လာတဲ့အချိန်မှာတော့…. SE1 ထဲက
+                    ရှယ်ကြမ်းသလို
+                    နောက်ပိုင်းမှာလည်းပိုတောင်ကြမ်းလာပါတယ်…ဒီစီးရီးက
+                    စိတ်ဝင်စားဖို့ကောင်းတာက ကျွန်တော်တို့မြင်တွေ့နေကြ
+                    ကိုးကွယ်ရတဲ့စူပါဟီးရိုးတွေမဟုတ်ဘဲ ဗီလိန်ကောင်တွေကို
+                    လိုက်ဗျင်းပြီး အားနည်းနေတဲ့အဖွဲ့လေးနဲ့ ကျွန်တော်တို့ဟာ
+                    တစ်သားထဲအလိုလိုဖြစ်သွားပါတယ်…ပြီးတော့
+                    ဗီလိန်စူပါပါဝါကောင်တွေရဲ့အားနည်းချက်တွေကို လိုက်ရှာပြီး
+                    ဗျင်းဖို့လိုက်စဉ်းစားရတာလည်း
+                    တော်တော်စိတ်ဝင်စားစရာကောင်းပါတယ်…
+                  </p>
+                  <span class="see-more">See more...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 9: Bad Boy -->
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/AGv2tuTV3FE?si=gO0WQ2ONi6p-u1Cq"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">Bad Boy</div>
+                <div class="series-info">
+                  <div class="info-item rating">
+                    <i class="fas fa-star"></i>6.5 / 10
+                  </div>
+                  <div class="info-item">This is a film</div>
+                  <div class="info-item">Run time: 1h 55m</div>
+                </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    ဒင်း(Dean) ဆိုတဲ့ လူငယ်လေးတစ်ယောက်ဟာ သူ့အမေ ၊
+                    သူညီငယ်လေးတို့နဲ့ အတူနေထိုင်တဲ့
+                    ဆယ်ကျော်သက်လူငယ်လေးတစ်ယောက်ဖြစ်ပါတယ်။တစ်ညမှာတော့
+                    သူအိပ်ဖို့လုပ်နေတုန်း တံခါးခေါက်သံတစ်ခုကြောင့် သူ့ဘဝဟာ
+                    ပြောင်းလဲသွားခဲ့ရပါတယ်...
+                  </p>
+                  <p class="full-description" style="display: none">
+                    ဒင်း(Dean) ဆိုတဲ့ လူငယ်လေးတစ်ယောက်ဟာ သူ့အမေ ၊
+                    သူညီငယ်လေးတို့နဲ့ အတူနေထိုင်တဲ့
+                    ဆယ်ကျော်သက်လူငယ်လေးတစ်ယောက်ဖြစ်ပါတယ်။တစ်ညမှာတော့
+                    သူအိပ်ဖို့လုပ်နေတုန်း တံခါးခေါက်သံတစ်ခုကြောင့် သူ့ဘဝဟာ
+                    ပြောင်းလဲသွားခဲ့ရပါတယ်။ပြုပြင်ပြင်ဆင်ရေး အရာရှိတွေဟာ
+                    သူ့အိမ်ထဲကိုဝင်ရောက်လာပြီး အဝတ်အစားတောင် သေချာမဝတ်ထားခဲ့တဲ့
+                    ဒင်း တစ်ယောက် အကြောင်းတစ်ခုခုကြောင့် လူငယ်ထိန်းသိမ်းရေး
+                    စခန်းကို အပို့ခံလိုက်ရပါတယ်။ ဒင်း တစ်ယောက်
+                    လူငယ်ပြစ်မှုကျူးလွန်သူတွေနဲ့ ပြည့်နှက်နဲ့တဲ့ ထိန်းသိမ်းရေး
+                    စခန်းထဲမှာ ဘယ်လိုမျိုး ရှင်သန်နေထိုင်သွားမလဲ နောက်ဆုံးမှာရော
+                    ပြန်ထွက်သွားနိုင်မလား ဆိုတာကို စိတ်ဝင်စားစွာ
+                    စောင့်ကြည့်ရမယ့် ဇာတ်လမ်းတွဲလေး ဖြစ်ပါတယ်။
+                  </p>
+                  <span class="see-more">See more...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 10: Loki -->
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/nW948Va-l10?si=5jNXUhlx3WTmqBrU"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">Loki</div>
+                <div class="series-info">
+                  <div class="info-item rating">
+                    <i class="fas fa-star"></i>8.2 / 10
+                  </div>
+                  <div class="info-item">Seasons: 2</div>
+                  <div class="info-item">Episodes: 12</div>
+                </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    လိုကီဟာ Endgame မှာတက်ဆာရက်နဲ့အတူ လွတ်မြောက်သွားတာကို
+                    အားလုံးအသိပါ။ အခုကတော့လွတ်မြောက်သွားတဲ့လိုကီကို TVA ဆိုတဲ့
+                    စကြဝဠာရဲ့ အချိန်စီးကြောင်းတွေကို စောင့်ရှောက်သူတွေက
+                    ဖမ်းဆီးခဲ့ပါတယ်။ သူ့ကို ပြစ်ဒဏ်ချမှတ်ပြီးအချိန်စီးကြောင်းကို
+                    ပြန်တည့်မတ်ဖို့ ကြိုးစားခဲ့ပေမယ့်
+                    လှည့်စားခြင်းနတ်ဘုရားဆိုတဲ့အတိုင်း TVA ထဲမှာပါပြဿနာတွေ
+                    ပေါင်းစုံ ဖြစ်လာတဲ့အခါ...
+                  </p>
+                  <p class="full-description" style="display: none">
+                    လိုကီဟာ Endgame မှာတက်ဆာရက်နဲ့အတူ လွတ်မြောက်သွားတာကို
+                    အားလုံးအသိပါ။ အခုကတော့လွတ်မြောက်သွားတဲ့လိုကီကို TVA ဆိုတဲ့
+                    စကြဝဠာရဲ့ အချိန်စီးကြောင်းတွေကို စောင့်ရှောက်သူတွေက
+                    ဖမ်းဆီးခဲ့ပါတယ်။ သူ့ကို ပြစ်ဒဏ်ချမှတ်ပြီးအချိန်စီးကြောင်းကို
+                    ပြန်တည့်မတ်ဖို့ ကြိုးစားခဲ့ပေမယ့်
+                    လှည့်စားခြင်းနတ်ဘုရားဆိုတဲ့အတိုင်း TVA ထဲမှာပါပြဿနာတွေ
+                    ပေါင်းစုံ ဖြစ်လာတဲ့အခါ….
+                  </p>
+                  <span class="see-more">See more...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 11: Chernobyl -->
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/s9APLXM9Ei8?si=mbwLKf8gDukR8gMM"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">Chernobyl</div>
+                <div class="series-info">
+                  <div class="info-item rating">
+                    <i class="fas fa-star"></i>9.5 / 10
+                  </div>
+                  <div class="info-item">Seasons: 1</div>
+                  <div class="info-item">Episodes: 5</div>
+                </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    ၁၉၈၆ ဧပရယ်လမှာ ဆိုဗီယက်ပြည်ထောင်စု၊ ယူကရိန်း နဲ့ ဘီလာရုစ်
+                    နယ်မြေကြား ချာနိုဘယ်မှာဖြစ်ခဲ့တဲ့ ကမ္ဘာကျော်
+                    အနုမြူဓာတ်အားပေးစက်ရုံ ပေါက်ကွဲမှုအကြောင်း ဖြစ်ရပ်မှန်ကို
+                    အခြေခံပြီး တင်ဆင်ထားတာပါ။ အမေရိကန် နဲ့ အားပြိုင်နေချိန်မှာ
+                    ဖြစ်ခဲ့တဲ့ အဖြစ်ဆိုးဖြစ်တဲ့အတွက် တရားဝင်ကြေညာတဲ့
+                    အသေအပျောက်စာရင်းဟာ အတော်ကိုလျှော့ပေါ့ထားမယ့်ပုံပေါ်ပါတယ်။
+                    သမိုင်းရဲ့အကြီးဆုံးအနုမြူကပ်ဘေးကို ကျော်လွှားဖို့
+                    ပါဝင်ခဲ့ကြတဲ့ သူရဲကောင်းတွေအကြောင်းကို အဓိက ဇာတ်ကောင်
+                    သိပ္ပံပညာရှင်နှစ်ယောက်ကို အခြေတည်ပြီး ရိုက်ကူးပြထားပါတယ်...
+                  </p>
+                  <p class="full-description" style="display: none">
+                    ၁၉၈၆ ဧပရယ်လမှာ ဆိုဗီယက်ပြည်ထောင်စု၊ ယူကရိန်း နဲ့ ဘီလာရုစ်
+                    နယ်မြေကြား ချာနိုဘယ်မှာဖြစ်ခဲ့တဲ့ ကမ္ဘာကျော်
+                    အနုမြူဓာတ်အားပေးစက်ရုံ ပေါက်ကွဲမှုအကြောင်း ဖြစ်ရပ်မှန်ကို
+                    အခြေခံပြီး တင်ဆင်ထားတာပါ။ အမေရိကန် နဲ့ အားပြိုင်နေချိန်မှာ
+                    ဖြစ်ခဲ့တဲ့ အဖြစ်ဆိုးဖြစ်တဲ့အတွက် တရားဝင်ကြေညာတဲ့
+                    အသေအပျောက်စာရင်းဟာ အတော်ကိုလျှော့ပေါ့ထားမယ့်ပုံပေါ်ပါတယ်။
+                    သမိုင်းရဲ့အကြီးဆုံးအနုမြူကပ်ဘေးကို ကျော်လွှားဖို့
+                    ပါဝင်ခဲ့ကြတဲ့ သူရဲကောင်းတွေအကြောင်းကို အဓိက ဇာတ်ကောင်
+                    သိပ္ပံပညာရှင်နှစ်ယောက်ကို အခြေတည်ပြီး ရိုက်ကူးပြထားပါတယ်။
+                    ဇာတ်လမ်းအစကိုတော့ ဓာတ်ပေါင်းဖိုပေါက်ကွဲတာကနေစထားတာမို့
+                    စကတည်းက အရှိန်က တက်သွားလိုက်တာ ပြန်ကိုမကျတော့ပါဘူး။
+                    အဲဒီနောက်မှာတော့ ပြဿနာကိုဖြေရှင်းဖို့အပြင်
+                    နိုင်ငံသိက္ခာမကျဖို့ ဖုံးဖုံးကွယ်ကွယ်လုပ်ကြတာပါ။
+                    ပေါင်းလိုက်တော့ မသေသင့်ဘဲ သေသွားရတဲ့ လူဦးရေ
+                    အတော်ကိုများသွားခဲ့မှာပါပဲ။
+                    ကြည့်မိတဲ့လူအားလုံးကြိုက်ကြမယ်ထင်ပါတယ်။ ကြည့်ကိုကြည့်သင့်တဲ့
+                    စီးရီးတစ်ခုပါပဲ။
+                  </p>
+                  <span class="see-more">See more...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 12: Wednesday -->
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/03u4xyj0TH4?si=Wq_jxrQT-jdeoeAQ"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">Wednesday</div>
+                <div class="series-info">
+                  <div class="info-item rating">
+                    <i class="fas fa-star"></i>8.0 / 10
+                  </div>
+                  <div class="info-item">Seasons: 2</div>
+                  <div class="info-item">Episodes: 9</div>
+                </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    Wednesday ဟာ လူသတ်မှုနဲ့ ကျောင်းကနေ အထုတ်ခံရပြီး သင်းကွဲတွေ
+                    လူထူးဆန်းတွေချည်းပဲ တက်တဲ့ နဲဗားမောဆိုတဲ့ကျောင်းကို
+                    ရောက်သွားခဲ့ပါ တယ်။ အဲဒီကျောင်းအုပ်ဟာ သူ့ရဲ့အမေနဲ့
+                    ကျောင်းနေဖက်ဖြစ်ခဲ့ပြီး၊ သူ့အမေနဲ့ အဖေကလည်း ဒီကျောင်းမှာပဲ
+                    တွေ့ပြီး ချစ်မိခဲ့ကြတာပါ။ အဲဒီကျောင်းမှာ သွေးစုတ်ကောင်တွေ၊
+                    ဝံပုလွေတွေ လို သဘာဝလွန်မျိုးနွယ်တွေ လာစုနေကြတာ ဖြစ်ပါတယ်။
+                    အဲဒီကျောင်းပတ်လည်မှာတော့ ထူးထူးဆန်းဆန်း လူတွေတစစီ လုပ်ပြီး
+                    အသတ်ခံရတဲ့အမှုတွေ ဖြစ်နေပါတယ်...
+                  </p>
+                  <p class="full-description" style="display: none">
+                    Wednesday ဟာ လူသတ်မှုနဲ့ ကျောင်းကနေ အထုတ်ခံရပြီး သင်းကွဲတွေ
+                    လူထူးဆန်းတွေချည်းပဲ တက်တဲ့ နဲဗားမောဆိုတဲ့ကျောင်းကို
+                    ရောက်သွားခဲ့ပါ တယ်။ အဲဒီကျောင်းအုပ်ဟာ သူ့ရဲ့အမေနဲ့
+                    ကျောင်းနေဖက်ဖြစ်ခဲ့ပြီး၊ သူ့အမေနဲ့ အဖေကလည်း ဒီကျောင်းမှာပဲ
+                    တွေ့ပြီး ချစ်မိခဲ့ကြတာပါ။ အဲဒီကျောင်းမှာ သွေးစုတ်ကောင်တွေ၊
+                    ဝံပုလွေတွေ လို သဘာဝလွန်မျိုးနွယ်တွေ လာစုနေကြတာ ဖြစ်ပါတယ်။
+                    အဲဒီကျောင်းပတ်လည်မှာတော့ ထူးထူးဆန်းဆန်း လူတွေတစစီ လုပ်ပြီး
+                    အသတ်ခံရတဲ့အမှုတွေ ဖြစ်နေပါတယ်။ Wednesday တစ်ယောက်
+                    ကျောင်းကိုရောက်အပြီးမှာတော့ သဘာဝလွန်ပဟေဠိတွေ
+                    ကြောက်စရာဖြစ်ရပ် တွေနဲ့ တွေ့ကြုံပြီး ဘာဆက်ဖြစ်မလဲဆိုတာ
+                    ဆက်ကြည့်လိုက်ကြပါဦး။
+                  </p>
+                  <span class="see-more">See more...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 13: 3 Body Problem -->
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/SdvzhCL7vIA?si=DP5y7OwNl-C3hHwl"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">3 Body Problem</div>
+                <div class="series-info">
+                  <div class="info-item rating">
+                    <i class="fas fa-star"></i>7.6 / 10
+                  </div>
+                  <div class="info-item">Seasons: 1</div>
+                  <div class="info-item">Episodes: 8</div>
+                </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    စကြာဝဠာကြီးထဲမှာ တခြားသက်ရှိတွေများရှိမလားလို့ တွေးမိနေကြတဲ့
+                    လေ့လာသူတွေဟာ တခြားသက်ရှိတွေကို ဆက်သွယ်လို့ ရလိုရငြား
+                    အသံထုတ်လွှင့်စက်ကြီးတွေနဲ့ အရင်ကထုတ်လွှင့်နေရာကနေ
+                    တရုတ်နိုင်ငံလေ့လာရေးစခန်းတစ်ခုမှာရှိတဲ့ ပညာရှင်တစ်ယောက်က
+                    နေရဲ့ ချဲ့ထုတ်နိုင်စွမ်းကိုတွေ့သွားတော့ အားနည်းလှတဲ့
+                    ကမ္ဘာဂြိုလ်က ထုတ်လွှင့်စက်ကို နေဘက်ကိုသာဦးတည်ပြီး
+                    လွှင့်လိုက်ရင် ချဲ့ပေးနိုင်မှာပဲဆိုတဲ့ အတွေးနဲ့ သူက
+                    ထုတ်လွှင့်ချင်နေတာပါ...
+                  </p>
+                  <p class="full-description" style="display: none">
+                    စကြာဝဠာကြီးထဲမှာ တခြားသက်ရှိတွေများရှိမလားလို့ တွေးမိနေကြတဲ့
+                    လေ့လာသူတွေဟာ တခြားသက်ရှိတွေကို ဆက်သွယ်လို့ ရလိုရငြား
+                    အသံထုတ်လွှင့်စက်ကြီးတွေနဲ့ အရင်ကထုတ်လွှင့်နေရာကနေ
+                    တရုတ်နိုင်ငံလေ့လာရေးစခန်းတစ်ခုမှာရှိတဲ့ ပညာရှင်တစ်ယောက်က
+                    နေရဲ့ ချဲ့ထုတ်နိုင်စွမ်းကိုတွေ့သွားတော့ အားနည်းလှတဲ့
+                    ကမ္ဘာဂြိုလ်က ထုတ်လွှင့်စက်ကို နေဘက်ကိုသာဦးတည်ပြီး
+                    လွှင့်လိုက်ရင် ချဲ့ပေးနိုင်မှာပဲဆိုတဲ့ အတွေးနဲ့ သူက
+                    ထုတ်လွှင့်ချင်နေတာပါ…..ဒါပေမဲ့လည်း သူမွေးဖွားရာနိုင်ငံက
+                    တရုတ်ဖြစ်နေပြီး သူတို့ရဲ့ သမ္မတကြီးကလည်း
+                    မော်စီတုံးဖြစ်နေတာကြောင့် Red Sun လို့တင်စားထားတဲ့
+                    သမ္မတကြီးဂုဏ်သိက္ခာအတွက် သူ့အထက်လူကြီးတွေက
+                    ခွင့်မပြုခဲ့ပါဘူး……လူတွေရဲ့ ဗီဇအရ
+                    ခွင့်မပြုတာမှပိုလုပ်ချင်တဲ့သူကလည်း မရ
+                    ရအောင်ခိုးလွှင့်ခဲ့ရာကနေ အဲဒီလှိုင်းက
+                    ဘယ်ကိုရောက်သွားမလဲဆိုတာ ဆက်လက်ခံစားကြည့်လိုက်ပါဦး
+                  </p>
+                  <span class="see-more">See more...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 14: Adolescence -->
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/Wk5OxqtpBR4?si=Z5cMeVdWHUQQntlh"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">Adolescence</div>
+                <div class="series-info">
+                  <div class="info-item rating">
+                    <i class="fas fa-star"></i>8.6 / 10
+                  </div>
+                  <div class="info-item">Seasons: 1</div>
+                  <div class="info-item">Episodes: 4</div>
+                </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    ဇာတ်လမ်းအစမှာတော့ ဂျေမီဆိုတဲ့ ၁၃ နှစ်အရွယ်ကောင်လေးရဲ့အိမ်ကို
+                    ရဲတွေ လက်နက်ကိုင်
+                    တပ်ဖွဲ့တွေနဲ့ဝင်စီးနင်းတာကိုတွေ့ရမှာဖြစ်ပြီး
+                    သိပ်မကြာခင်မှာပဲ ဂျေမီ့ကို ရဲစခန်းကို ဖမ်းခေါ်သွား
+                    ခဲ့ပါတော့တယ်။အဲ့ဒီအခါမှာ
+                    မိဘဖြစ်သူတွေကအကျိုးအကြောင်းမေးတဲ့အခါမှာတော့ သူတို့သားကို
+                    လူသတ်မှုသံသယရှိသူအနေနဲ့
+                    ဖမ်းဆီးခေါ်ဆောင်သွားတာဖြစ်ကြောင်းသိလိုက်ရပါတော့တယ်...
+                  </p>
+                  <p class="full-description" style="display: none">
+                    ဇာတ်လမ်းအစမှာတော့ ဂျေမီဆိုတဲ့ ၁၃ နှစ်အရွယ်ကောင်လေးရဲ့အိမ်ကို
+                    ရဲတွေ လက်နက်ကိုင်
+                    တပ်ဖွဲ့တွေနဲ့ဝင်စီးနင်းတာကိုတွေ့ရမှာဖြစ်ပြီး
+                    သိပ်မကြာခင်မှာပဲ ဂျေမီ့ကို ရဲစခန်းကို ဖမ်းခေါ်သွား
+                    ခဲ့ပါတော့တယ်။အဲ့ဒီအခါမှာ
+                    မိဘဖြစ်သူတွေကအကျိုးအကြောင်းမေးတဲ့အခါမှာတော့ သူတို့သားကို
+                    လူသတ်မှုသံသယရှိသူအနေနဲ့
+                    ဖမ်းဆီးခေါ်ဆောင်သွားတာဖြစ်ကြောင်းသိလိုက်ရပါတော့တယ်။
+                    ဒီလိုနဲ့ဂျေမီတစ်ယောက် ရဲစခန်းလုပ်ထုံးလုပ်စဉ်တွေအတိုင်း
+                    စစ်ဆေးတာတွေ စစ်မေးတာ တွေကိုခံရပြီး သိပ်မကြာခင်မှာပဲ
+                    တရားခံပေါ်သွားပါတော့တယ်။ အထက်မှာပြောခဲ့သလိုပဲ
+                    တရားခံတန်းပေါ်သွားပေမဲ့ နောက်ပိုင်း ဆက်လာမဲ့
+                    အကြောင်းအရာတွေကမှ တကယ် စိတ်ဝင်စားဖို့ ကောင်းတာပါ။
+                    စောစောစီးစီး တရားခံအထိ Spoil ပြီးသွားပြီ ဆိုတော့
+                    နောက်ဆက်တွဲတွေကို ဆက်မပြောတော့ဘဲ ကိုယ်တိုင်ပဲလက်မလွတ်တမ်း
+                    ကြည့်ဖြစ်အောင် ကြည့်ဖို့ ညွှန်းပေးလိုက်ချင်ပါတော့တယ်။
+                  </p>
+                  <span class="see-more">See more...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="swiper-slide"
+            data-video-url="https://www.youtube.com/embed/Wk5OxqtpBR4?si=Z5cMeVdWHUQQntlh"
+          >
+            <div class="card">
+              <div class="card-content">
+                <div class="series-title">The Last of Us</div>
+                <div class="series-info">
+                  <div class="info-item rating">
+                    <i class="fas fa-star"></i>8.6 / 10
+                  </div>
+                  <div class="info-item">Seasons: 2</div>
+                  <div class="info-item">Episodes: 16</div>
+                </div>
+                <div class="series-description">
+                  <p class="short-description">
+                    မှိုပိုးတစ်မျိုးကြောင့် လူတွေ
+                    အသားစားတဲ့ဇွန်ဘီးတွေလိုဖြစ်သွားပြီး ကမ္ဘာပျက်သွားပြီးနောက်
+                    နှစ် ၂၀ မှာအခြေပြုထားပါတယ်။ နယ်မြေတိုင်းမှာ သီးသန့်ဇုံတွေနဲ့
+                    FEDRA အဖွဲ့ကစစ်အာဏာရှင်အဖြစ်
+                    တင်းတင်းကြပ်ကြပ်အုပ်ချုပ်နေပါပြီ။ ဇုံတွေထဲက ခိုးထွက်ရင်
+                    ခိုးဝင်ရင်ကို ကြိုးပေးသတ်ပါတယ်။ သူတို့တွေကို
+                    ပိုးစုန်းကြူးတွေဆိုတဲ့
+                    တော်လှန်ရေးအဖွဲ့တွေကလည်းတိုက်ခိုက်နေပါတယ်...
+                  </p>
+                  <p class="full-description" style="display: none">
+                    မှိုပိုးတစ်မျိုးကြောင့် လူတွေ
+                    အသားစားတဲ့ဇွန်ဘီးတွေလိုဖြစ်သွားပြီး ကမ္ဘာပျက်သွားပြီးနောက်
+                    နှစ် ၂၀ မှာအခြေပြုထားပါတယ်။ နယ်မြေတိုင်းမှာ သီးသန့်ဇုံတွေနဲ့
+                    FEDRA အဖွဲ့ကစစ်အာဏာရှင်အဖြစ်
+                    တင်းတင်းကြပ်ကြပ်အုပ်ချုပ်နေပါပြီ။ ဇုံတွေထဲက ခိုးထွက်ရင်
+                    ခိုးဝင်ရင်ကို ကြိုးပေးသတ်ပါတယ်။ သူတို့တွေကို
+                    ပိုးစုန်းကြူးတွေဆိုတဲ့
+                    တော်လှန်ရေးအဖွဲ့တွေကလည်းတိုက်ခိုက်နေပါတယ်။ ဂျိုအယ်ကတော့
+                    ဘော့စ်တွန် သီးသန့်နယ်မြေထဲကမှောင်ခိုသမားတစ်ယောက်ပါပဲ။
+                    တစ်နေ့မှာတော့ သူ့ရဲ့ညီကိုရှာဖို့ခိုးထွက်ဖို့ကြိုးစားချိန်မှာ
+                    ပိုးစုန်းကြူးတော်လှန်ရေးအဖွဲ့ကလည်းဗရိုနီကာဆိုတဲ့ ကလေးမလေးကို
+                    အရမ်းအရေးကြီးတဲ့အကြောင်းတစ်ခုနဲ့ ကယ်ထုတ်ဖို့
+                    ကြိုးစားနေပါပြီ။ ဂျိုအယ်နဲ့ ပိုးစုန်းကြူးအဖွဲ့တွေ့ပြီး
+                    ဗရိုနီကာနဲ့ဘယ်လိုစွန့်စားခန်းတွေ ဖွင့်မလဲဆိုတာကိုတော့..
+                  </p>
+                  <span class="see-more">See more...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 15: Info card with new description -->
+          <div class="swiper-slide">
+            <div class="info-card">
+              <img
+                src="https://mmsubmovies.vercel.app/assets/logo.jpeg"
+                style="width: 100px; height: auto; margin: auto"
+                alt="Logo Image"
+              />
+              <p style="color: var(--star-color)">
+                ကြိုက်တဲ့ စီးရီးတွေ အားလုံးကို တစ်နေရာတည်းမှာပဲ ကြည့်ပါ
+              </p>
+              <div>Lifetime Access</div>
+              <div class="price">5,000<small> MMK</small></div>
+
+              <a
+                href="https://t.me/xenon_miller155"
+                style="
+                  z-index: 999999999;
+                  margin: auto;
+                  text-decoration: none;
+                  background: linear-gradient(45deg, #28a746a3, #4caf4f8b);
+                  color: #fff;
+                  padding: 12px 20px;
+                  font-size: 16px;
+                  font-weight: bold;
+                  border-radius: 25px;
+                  border: none;
+                  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                  transition: all 0.3s ease;
+                "
+                onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.3)';"
+                onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.2)';"
+              >
+                ဝယ်ယူမည်
+              </a>
+            </div>
+          </div>
+
+          <!-- Slide 16: Pricing card with logo placeholder -->
+          <!-- <div class="swiper-slide">
                     <div class="info-card">
                         <div class="card-content">
                             <img src="assets/images/logo.jpeg" class="logo" alt="Logo Image">
@@ -738,122 +968,124 @@
                         </div>
                     </div>
                 </div> -->
-            </div>
         </div>
+      </div>
 
-        <!-- <div class="swiper-pagination"></div> -->
+      <!-- <div class="swiper-pagination"></div> -->
 
-        <!-- Add Navigation -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+      <!-- Add Navigation -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
 
     <!-- Modal for "See more" -->
     <div class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <!-- This is the container for the video iframe -->
-            <div class="video-container"></div>
-            <div id="modal-title" class="modal-title"></div>
-            <div id="modal-description" class="modal-description"></div>
-        </div>
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <!-- This is the container for the video iframe -->
+        <div class="video-container"></div>
+        <div id="modal-title" class="modal-title"></div>
+        <div id="modal-description" class="modal-description"></div>
+      </div>
     </div>
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        // Initialize Swiper
-        document.addEventListener('DOMContentLoaded', function () {
-            // Swiper initialization with explicit slide configuration
-            const swiper = new Swiper('.swiper-container', {
-                loop: false,
-                slidesPerView: 1, // Explicitly set to 1 slide per view
-                spaceBetween: 0, // Remove any space between slides
-                centeredSlides: false, // Ensure slides aren't centered
-                width: null, // Let Swiper calculate width automatically
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false,
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                // Add these properties to ensure proper slide behavior
-                watchOverflow: true,
-                normalizeSlideIndex: true,
-                // Force recalculation on resize
-                on: {
-                    init: function () {
-                        // Force update after initialization
-                        setTimeout(() => {
-                            this.update();
-                        }, 100);
-                    },
-                    resize: function () {
-                        this.update();
-                    }
-                }
-            });
-
-            const appContainer = document.querySelector('.app-container');
-            const modalOverlay = document.querySelector('.modal-overlay');
-            const modalTitle = document.getElementById('modal-title');
-            const modalDescription = document.getElementById('modal-description');
-            const videoContainer = document.querySelector('.video-container');
-            const closeBtn = document.querySelector('.close-btn');
-
-            // Event listener for the "see more" link using event delegation
-            appContainer.addEventListener('click', (e) => {
-                if (e.target.classList.contains('see-more')) {
-                    // Stop the autoplay
-                    swiper.autoplay.stop();
-
-                    const cardContent = e.target.closest('.card-content');
-                    const seriesTitle = cardContent.querySelector('.series-title').textContent;
-                    const fullDescription = cardContent.querySelector('.full-description').textContent;
-
-                    // Get the video URL from the parent swiper-slide
-                    const slideElement = e.target.closest('.swiper-slide');
-                    const videoUrl = slideElement.getAttribute('data-video-url');
-
-                    // Populate modal with content
-                    modalTitle.textContent = seriesTitle;
-                    modalDescription.textContent = fullDescription;
-
-                    // Dynamically create and append the iframe to the video container
-                    if (videoUrl) {
-                        const iframe = document.createElement('iframe');
-                        iframe.src = videoUrl + '?autoplay=1&rel=0';
-                        iframe.title = 'YouTube video player';
-                        iframe.frameborder = '0';
-                        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-                        iframe.allowfullscreen = true;
-                        videoContainer.appendChild(iframe);
-                    }
-
-                    // Show the modal
-                    modalOverlay.style.display = 'grid';
-                }
-            });
-
-            // Event listener to close the modal
-            closeBtn.addEventListener('click', () => {
-                modalOverlay.style.display = 'none';
-
-                // Remove the iframe from the modal to stop the video
-                videoContainer.innerHTML = '';
-
-                // Restart the autoplay after a short delay to feel more natural
-                setTimeout(() => {
-                    swiper.autoplay.start();
-                }, 500);
-            });
+      // Initialize Swiper
+      document.addEventListener("DOMContentLoaded", function () {
+        // Swiper initialization with explicit slide configuration
+        const swiper = new Swiper(".swiper-container", {
+          loop: false,
+          slidesPerView: 1, // Explicitly set to 1 slide per view
+          spaceBetween: 0, // Remove any space between slides
+          centeredSlides: false, // Ensure slides aren't centered
+          width: null, // Let Swiper calculate width automatically
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          // Add these properties to ensure proper slide behavior
+          watchOverflow: true,
+          normalizeSlideIndex: true,
+          // Force recalculation on resize
+          on: {
+            init: function () {
+              // Force update after initialization
+              setTimeout(() => {
+                this.update();
+              }, 100);
+            },
+            resize: function () {
+              this.update();
+            },
+          },
         });
-    </script>
-</body>
 
+        const appContainer = document.querySelector(".app-container");
+        const modalOverlay = document.querySelector(".modal-overlay");
+        const modalTitle = document.getElementById("modal-title");
+        const modalDescription = document.getElementById("modal-description");
+        const videoContainer = document.querySelector(".video-container");
+        const closeBtn = document.querySelector(".close-btn");
+
+        // Event listener for the "see more" link using event delegation
+        appContainer.addEventListener("click", (e) => {
+          if (e.target.classList.contains("see-more")) {
+            // Stop the autoplay
+            swiper.autoplay.stop();
+
+            const cardContent = e.target.closest(".card-content");
+            const seriesTitle =
+              cardContent.querySelector(".series-title").textContent;
+            const fullDescription =
+              cardContent.querySelector(".full-description").textContent;
+
+            // Get the video URL from the parent swiper-slide
+            const slideElement = e.target.closest(".swiper-slide");
+            const videoUrl = slideElement.getAttribute("data-video-url");
+
+            // Populate modal with content
+            modalTitle.textContent = seriesTitle;
+            modalDescription.textContent = fullDescription;
+
+            // Dynamically create and append the iframe to the video container
+            if (videoUrl) {
+              const iframe = document.createElement("iframe");
+              iframe.src = videoUrl + "?autoplay=1&rel=0";
+              iframe.title = "YouTube video player";
+              iframe.frameborder = "0";
+              iframe.allow =
+                "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+              iframe.allowfullscreen = true;
+              videoContainer.appendChild(iframe);
+            }
+
+            // Show the modal
+            modalOverlay.style.display = "grid";
+          }
+        });
+
+        // Event listener to close the modal
+        closeBtn.addEventListener("click", () => {
+          modalOverlay.style.display = "none";
+
+          // Remove the iframe from the modal to stop the video
+          videoContainer.innerHTML = "";
+
+          // Restart the autoplay after a short delay to feel more natural
+          setTimeout(() => {
+            swiper.autoplay.start();
+          }, 500);
+        });
+      });
+    </script>
+  </body>
 </html>
