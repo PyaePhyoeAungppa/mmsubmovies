@@ -988,6 +988,28 @@
         <div id="modal-description" class="modal-description"></div>
       </div>
     </div>
+
+    <div class="modal-overlay-telegram" style="display: none">
+      <div class="modal-content-telegram">
+        <span class="close-btn-telegram">&times;</span>
+        <div class="modal-body-telegram">
+          <p>တစ်သက်စာ ဝင်ကြေးက 5000 ကျပ်ဖြစ်ပါတယ်။</p>
+          <p>လစဉ်ကြေးပေးစရာလုံးဝမလိုပါ။</p>
+          <p>
+            အောက်မှာရှိတဲ့ ခလုတ်ကိုနှိပ်လိုက်ရင် Telegram Application
+            ပွင့်သွားပြီး MM SUB Movies ရဲ့ Admin
+            တွေနဲ့ဆက်သွယ်ပြီးဝယ်ယူလို့ရမှာဖြစ်ပါတယ်။
+          </p>
+          <a
+            href="https://t.me/xenon_miller155"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-btn-telegram"
+            >ဝယ်ယူမည်</a
+          >
+        </div>
+      </div>
+    </div>
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
@@ -1036,6 +1058,13 @@
         const videoContainer = document.querySelector(".video-container");
         const closeBtn = document.querySelector(".close-btn");
 
+        // New variables for Telegram popup
+        const telegramButton = document.querySelector(
+          'a[href="https://t.me/xenon_miller155"]'
+        );
+        const telegramModal = document.querySelector(".modal-overlay-telegram");
+        const telegramCloseBtn = document.querySelector(".close-btn-telegram");
+
         // Event listener for the "see more" link using event delegation
         appContainer.addEventListener("click", (e) => {
           if (e.target.classList.contains("see-more")) {
@@ -1073,7 +1102,7 @@
           }
         });
 
-        // Event listener to close the modal
+        // Event listener to close the video modal
         closeBtn.addEventListener("click", () => {
           modalOverlay.style.display = "none";
 
@@ -1085,6 +1114,34 @@
             swiper.autoplay.start();
           }, 500);
         });
+
+        // Handle click on the floating Telegram button
+        if (telegramButton) {
+          telegramButton.addEventListener("click", (e) => {
+            e.preventDefault(); // Prevent the default link behavior
+            if (telegramModal) {
+              telegramModal.style.display = "flex"; // Show the new Telegram modal
+            }
+          });
+        }
+
+        // Handle closing the new Telegram popup
+        if (telegramCloseBtn) {
+          telegramCloseBtn.addEventListener("click", () => {
+            if (telegramModal) {
+              telegramModal.style.display = "none";
+            }
+          });
+        }
+
+        // You can also add a click listener to the overlay to close it
+        if (telegramModal) {
+          telegramModal.addEventListener("click", (e) => {
+            if (e.target === telegramModal) {
+              telegramModal.style.display = "none";
+            }
+          });
+        }
       });
     </script>
   </body>
