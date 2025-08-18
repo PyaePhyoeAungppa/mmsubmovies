@@ -469,6 +469,39 @@ body {
   animation: marquee 12s linear infinite;
   font-size: 1.5rem;
 }
+/* Floating Telegram Button */
+.contact-btn-floating {
+  z-index: 999999999;
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background: linear-gradient(45deg, #28a746, #4caf50);
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-btn-floating img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.contact-btn-floating:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Telegram Popup Overlay */
 .modal-overlay-telegram {
   position: fixed;
   top: 0;
@@ -482,6 +515,7 @@ body {
   z-index: 100000000;
 }
 
+/* Telegram Popup Content */
 .modal-content-telegram {
   background-color: #fff;
   padding: 30px;
@@ -510,10 +544,11 @@ body {
   line-height: 1.5;
 }
 
-.contact-btn-telegram {
+/* Active Telegram Button inside the popup */
+.contact-btn-telegram-popup {
   display: inline-block;
   text-decoration: none;
-  background: linear-gradient(45deg, #28a746a3, #4caf4f8b);
+  background: linear-gradient(45deg, #28a746, #4caf50); /* Brighter gradient */
   color: #fff;
   padding: 12px 20px;
   font-size: 16px;
@@ -523,13 +558,39 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   margin-top: 15px;
+  position: relative;
+  overflow: hidden;
 }
 
-.contact-btn-telegram:hover {
+.contact-btn-telegram-popup:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Optional: Add a subtle pulse animation for more a dynamic feel */
+.contact-btn-telegram-popup::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: pulse 1s ease-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  to {
+    transform: scale(20);
+    opacity: 0;
+  }
+}
+
+/* Fade in animation for modal */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -548,3 +609,4 @@ body {
     transform: translateX(-100%);
   }
 }
+ 
