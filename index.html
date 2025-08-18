@@ -86,7 +86,7 @@
       href="https://t.me/xenon_miller155"
       target="_blank"
       rel="noopener noreferrer"
-      class="contact-btn-floating" id="buy_now"
+      class="contact-btn-floating"
     >
       <img src="https://mmsubmovies.vercel.app/assets/telegram.svg" alt="" />
       <span>ဝယ်ယူမည်</span>
@@ -913,7 +913,7 @@
                 href="https://t.me/xenon_miller155"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="contact-btn-floating" id="buy_now_2"
+                class="contact-btn-floating"
               >
                 <img
                   src="https://mmsubmovies.vercel.app/assets/telegram.svg"
@@ -966,7 +966,6 @@
       </div>
     </div>
 
-    <!-- Popup HTML -->
     <div class="modal-overlay-telegram" style="display: none">
       <div class="modal-content-telegram">
         <span class="close-btn-telegram">&times;</span>
@@ -982,7 +981,7 @@
             href="https://t.me/xenon_miller155"
             target="_blank"
             rel="noopener noreferrer"
-            class="contact-btn-telegram-popup"
+            class="contact-btn-telegram"
             >ဝယ်ယူမည်</a
           >
         </div>
@@ -993,12 +992,6 @@
     <script>
       // Initialize Swiper
       document.addEventListener("DOMContentLoaded", function () {
-        var buy_now = document.getElementById("buy_now");
-        var buy_now_2 = document.getElementById("buy_now_2");
-        
-        buy_now.style.display = "block";
-        buy_now_2.style.display = "block";
-
         // Swiper initialization with explicit slide configuration
         const swiper = new Swiper(".swiper-container", {
           loop: false,
@@ -1105,8 +1098,6 @@
             e.preventDefault(); // Prevent the default link behavior
             if (telegramModal) {
               telegramModal.style.display = "flex"; // Show the new Telegram modal
-              buy_now.style.display = "none";
-              buy_now_2.style.display = "none";
             }
           });
         }
@@ -1116,8 +1107,6 @@
           telegramCloseBtn.addEventListener("click", () => {
             if (telegramModal) {
               telegramModal.style.display = "none";
-               buy_now.style.display = "block";
-              buy_now_2.style.display = "block";
             }
           });
         }
