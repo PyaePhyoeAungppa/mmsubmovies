@@ -86,7 +86,7 @@
       href="https://t.me/xenon_miller155"
       target="_blank"
       rel="noopener noreferrer"
-      class="contact-btn-floating"
+      class="contact-btn-floating" id="buy_now"
     >
       <img src="https://mmsubmovies.vercel.app/assets/telegram.svg" alt="" />
       <span>ဝယ်ယူမည်</span>
@@ -913,7 +913,7 @@
                 href="https://t.me/xenon_miller155"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="contact-btn-floating"
+                class="contact-btn-floating" id="buy_now_2"
               >
                 <img
                   src="https://mmsubmovies.vercel.app/assets/telegram.svg"
@@ -993,6 +993,12 @@
     <script>
       // Initialize Swiper
       document.addEventListener("DOMContentLoaded", function () {
+        var buy_now = document.getElementById("buy_now");
+        var buy_now_2 = document.getElementById("buy_now_2");
+        
+        buy_now.style.display = "block";
+        buy_now_2.style.display = "block";
+
         // Swiper initialization with explicit slide configuration
         const swiper = new Swiper(".swiper-container", {
           loop: false,
@@ -1099,6 +1105,8 @@
             e.preventDefault(); // Prevent the default link behavior
             if (telegramModal) {
               telegramModal.style.display = "flex"; // Show the new Telegram modal
+              buy_now.style.display = "none";
+              buy_now_2.style.display = "none";
             }
           });
         }
@@ -1108,6 +1116,8 @@
           telegramCloseBtn.addEventListener("click", () => {
             if (telegramModal) {
               telegramModal.style.display = "none";
+               buy_now.style.display = "block";
+              buy_now_2.style.display = "block";
             }
           });
         }
