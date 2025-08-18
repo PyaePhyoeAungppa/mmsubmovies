@@ -994,10 +994,10 @@
       // Initialize Swiper
       document.addEventListener("DOMContentLoaded", function () {
         var buy_now = document.getElementById("buy_now");
-        var buy_now_2 = document.getElementById("buy_now_2");
+        // var buy_now_2 = document.getElementById("buy_now_2");
         
         buy_now.style.display = "block";
-        buy_now_2.style.display = "block";
+        // buy_now_2.style.display = "block";
 
         // Swiper initialization with explicit slide configuration
         const swiper = new Swiper(".swiper-container", {
@@ -1106,7 +1106,7 @@
             if (telegramModal) {
               telegramModal.style.display = "flex"; // Show the new Telegram modal
               buy_now.style.display = "none";
-              buy_now_2.style.display = "none";
+              // buy_now_2.style.display = "none";
             }
           });
         }
@@ -1117,7 +1117,7 @@
             if (telegramModal) {
               telegramModal.style.display = "none";
                buy_now.style.display = "block";
-              buy_now_2.style.display = "block";
+              // buy_now_2.style.display = "block";
             }
           });
         }
