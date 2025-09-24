@@ -17,7 +17,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* min-height: 100vh; */
+  min-height: 90vh;
   color: var(--text-light);
   margin: 0;
   padding: 0;
@@ -28,7 +28,7 @@ body {
 /* Mobile-first styles (full screen) */
 .app-container {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
