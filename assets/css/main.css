@@ -372,7 +372,7 @@ body {
 
 /* Corrected CSS selectors to apply a different background to each slide's card */
 .swiper-slide:nth-of-type(1) .card {
-  background-image: url("https://static.wikia.nocookie.net/marvel_dc/images/2/24/Peacemaker_season_2_poster.jpg/revision/latest?cb=20250728224951");
+  background-image: url("https://static.wikia.nocookie.net/marvel_dc/images/2/24/Peacemaker_season_2_poster.jpg");
 }
 .swiper-slide:nth-of-type(2) .card {
   background-image: url("https://m.media-amazon.com/images/M/MV5BOWM4MjQ1M2EtODY4OS00NGQwLTgxYWYtOTA2ODM3MGU0MTgzXkEyXkFqcGc@._V1_.jpg");
