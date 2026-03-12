@@ -1,8 +1,44 @@
 import { createServerSupabaseClient } from '@/lib/supabase/server'
-import { Movie, SERIES_TELEGRAM_LINK } from '@/lib/types'
+import { Movie } from '@/lib/types'
 import TrailerEmbed from '@/components/TrailerEmbed'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import AnalyticsTracker from '@/components/AnalyticsTracker'
+import TelegramButton from '@/components/TelegramButton'
+import ShareButtons from '@/components/ShareButtons'
+import { Metadata } from 'next'
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params
+  const supabase = await createServerSupabaseClient()
+  const { data: m } = await supabase
+    .from('movies')
+    .select('*')
+    .eq('id', id)
+    .single()
+
+  if (!m) return {}
+
+  const fullTitle = `${m.title} (${m.release_year}) - Myanmar Subtitles`
+  const description = m.description?.substring(0, 160) || `Watch ${m.title} with Myanmar subtitles on MMSubMovie.`
+
+  return {
+    title: m.title,
+    description: description,
+    openGraph: {
+      title: fullTitle,
+      description: description,
+      images: [m.poster_url],
+      type: 'video.movie',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: fullTitle,
+      description: description,
+      images: [m.poster_url],
+    },
+  }
+}
 
 export default async function MovieDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
@@ -20,92 +56,130 @@ export default async function MovieDetailPage({ params }: { params: Promise<{ id
 
   const m = movie as Movie
 
+  // Structured Data (JSON-LD)
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Movie',
+    name: m.title,
+    description: m.description,
+    image: m.poster_url,
+    datePublished: m.release_year.toString(),
+    aggregateRating: m.rating > 0 ? {
+      '@type': 'AggregateRating',
+      ratingValue: m.rating,
+      bestRating: '10',
+      worstRating: '1',
+      ratingCount: '1' // Mock count
+    } : undefined
+  }
+
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
-      {/* Back button */}
-      <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-[#d4a853] transition-colors mb-8 text-sm">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="m15 18-6-6 6-6" />
-        </svg>
-        Back to Home
-      </Link>
+    <div className="relative min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <AnalyticsTracker id={m.id} />
+      {/* Cinematic Backdrop */}
+      <div className="absolute inset-0 z-0 h-[70vh] w-full overflow-hidden pointer-events-none">
+        {m.poster_url && (
+          <>
+            <img
+              src={m.poster_url}
+              alt=""
+              className="w-full h-full object-cover opacity-20 blur-3xl scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/80 to-transparent" />
+          </>
+        )}
+      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-fade-in-up">
-        {/* Poster */}
-        <div className="lg:col-span-1">
-          <div className="glass-card overflow-hidden sticky top-24">
-            {m.poster_url ? (
-              <img src={m.poster_url} alt={m.title} className="w-full aspect-[2/3] object-cover" />
-            ) : (
-              <div className="w-full aspect-[2/3] flex items-center justify-center" style={{ background: 'var(--dark-700)' }}>
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#444" strokeWidth="1">
-                  <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
-                  <line x1="7" y1="2" x2="7" y2="22" />
-                  <line x1="17" y1="2" x2="17" y2="22" />
-                </svg>
-              </div>
-            )}
+      <div className="relative z-10 pt-20 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        {/* Breadcrumb */}
+        <nav className="flex mb-8 text-sm font-medium">
+          <Link href="/" className="text-zinc-500 hover:text-[#d4a853] transition-colors">Home</Link>
+          <span className="mx-2 text-zinc-700">/</span>
+          <Link href="/?type=movie" className="text-zinc-500 hover:text-[#d4a853] transition-colors">Movies</Link>
+          <span className="mx-2 text-zinc-700">/</span>
+          <span className="text-zinc-300 truncate">{m.title}</span>
+        </nav>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Left Column: Poster */}
+          <div className="lg:col-span-4 xl:col-span-3">
+            <div className="relative aspect-[2/3] rounded-3xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10 group">
+              {m.poster_url && (
+                <img
+                  src={m.poster_url}
+                  alt={m.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
           </div>
-        </div>
 
-        {/* Details */}
-        <div className="lg:col-span-2 space-y-6">
-          {/* Header */}
-          <div>
-            <div className="flex flex-wrap items-center gap-3 mb-3">
-              <span className="badge badge-movie">Movie</span>
-              <span className="text-gray-500 text-sm">{m.release_year}</span>
+          {/* Right Column: Info */}
+          <div className="lg:col-span-8 xl:col-span-9 flex flex-col">
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <span className="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-xs font-black tracking-widest border border-indigo-500/30">MOVIE</span>
+              <span className="px-3 py-1 rounded-full bg-white/5 text-zinc-400 text-xs font-black tracking-widest border border-white/10">{m.release_year}</span>
               {m.rating > 0 && (
-                <div className="flex items-center gap-1">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#d4a853" stroke="none">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                  </svg>
-                  <span className="text-[#d4a853] text-sm font-semibold">{m.rating}/10</span>
+                <span className="px-3 py-1 rounded-full bg-[#d4a853]/10 text-[#d4a853] text-xs font-black tracking-widest border border-[#d4a853]/20 flex items-center gap-1.5">
+                  <span className="text-base leading-none pt-0.5">★</span> {m.rating}
+                </span>
+              )}
+            </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight tracking-tighter">
+              {m.title}
+            </h1>
+
+            <div className="flex flex-wrap gap-2 mb-8">
+              {m.genre?.map((g) => (
+                <span key={g} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-zinc-300 text-sm font-bold hover:bg-white/10 hover:border-[#d4a853]/30 transition-all cursor-default">
+                  {g}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex flex-col gap-10 flex-1">
+              {/* Action Buttons Hub */}
+              <div className="flex flex-wrap items-center gap-6 lg:gap-10">
+                {/* Watch Button Container */}
+                {m.telegram_link && (
+                  <TelegramButton href={m.telegram_link} id={m.id} />
+                )}
+                
+                {/* Share Buttons */}
+                <ShareButtons title={m.title} id={m.id} type="movie" />
+              </div>
+
+              {/* Description */}
+              {m.description && (
+                <div className="relative">
+                  <div className="glass-card p-8 rounded-3xl bg-white/[0.03] border-white/5 backdrop-blur-3xl shadow-2xl">
+                    <p className="text-zinc-300 leading-relaxed lg:text-lg whitespace-pre-line font-medium drop-shadow-sm">
+                      {m.description}
+                    </p>
+                  </div>
+                </div>
+              )}
+              
+              {/* Trailer Section */}
+              {m.trailer_url && (
+                <div className="mt-4">
+                  <h2 className="text-xl font-black text-white mb-6 flex items-center gap-3">
+                    <span className="w-1.5 h-6 bg-[#d4a853] rounded-full" />
+                    Official Trailer
+                  </h2>
+                  <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+                    <TrailerEmbed url={m.trailer_url} />
+                  </div>
                 </div>
               )}
             </div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">{m.title}</h1>
-            
-            {/* Genres */}
-            {m.genre && m.genre.length > 0 && (
-              <div className="flex flex-wrap gap-2 mb-4">
-                {m.genre.map((g) => (
-                  <span key={g} className="badge badge-genre">{g}</span>
-                ))}
-              </div>
-            )}
           </div>
-
-          {/* Watch Button */}
-          {m.telegram_link && (
-            <a
-              href={m.telegram_link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="gold-button inline-flex items-center gap-3 text-lg"
-            >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-              </svg>
-              Watch on Telegram
-            </a>
-          )}
-
-          {/* Description */}
-          {m.description && (
-            <div className="glass-card p-6">
-              <h2 className="text-lg font-semibold text-white mb-3">Description</h2>
-              <p className="text-gray-300 leading-relaxed whitespace-pre-line">{m.description}</p>
-            </div>
-          )}
-
-          {/* Trailer */}
-          {m.trailer_url && (
-            <div>
-              <h2 className="text-lg font-semibold text-white mb-3">Trailer</h2>
-              <TrailerEmbed url={m.trailer_url} />
-            </div>
-          )}
         </div>
       </div>
     </div>

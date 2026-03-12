@@ -50,8 +50,8 @@ export default function EditMoviePage() {
   return (
     <div className="p-8">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-white">Edit Movie</h1>
-        <p className="text-gray-500 text-sm mt-1">Update the details for &ldquo;{movie.title}&rdquo;</p>
+        <h1 className="text-3xl font-bold tracking-tight text-white">Edit Movie</h1>
+        <p className="text-zinc-500 text-sm mt-1">Update the details for &ldquo;<span className="font-semibold text-white">{movie.title}</span>&rdquo;</p>
       </div>
       <MovieForm initialData={movie} contentType="movie" />
     </div>

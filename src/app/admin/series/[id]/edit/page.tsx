@@ -50,8 +50,8 @@ export default function EditSeriesPage() {
   return (
     <div className="p-8">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-white">Edit Series</h1>
-        <p className="text-gray-500 text-sm mt-1">Update the details for &ldquo;{series.title}&rdquo;</p>
+        <h1 className="text-3xl font-bold tracking-tight text-white">Edit Series</h1>
+        <p className="text-zinc-500 text-sm mt-1">Update the details for &ldquo;<span className="font-semibold text-white">{series.title}</span>&rdquo;</p>
       </div>
       <MovieForm initialData={series} contentType="series" />
     </div>

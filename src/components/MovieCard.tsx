@@ -1,5 +1,8 @@
 import Link from 'next/link'
 import { Movie } from '@/lib/types'
+import { Card, CardContent } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Star, Play } from 'lucide-react'
 
 interface MovieCardProps {
   movie: Movie
@@ -9,73 +12,68 @@ export default function MovieCard({ movie }: MovieCardProps) {
   const href = movie.type === 'movie' ? `/movies/${movie.id}` : `/series/${movie.id}`
 
   return (
-    <Link href={href} className="group block">
-      <div className="glass-card glass-card-hover overflow-hidden transition-all duration-300">
-        {/* Poster */}
-        <div className="relative aspect-[2/3] overflow-hidden">
-          {movie.poster_url ? (
-            <img
-              src={movie.poster_url}
-              alt={movie.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center" style={{ background: 'var(--dark-700)' }}>
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#444" strokeWidth="1.5">
-                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
-                <line x1="7" y1="2" x2="7" y2="22" />
-                <line x1="17" y1="2" x2="17" y2="22" />
-                <line x1="2" y1="12" x2="22" y2="12" />
-                <line x1="2" y1="7" x2="7" y2="7" />
-                <line x1="2" y1="17" x2="7" y2="17" />
-                <line x1="17" y1="7" x2="22" y2="7" />
-                <line x1="17" y1="17" x2="22" y2="17" />
-              </svg>
-            </div>
-          )}
-          
-          {/* Gradient overlay */}
-          <div className="poster-overlay flex flex-col justify-end p-4">
-            <p className="text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              View Details →
-            </p>
+    <Link href={href} className="group block h-full w-full">
+      <Card className="relative overflow-hidden aspect-[2/3] w-full bg-[#12121a] border border-white/10 hover:border-[#d4a853]/50 transition-all duration-500 hover:shadow-[0_8px_30px_rgb(212,168,83,0.25)] hover:-translate-y-1.5 rounded-2xl">
+        
+        {/* Full Image Background */}
+        {movie.poster_url ? (
+          <img
+            src={movie.poster_url}
+            alt={movie.title}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+        ) : (
+          <div className="absolute inset-0 w-full h-full flex flex-col items-center justify-center text-zinc-700 bg-zinc-900">
+             <Play className="w-12 h-12 mb-2 opacity-50" />
+            <span className="text-xs uppercase tracking-widest font-bold opacity-50">No Poster</span>
           </div>
+        )}
+        
+        {/* Persistent Bottom Gradient for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/50 to-transparent opacity-90 pointer-events-none" />
 
-          {/* Type badge */}
-          <div className="absolute top-3 left-3">
-            <span className={`badge ${movie.type === 'movie' ? 'badge-movie' : 'badge-series'}`}>
-              {movie.type}
-            </span>
-          </div>
-
-          {/* Rating */}
-          {movie.rating > 0 && (
-            <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-bold"
-              style={{ background: 'rgba(10,10,15,0.8)', backdropFilter: 'blur(4px)' }}>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="#d4a853" stroke="none">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <span className="text-[#d4a853]">{movie.rating}</span>
-            </div>
-          )}
+        {/* Hover Gradient Overlay with Play Button */}
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center pointer-events-none z-10 p-4">
+           <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+             <span className="inline-flex items-center gap-2 text-sm font-bold text-[#0a0a0f] bg-[#d4a853] hover:bg-[#b8922e] transition-colors px-6 py-2.5 rounded-full justify-center shadow-[0_0_20px_rgba(212,168,83,0.4)]">
+               <Play className="w-5 h-5 fill-current" /> Watch Now
+             </span>
+           </div>
         </div>
 
-        {/* Info */}
-        <div className="p-4">
-          <h3 className="font-semibold text-white text-sm leading-tight line-clamp-2 group-hover:text-[#d4a853] transition-colors">
+        {/* Top Badges */}
+        <div className="absolute top-3 left-3 flex flex-col gap-2 pointer-events-none z-20">
+          <Badge variant="secondary" className={`shadow-lg backdrop-blur-md font-bold px-2.5 py-0.5 rounded-md ${movie.type === 'movie' ? 'bg-indigo-500/90 text-white' : 'bg-emerald-500/90 text-white'}`}>
+            {movie.type.toUpperCase()}
+          </Badge>
+        </div>
+        
+        {/* Top Right Rating */}
+        {movie.rating > 0 && (
+          <div className="absolute top-3 right-3 pointer-events-none z-20">
+             <Badge variant="outline" className="bg-[#0a0a0f]/80 backdrop-blur-md border-[#d4a853]/30 text-[#d4a853] font-bold shadow-lg gap-1.5 px-2 py-0.5 rounded-md">
+               <Star className="w-3.5 h-3.5 fill-[#d4a853]" /> {movie.rating}
+             </Badge>
+          </div>
+        )}
+
+        {/* Floating Content at Bottom */}
+        <CardContent className="absolute bottom-0 left-0 right-0 p-4 z-20 border-none bg-transparent">
+          <h3 className="font-bold text-white text-base md:text-lg leading-tight line-clamp-2 group-hover:text-[#d4a853] transition-colors duration-300 drop-shadow-md">
             {movie.title}
           </h3>
-          <div className="flex items-center gap-2 mt-2">
-            <span className="text-xs text-gray-500">{movie.release_year}</span>
+          <div className="flex flex-wrap items-center gap-2 mt-2.5">
+            <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-white/20 text-white shadow-sm border border-white/10 backdrop-blur-sm">
+              {movie.release_year}
+            </span>
             {movie.genre && movie.genre.length > 0 && (
-              <>
-                <span className="text-gray-700">•</span>
-                <span className="text-xs text-gray-500 truncate">{movie.genre[0]}</span>
-              </>
+              <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-[#d4a853] text-[#0a0a0f] shadow-sm truncate">
+                {movie.genre[0]}
+              </span>
             )}
           </div>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </Link>
   )
 }

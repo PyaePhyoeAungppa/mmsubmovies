@@ -28,6 +28,7 @@ export default function Footer() {
               <Link href="/" className="block text-sm text-gray-500 hover:text-[#d4a853] transition-colors">Home</Link>
               <Link href="/?type=movie" className="block text-sm text-gray-500 hover:text-[#d4a853] transition-colors">Movies</Link>
               <Link href="/?type=series" className="block text-sm text-gray-500 hover:text-[#d4a853] transition-colors">Series</Link>
+              <Link href="/admin/login" className="block text-sm text-gray-500 hover:text-[#d4a853] transition-colors mt-4 pt-4 border-t border-white/5 w-max">Admin Login</Link>
             </div>
           </div>
 

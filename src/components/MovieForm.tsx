@@ -4,6 +4,11 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Movie, MovieFormData, GENRES, SERIES_TELEGRAM_LINK } from '@/lib/types'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import { ImageIcon, Link2, Loader2, PlayCircle, Save } from 'lucide-react'
 
 interface MovieFormProps {
   initialData?: Movie
@@ -95,186 +100,214 @@ export default function MovieForm({ initialData, contentType }: MovieFormProps) 
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-3xl space-y-6">
+    <form onSubmit={handleSubmit} className="max-w-4xl space-y-8">
       {error && (
-        <div className="px-4 py-3 rounded-lg text-sm text-red-400 bg-red-500/10 border border-red-500/20">
+        <div className="px-5 py-4 rounded-xl text-sm font-medium text-red-400 bg-red-400/10 border border-red-400/20 shadow-lg">
           {error}
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Title */}
-        <div className="md:col-span-2">
-          <label className="form-label">Title *</label>
-          <input
-            type="text"
-            value={formData.title}
-            onChange={(e) => setFormData((p) => ({ ...p, title: e.target.value }))}
-            className="form-input"
-            placeholder="Enter movie title"
-            required
-          />
-        </div>
-
-        {/* Release Year */}
-        <div>
-          <label className="form-label">Release Year</label>
-          <input
-            type="number"
-            value={formData.release_year}
-            onChange={(e) => setFormData((p) => ({ ...p, release_year: parseInt(e.target.value) || 2024 }))}
-            className="form-input"
-            min="1900"
-            max="2030"
-          />
-        </div>
-
-        {/* Rating */}
-        <div>
-          <label className="form-label">Rating (0-10)</label>
-          <input
-            type="number"
-            value={formData.rating}
-            onChange={(e) => setFormData((p) => ({ ...p, rating: parseFloat(e.target.value) || 0 }))}
-            className="form-input"
-            min="0"
-            max="10"
-            step="0.1"
-          />
-        </div>
-
-        {/* Poster Upload */}
-        <div className="md:col-span-2">
-          <label className="form-label">Poster Image</label>
-          <div className="flex items-start gap-4">
-            {/* Preview */}
-            <div className="w-24 h-36 rounded-lg overflow-hidden flex-shrink-0 border border-white/10"
-              style={{ background: 'var(--dark-700)' }}>
-              {formData.poster_url ? (
-                <img src={formData.poster_url} alt="Poster" className="w-full h-full object-cover" />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-gray-600 text-xs">
-                  No image
-                </div>
-              )}
-            </div>
-            <div className="flex-1 space-y-2">
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleFileUpload}
-                className="form-input text-sm file:mr-4 file:py-1 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#d4a853]/10 file:text-[#d4a853]"
-              />
-              {uploading && <p className="text-xs text-[#d4a853]">Uploading...</p>}
-              <p className="text-xs text-gray-600">Or paste a URL:</p>
-              <input
-                type="url"
-                value={formData.poster_url}
-                onChange={(e) => setFormData((p) => ({ ...p, poster_url: e.target.value }))}
-                className="form-input text-sm"
-                placeholder="https://example.com/poster.jpg"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* YouTube Trailer URL */}
-        <div className="md:col-span-2">
-          <label className="form-label">YouTube Trailer URL</label>
-          <input
-            type="url"
-            value={formData.trailer_url}
-            onChange={(e) => setFormData((p) => ({ ...p, trailer_url: e.target.value }))}
-            className="form-input"
-            placeholder="https://www.youtube.com/watch?v=..."
-          />
-        </div>
-
-        {/* Telegram Link (only for movies) */}
-        {contentType === 'movie' && (
-          <div className="md:col-span-2">
-            <label className="form-label">Telegram Watch Link *</label>
-            <input
-              type="url"
-              value={formData.telegram_link}
-              onChange={(e) => setFormData((p) => ({ ...p, telegram_link: e.target.value }))}
-              className="form-input"
-              placeholder="https://t.me/..."
+      <Card className="bg-[#12121a] border-white/5 shadow-xl">
+        <CardContent className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          {/* Title */}
+          <div className="md:col-span-2 space-y-2">
+            <Label className="text-zinc-300 font-semibold ml-1">Title <span className="text-red-400">*</span></Label>
+            <Input
+              type="text"
+              value={formData.title}
+              onChange={(e) => setFormData((p) => ({ ...p, title: e.target.value }))}
+              placeholder="e.g. Inception"
+              className="bg-[#0a0a0f] border-white/10 text-white h-12 rounded-xl focus-visible:ring-indigo-500/50"
               required
             />
           </div>
-        )}
 
-        {contentType === 'series' && (
-          <div className="md:col-span-2">
-            <label className="form-label">Telegram Watch Link</label>
-            <div className="form-input bg-opacity-50 text-gray-500 cursor-not-allowed">
-              {SERIES_TELEGRAM_LINK}
+          {/* Release Year */}
+          <div className="space-y-2">
+            <Label className="text-zinc-300 font-semibold ml-1">Release Year</Label>
+            <Input
+              type="number"
+              value={formData.release_year}
+              onChange={(e) => setFormData((p) => ({ ...p, release_year: parseInt(e.target.value) || 2024 }))}
+              min="1900"
+              max="2030"
+              className="bg-[#0a0a0f] border-white/10 text-white h-12 rounded-xl focus-visible:ring-indigo-500/50"
+            />
+          </div>
+
+          {/* Rating */}
+          <div className="space-y-2">
+            <Label className="text-zinc-300 font-semibold ml-1">Rating (0-10)</Label>
+            <Input
+              type="number"
+              value={formData.rating}
+              onChange={(e) => setFormData((p) => ({ ...p, rating: parseFloat(e.target.value) || 0 }))}
+              min="0"
+              max="10"
+              step="0.1"
+              className="bg-[#0a0a0f] border-white/10 text-white h-12 rounded-xl focus-visible:ring-indigo-500/50"
+            />
+          </div>
+
+          {/* Poster Upload */}
+          <div className="md:col-span-2 space-y-3">
+            <Label className="text-zinc-300 font-semibold ml-1 text-base">Poster Image</Label>
+            <div className="flex flex-col sm:flex-row items-start gap-6 bg-[#0a0a0f] p-5 rounded-2xl border border-white/5">
+              {/* Preview */}
+              <div className="w-32 h-44 rounded-xl overflow-hidden flex-shrink-0 bg-zinc-900 border border-white/10 shadow-lg relative group">
+                {formData.poster_url ? (
+                  <img src={formData.poster_url} alt="Poster preview" className="w-full h-full object-cover" />
+                ) : (
+                  <div className="w-full h-full flex flex-col items-center justify-center text-zinc-600 space-y-2">
+                    <ImageIcon className="w-8 h-8 opacity-50" />
+                    <span className="text-xs font-semibold uppercase tracking-wider">No Image</span>
+                  </div>
+                )}
+              </div>
+              
+              <div className="flex-1 space-y-5 w-full">
+                <div className="space-y-2">
+                    <Label className="text-zinc-400 text-xs uppercase tracking-wider font-bold">Upload File</Label>
+                    <Input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleFileUpload}
+                      className="bg-[#12121a] border-white/10 text-zinc-300 h-11 pt-2.5 file:mr-4 file:py-1 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-[#d4a853]/10 file:text-[#d4a853] hover:file:bg-[#d4a853]/20 transition-all cursor-pointer"
+                    />
+                    {uploading && <p className="text-xs font-medium text-[#d4a853] flex items-center gap-1.5"><Loader2 className="w-3.5 h-3.5 animate-spin" /> Uploading image...</p>}
+                </div>
+                
+                <div className="relative">
+                   <div className="absolute inset-0 flex items-center">
+                     <span className="w-full border-t border-white/5" />
+                   </div>
+                   <div className="relative flex justify-center text-xs uppercase">
+                     <span className="bg-[#0a0a0f] px-2 text-zinc-500 font-bold tracking-widest">Or</span>
+                   </div>
+                </div>
+
+                <div className="space-y-2 relative">
+                  <Label className="text-zinc-400 text-xs uppercase tracking-wider font-bold">Image URL</Label>
+                  <div className="relative">
+                    <Link2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
+                    <Input
+                      type="url"
+                      value={formData.poster_url}
+                      onChange={(e) => setFormData((p) => ({ ...p, poster_url: e.target.value }))}
+                      className="pl-10 bg-[#12121a] border-white/10 text-white h-11 rounded-xl focus-visible:ring-indigo-500/50"
+                      placeholder="https://example.com/poster.jpg"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
-            <p className="text-xs text-gray-600 mt-1">Series always link to the Telegram channel.</p>
           </div>
-        )}
 
-        {/* Genres */}
-        <div className="md:col-span-2">
-          <label className="form-label">Genres</label>
-          <div className="flex flex-wrap gap-2">
-            {GENRES.map((g) => (
-              <button
-                key={g}
-                type="button"
-                onClick={() => toggleGenre(g)}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all border ${
-                  formData.genre.includes(g)
-                    ? 'bg-[#d4a853]/20 text-[#d4a853] border-[#d4a853]/30'
-                    : 'bg-white/5 text-gray-500 border-transparent hover:bg-white/10'
-                }`}
-              >
-                {g}
-              </button>
-            ))}
+          {/* YouTube Trailer URL */}
+          <div className="md:col-span-2 space-y-2">
+            <Label className="text-zinc-300 font-semibold ml-1">YouTube Trailer URL</Label>
+            <div className="relative">
+                <PlayCircle className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-red-500/70" />
+                <Input
+                  type="url"
+                  value={formData.trailer_url}
+                  onChange={(e) => setFormData((p) => ({ ...p, trailer_url: e.target.value }))}
+                  className="pl-10 bg-[#0a0a0f] border-white/10 text-white h-12 rounded-xl focus-visible:ring-indigo-500/50"
+                  placeholder="https://www.youtube.com/watch?v=..."
+                />
+            </div>
           </div>
-        </div>
 
-        {/* Description */}
-        <div className="md:col-span-2">
-          <label className="form-label">Description</label>
-          <textarea
-            value={formData.description}
-            onChange={(e) => setFormData((p) => ({ ...p, description: e.target.value }))}
-            className="form-input min-h-[150px] resize-y"
-            placeholder="Write a description..."
-            rows={6}
-          />
-        </div>
-      </div>
+          {/* Telegram Link */}
+          {contentType === 'movie' ? (
+            <div className="md:col-span-2 space-y-2">
+              <Label className="text-zinc-300 font-semibold ml-1">Telegram Watch Link <span className="text-red-400">*</span></Label>
+              <Input
+                type="url"
+                value={formData.telegram_link}
+                onChange={(e) => setFormData((p) => ({ ...p, telegram_link: e.target.value }))}
+                className="bg-[#0a0a0f] border-indigo-500/30 text-white h-12 rounded-xl focus-visible:ring-indigo-500/50 focus-visible:border-indigo-500"
+                placeholder="https://t.me/..."
+                required
+              />
+            </div>
+          ) : (
+            <div className="md:col-span-2 space-y-2 p-4 bg-indigo-500/5 border border-indigo-500/10 rounded-xl">
+              <Label className="text-indigo-300 font-semibold ml-1">Telegram Watch Link</Label>
+              <Input
+                disabled
+                value={SERIES_TELEGRAM_LINK}
+                className="bg-[#0a0a0f]/50 border-white/5 text-zinc-500 h-10 rounded-lg cursor-not-allowed opacity-70"
+              />
+              <p className="text-zinc-500 text-xs ml-1 font-medium">Series always point to the main Telegram channel.</p>
+            </div>
+          )}
+
+          {/* Genres */}
+          <div className="md:col-span-2 space-y-3">
+            <Label className="text-zinc-300 font-semibold ml-1">Genres</Label>
+            <div className="flex flex-wrap gap-2.5 p-5 bg-[#0a0a0f] border border-white/5 rounded-2xl">
+              {GENRES.map((g) => {
+                const isSelected = formData.genre.includes(g)
+                return (
+                  <button
+                    key={g}
+                    type="button"
+                    onClick={() => toggleGenre(g)}
+                    className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 ${
+                      isSelected
+                        ? 'bg-[#d4a853] text-[#0a0a0f] shadow-lg shadow-[#d4a853]/20 hover:bg-[#b8922e] hover:shadow-[#b8922e]/30 scale-105'
+                        : 'bg-zinc-800/80 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-700/80 border border-transparent hover:border-white/10'
+                    }`}
+                  >
+                    {g}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Description */}
+          <div className="md:col-span-2 space-y-2">
+            <Label className="text-zinc-300 font-semibold ml-1">Description</Label>
+            <textarea
+              value={formData.description}
+              onChange={(e) => setFormData((p) => ({ ...p, description: e.target.value }))}
+              className="w-full bg-[#0a0a0f] border border-white/10 text-white rounded-xl focus:outline-none focus:ring-1 focus:ring-indigo-500/50 focus:border-indigo-500/50 p-4 min-h-[160px] resize-y placeholder:text-zinc-600 transition-all"
+              placeholder="Write a compelling description..."
+            />
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Actions */}
-      <div className="flex items-center gap-3 pt-4 border-t border-white/5">
-        <button
+      <div className="flex items-center gap-4 pt-2 pb-6">
+        <Button
           type="submit"
           disabled={saving}
-          className="gold-button inline-flex items-center gap-2 disabled:opacity-50"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold h-12 px-8 rounded-xl shadow-lg shadow-indigo-600/20"
         >
           {saving ? (
             <>
-              <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" className="opacity-25" />
-                <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.4 0 0 5.4 0 12h4z" className="opacity-75" />
-              </svg>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
               Saving...
             </>
           ) : (
-            <>{isEdit ? 'Update' : 'Create'} {contentType === 'movie' ? 'Movie' : 'Series'}</>
+            <>
+              <Save className="mr-2 h-5 w-5" />
+              {isEdit ? 'Update' : 'Create'} {contentType === 'movie' ? 'Movie' : 'Series'}
+            </>
           )}
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
+          variant="ghost"
           onClick={() => router.back()}
-          className="px-5 py-3 rounded-xl text-sm font-medium text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 transition-all"
+          className="h-12 px-6 rounded-xl font-medium text-zinc-400 hover:text-white hover:bg-white/5"
         >
           Cancel
-        </button>
+        </Button>
       </div>
     </form>
   )

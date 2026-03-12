@@ -3,6 +3,11 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import { Loader2, Play } from 'lucide-react'
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState('')
@@ -33,74 +38,76 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 hero-gradient">
-      <div className="w-full max-w-md animate-fade-in-up">
+    <div className="min-h-screen flex items-center justify-center px-4 hero-gradient relative">
+      <div className="absolute inset-0 bg-black/40" />
+
+      <div className="w-full max-w-md animate-fade-in-up relative z-10">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4"
-            style={{ background: 'linear-gradient(135deg, #d4a853, #b8922e)' }}>
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0a0a0f" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3" />
-            </svg>
+          <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 bg-gradient-to-br from-[#d4a853] to-[#b8922e] shadow-xl shadow-[#d4a853]/20">
+            <Play className="w-8 h-8 text-[#0a0a0f] fill-[#0a0a0f]" />
           </div>
-          <h1 className="text-2xl font-bold text-white">Admin Panel</h1>
-          <p className="text-gray-500 text-sm mt-1">Sign in to manage content</p>
+          <h1 className="text-3xl font-bold tracking-tight text-white">Admin Access</h1>
+          <p className="text-zinc-400 mt-2">Sign in to manage the platform</p>
         </div>
 
         {/* Login Form */}
-        <div className="glass-card p-8">
-          <form onSubmit={handleLogin} className="space-y-5">
-            <div>
-              <label className="form-label">Email</label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="form-input"
-                placeholder="admin@example.com"
-                required
-              />
-            </div>
-            <div>
-              <label className="form-label">Password</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="form-input"
-                placeholder="••••••••"
-                required
-              />
-            </div>
-
-            {error && (
-              <div className="px-4 py-3 rounded-lg text-sm text-red-400 bg-red-500/10 border border-red-500/20">
-                {error}
+        <Card className="bg-[#12121a]/95 backdrop-blur-xl border-white/10 shadow-2xl">
+          <CardContent className="p-8">
+            <form onSubmit={handleLogin} className="space-y-6">
+              <div className="space-y-2">
+                <Label className="text-zinc-300 font-semibold ml-1">Email</Label>
+                <Input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-[#0a0a0f] border-white/10 text-white h-12 rounded-xl focus-visible:ring-indigo-500/50"
+                  placeholder="admin@example.com"
+                  required
+                />
               </div>
-            )}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <Label className="text-zinc-300 font-semibold ml-1">Password</Label>
+                </div>
+                <Input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="bg-[#0a0a0f] border-white/10 text-white h-12 rounded-xl focus-visible:ring-indigo-500/50"
+                  placeholder="••••••••"
+                  required
+                />
+              </div>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="gold-button w-full text-center disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading ? (
-                <span className="flex items-center justify-center gap-2">
-                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" className="opacity-25" />
-                    <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.4 0 0 5.4 0 12h4z" className="opacity-75" />
-                  </svg>
-                  Signing in...
-                </span>
-              ) : (
-                'Sign In'
+              {error && (
+                <div className="px-5 py-4 rounded-xl text-sm font-medium text-red-400 bg-red-400/10 border border-red-400/20 shadow-lg">
+                  {error}
+                </div>
               )}
-            </button>
-          </form>
-        </div>
 
-        <p className="text-center text-gray-600 text-xs mt-6">
-          <a href="/" className="hover:text-[#d4a853] transition-colors">← Back to website</a>
+              <Button
+                type="submit"
+                disabled={loading}
+                className="w-full h-12 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg shadow-indigo-600/20 text-base mt-2"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                    Signing in...
+                  </>
+                ) : (
+                  'Sign In'
+                )}
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+
+        <p className="text-center text-zinc-500 text-sm mt-8 font-medium">
+          <a href="/" className="hover:text-indigo-400 transition-colors flex items-center justify-center gap-2">
+            ← Back to website
+          </a>
         </p>
       </div>
     </div>

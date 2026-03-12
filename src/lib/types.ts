@@ -11,6 +11,8 @@ export interface Movie {
   type: 'movie' | 'series'
   created_at: string
   updated_at: string
+  views_count: number
+  clicks_count: number
 }
 
 export interface MovieFormData {
@@ -23,6 +25,8 @@ export interface MovieFormData {
   release_year: number
   rating: number
   type: 'movie' | 'series'
+  views_count?: number
+  clicks_count?: number
 }
 
 export const GENRES = [

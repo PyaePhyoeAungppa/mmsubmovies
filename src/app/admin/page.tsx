@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
 import { Movie } from '@/lib/types'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Plus, Clapperboard, Tv, LayoutDashboard, Edit } from 'lucide-react'
 
 export default function AdminDashboard() {
   const [movies, setMovies] = useState<Movie[]>([])
@@ -27,26 +30,26 @@ export default function AdminDashboard() {
     {
       label: 'Total Movies',
       value: movieCount,
-      color: '#818cf8',
-      bg: 'rgba(99,102,241,0.1)',
-      border: 'rgba(99,102,241,0.2)',
-      icon: '🎬',
+      color: 'text-indigo-400',
+      bg: 'bg-indigo-500/10',
+      border: 'border-indigo-500/20',
+      icon: <Clapperboard className="w-5 h-5 text-indigo-400" />,
     },
     {
       label: 'Total Series',
       value: seriesCount,
-      color: '#34d399',
-      bg: 'rgba(16,185,129,0.1)',
-      border: 'rgba(16,185,129,0.2)',
-      icon: '📺',
+      color: 'text-emerald-400',
+      bg: 'bg-emerald-500/10',
+      border: 'border-emerald-500/20',
+      icon: <Tv className="w-5 h-5 text-emerald-400" />,
     },
     {
       label: 'Total Content',
       value: movies.length,
-      color: '#d4a853',
-      bg: 'rgba(212,168,83,0.1)',
-      border: 'rgba(212,168,83,0.2)',
-      icon: '📊',
+      color: 'text-[#d4a853]',
+      bg: 'bg-[#d4a853]/10',
+      border: 'border-[#d4a853]/20',
+      icon: <LayoutDashboard className="w-5 h-5 text-[#d4a853]" />,
     },
   ]
 
@@ -58,85 +61,93 @@ export default function AdminDashboard() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
         {stats.map((stat) => (
-          <div
+          <Card
             key={stat.label}
-            className="glass-card p-6 transition-all hover:scale-[1.02]"
-            style={{ borderColor: stat.border }}
+            className={`transition-all hover:scale-[1.02] bg-[#12121a] ${stat.border}`}
           >
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-2xl">{stat.icon}</span>
-            </div>
-            <p className="text-3xl font-bold" style={{ color: stat.color }}>
-              {loading ? '—' : stat.value}
-            </p>
-            <p className="text-sm text-gray-500 mt-1">{stat.label}</p>
-          </div>
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div className={`p-3 rounded-xl ${stat.bg}`}>
+                  {stat.icon}
+                </div>
+              </div>
+              <p className={`text-4xl font-bold ${stat.color}`}>
+                {loading ? '—' : stat.value}
+              </p>
+              <p className="text-sm text-zinc-500 mt-2 font-medium">{stat.label}</p>
+            </CardContent>
+          </Card>
         ))}
       </div>
 
       {/* Quick Actions */}
-      <div className="flex flex-wrap gap-3 mb-8">
-        <Link href="/admin/movies/new" className="gold-button inline-flex items-center gap-2 text-sm">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-            <line x1="12" y1="5" x2="12" y2="19" />
-            <line x1="5" y1="12" x2="19" y2="12" />
-          </svg>
+      <div className="flex flex-wrap gap-4 mb-10">
+        <Link href="/admin/movies/new" className="inline-flex items-center justify-center gap-2 text-sm px-6 py-3 rounded-xl font-semibold bg-indigo-600 hover:bg-indigo-700 text-white transition-colors shadow-lg shadow-indigo-600/20">
+          <Plus className="w-4 h-4" />
           Add Movie
         </Link>
         <Link href="/admin/series/new"
-          className="inline-flex items-center gap-2 text-sm px-5 py-3 rounded-xl font-semibold border border-emerald-500/30 text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 transition-all">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-            <line x1="12" y1="5" x2="12" y2="19" />
-            <line x1="5" y1="12" x2="19" y2="12" />
-          </svg>
+          className="inline-flex items-center justify-center gap-2 text-sm px-6 py-3 rounded-xl font-semibold bg-emerald-600 hover:bg-emerald-700 text-white transition-colors shadow-lg shadow-emerald-600/20">
+          <Plus className="w-4 h-4" />
           Add Series
         </Link>
       </div>
 
       {/* Recent Additions */}
-      <div className="glass-card overflow-hidden">
-        <div className="px-6 py-4 border-b border-white/5">
-          <h2 className="text-lg font-semibold text-white">Recent Additions</h2>
-        </div>
+      {/* Recent Additions */}
+      <Card className="bg-[#12121a] border-white/5 overflow-hidden">
+        <CardHeader className="px-6 py-5 border-b border-white/5">
+          <CardTitle className="text-lg font-semibold text-white flex items-center gap-2">
+            <LayoutDashboard className="w-5 h-5 text-[#d4a853]" />
+            Recent Additions
+          </CardTitle>
+        </CardHeader>
         {loading ? (
           <div className="p-6 space-y-4">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="skeleton h-12 w-full" />
+              <div key={i} className="h-16 w-full bg-white/5 animate-pulse rounded-lg" />
             ))}
           </div>
         ) : recentItems.length === 0 ? (
-          <div className="p-10 text-center text-gray-500">
-            No content added yet. Start by adding a movie or series.
+          <div className="p-10 text-center text-zinc-500 flex flex-col items-center">
+            <Clapperboard className="w-12 h-12 mb-3 opacity-20" />
+            <p>No content added yet. Start by adding a movie or series.</p>
           </div>
         ) : (
           <div className="divide-y divide-white/5">
             {recentItems.map((item) => (
-              <div key={item.id} className="px-6 py-4 flex items-center gap-4 hover:bg-white/[0.02] transition-colors">
-                <div className="w-10 h-14 rounded-lg overflow-hidden flex-shrink-0" style={{ background: 'var(--dark-700)' }}>
-                  {item.poster_url && (
+              <div key={item.id} className="px-6 py-4 flex items-center gap-4 hover:bg-white/[0.02] transition-colors group">
+                <div className="w-12 h-16 rounded-md overflow-hidden flex-shrink-0 bg-zinc-900 border border-white/10 shadow-sm">
+                  {item.poster_url ? (
                     <img src={item.poster_url} alt="" className="w-full h-full object-cover" />
+                  ) : (
+                     <div className="w-full h-full flex flex-col items-center justify-center text-zinc-700">
+                        <Clapperboard className="w-4 h-4" />
+                     </div>
                   )}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-white truncate">{item.title}</p>
-                  <p className="text-xs text-gray-500">{item.release_year} • {item.genre?.join(', ') || 'No genre'}</p>
+                  <p className="text-sm font-semibold text-zinc-100 truncate group-hover:text-[#d4a853] transition-colors">{item.title}</p>
+                  <p className="text-xs text-zinc-500 mt-1">{item.release_year} • {item.genre?.join(', ') || 'No genre'}</p>
                 </div>
-                <span className={`badge ${item.type === 'movie' ? 'badge-movie' : 'badge-series'}`}>
-                  {item.type}
-                </span>
+                
+                <Badge variant="secondary" className={`${item.type === 'movie' ? 'bg-indigo-500/10 text-indigo-400 hover:bg-indigo-500/20' : 'bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20'} border-transparent`}>
+                  {item.type.toUpperCase()}
+                </Badge>
+                
                 <Link
                   href={`/admin/${item.type === 'movie' ? 'movies' : 'series'}/${item.id}/edit`}
-                  className="text-xs text-gray-500 hover:text-[#d4a853] transition-colors"
+                  className="ml-4 p-2 text-zinc-500 hover:text-[#d4a853] hover:bg-[#d4a853]/10 rounded-md transition-colors"
                 >
-                  Edit
+                  <Edit className="w-4 h-4" />
                 </Link>
               </div>
             ))}
           </div>
         )}
-      </div>
+      </Card>
     </div>
   )
 }
