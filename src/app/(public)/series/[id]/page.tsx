@@ -1,5 +1,5 @@
 import { createServerSupabaseClient } from '@/lib/supabase/server'
-import { Movie, SERIES_TELEGRAM_LINK } from '@/lib/types'
+import { Movie } from '@/lib/types'
 import TrailerEmbed from '@/components/TrailerEmbed'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
