@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Input } from '@/components/ui/input'
@@ -105,9 +106,9 @@ export default function AdminLoginPage() {
         </Card>
 
         <p className="text-center text-zinc-500 text-sm mt-8 font-medium">
-          <a href="/" className="hover:text-indigo-400 transition-colors flex items-center justify-center gap-2">
+          <Link href="/" className="hover:text-indigo-400 transition-colors flex items-center justify-center gap-2">
             ← Back to website
-          </a>
+          </Link>
         </p>
       </div>
     </div>
