@@ -25,7 +25,6 @@ export default function AdminMoviesPage() {
   const [pageSize] = useState(10)
   const [viewMode, setViewMode] = useState<'table' | 'grid'>('table')
   const [deleting, setDeleting] = useState<string | null>(null)
-  const [deleting, setDeleting] = useState<string | null>(null)
 
   useEffect(() => {
     fetchMovies()
