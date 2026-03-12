@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { Facebook, Twitter, Send, Link2, Check } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 
 interface ShareButtonsProps {
   title: string

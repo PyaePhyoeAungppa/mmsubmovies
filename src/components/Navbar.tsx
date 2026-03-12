@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet'
 import { Menu, Search, Clapperboard, Tv } from 'lucide-react'
 import { useState, useEffect, useId } from 'react'
@@ -11,13 +10,9 @@ import SearchBar from '@/components/SearchBar'
 export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [mounted, setMounted] = useState(false)
   const searchId = useId()
   const menuId = useId()
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-white/5 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">

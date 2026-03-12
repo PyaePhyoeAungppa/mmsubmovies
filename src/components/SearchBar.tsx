@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import { Search, Loader2, Star, PlayCircle } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { createClient } from '@/lib/supabase/client'
@@ -15,7 +14,6 @@ export default function SearchBar({ onResultClick }: { onResultClick?: () => voi
   const [isOpen, setIsOpen] = useState(false)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const supabase = createClient()
-  const router = useRouter()
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -53,7 +51,7 @@ export default function SearchBar({ onResultClick }: { onResultClick?: () => voi
 
     const debounceTimer = setTimeout(searchMovies, 300)
     return () => clearTimeout(debounceTimer)
-  }, [query])
+  }, [query, supabase])
 
   return (
     <div ref={wrapperRef} className="relative w-full z-50 group">
@@ -95,6 +93,7 @@ export default function SearchBar({ onResultClick }: { onResultClick?: () => voi
                       src={movie.poster_url} 
                       alt={movie.title} 
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      loading="lazy"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
@@ -127,7 +126,7 @@ export default function SearchBar({ onResultClick }: { onResultClick?: () => voi
             ))
           ) : !isSearching ? (
             <div className="p-4 text-center text-sm text-zinc-400">
-              No results found for "{query}"
+              No results found for &quot;{query}&quot;
             </div>
           ) : null}
         </div>
