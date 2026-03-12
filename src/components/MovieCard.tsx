@@ -3,6 +3,7 @@ import { Movie } from '@/lib/types'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Star, Play } from 'lucide-react'
+import Image from 'next/image'
 
 interface MovieCardProps {
   movie: Movie
@@ -17,10 +18,12 @@ export default function MovieCard({ movie }: MovieCardProps) {
         
         {/* Full Image Background */}
         {movie.poster_url ? (
-          <img
+          <Image
             src={movie.poster_url}
             alt={movie.title}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 16vw"
           />
         ) : (
           <div className="absolute inset-0 w-full h-full flex flex-col items-center justify-center text-zinc-700 bg-zinc-900">

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Search, Loader2, Star, PlayCircle } from 'lucide-react'
+import Image from 'next/image'
 import { Input } from '@/components/ui/input'
 import { createClient } from '@/lib/supabase/client'
 import { Movie } from '@/lib/types'
@@ -89,11 +90,11 @@ export default function SearchBar({ onResultClick }: { onResultClick?: () => voi
               >
                 <div className="relative w-12 h-16 rounded-md overflow-hidden bg-zinc-900 flex-shrink-0">
                   {movie.poster_url ? (
-                    <img 
+                    <Image 
                       src={movie.poster_url} 
                       alt={movie.title} 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      loading="lazy"
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">

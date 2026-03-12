@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet'
 import { Menu, Search, Clapperboard, Tv } from 'lucide-react'
-import { useState, useEffect, useId } from 'react'
+import { useState, useId } from 'react'
 import SearchBar from '@/components/SearchBar'
 
 export default function Navbar() {

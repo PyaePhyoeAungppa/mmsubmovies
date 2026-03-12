@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClient } from '@/lib/supabase/client'
 import { Movie, MovieFormData, GENRES, SERIES_TELEGRAM_LINK } from '@/lib/types'
+import Image from 'next/image'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
@@ -157,7 +157,12 @@ export default function MovieForm({ initialData, contentType }: MovieFormProps) 
               {/* Preview */}
               <div className="w-32 h-44 rounded-xl overflow-hidden flex-shrink-0 bg-zinc-900 border border-white/10 shadow-lg relative group">
                 {formData.poster_url ? (
-                  <img src={formData.poster_url} alt="Poster preview" className="w-full h-full object-cover" />
+                  <Image 
+                    src={formData.poster_url} 
+                    alt="Poster preview" 
+                    fill
+                    className="object-cover" 
+                  />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center text-zinc-600 space-y-2">
                     <ImageIcon className="w-8 h-8 opacity-50" />
