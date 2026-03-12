@@ -6,7 +6,6 @@ import { notFound } from 'next/navigation'
 import AnalyticsTracker from '@/components/AnalyticsTracker'
 import TelegramButton from '@/components/TelegramButton'
 import ShareButtons from '@/components/ShareButtons'
-import StickyDetailHeader from '@/components/StickyDetailHeader'
 import { Metadata } from 'next'
 import Image from 'next/image'
 
@@ -108,8 +107,8 @@ export default async function MovieDetailPage({ params }: { params: Promise<{ id
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Left Column: Poster - Sticky on Desktop */}
-          <div className="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-24 self-start">
+          {/* Left Column: Poster */}
+          <div className="lg:col-span-4 xl:col-span-3">
             <div className="relative aspect-[2/3] rounded-3xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10 group">
               {m.poster_url && (
                 <Image
@@ -127,9 +126,40 @@ export default async function MovieDetailPage({ params }: { params: Promise<{ id
 
           {/* Right Column: Info */}
           <div className="lg:col-span-8 xl:col-span-9 flex flex-col">
-            <StickyDetailHeader item={m} type="movie" />
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <span className="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-xs font-black tracking-widest border border-indigo-500/30">MOVIE</span>
+              <span className="px-3 py-1 rounded-full bg-white/5 text-zinc-400 text-xs font-black tracking-widest border border-white/10">{m.release_year}</span>
+              {m.rating > 0 && (
+                <span className="px-3 py-1 rounded-full bg-[#d4a853]/10 text-[#d4a853] text-xs font-black tracking-widest border border-[#d4a853]/20 flex items-center gap-1.5">
+                  <span className="text-base leading-none pt-0.5">★</span> {m.rating}
+                </span>
+              )}
+            </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight tracking-tighter">
+              {m.title}
+            </h1>
+
+            <div className="flex flex-wrap gap-2 mb-8">
+              {m.genre?.map((g) => (
+                <span key={g} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-zinc-300 text-sm font-bold hover:bg-white/10 hover:border-[#d4a853]/30 transition-all cursor-default">
+                  {g}
+                </span>
+              ))}
+            </div>
 
             <div className="flex flex-col gap-10 flex-1">
+              {/* Action Buttons Hub */}
+              <div className="flex flex-wrap items-center gap-6 lg:gap-10">
+                {/* Watch Button Container */}
+                {m.telegram_link && (
+                  <TelegramButton href={m.telegram_link} id={m.id} />
+                )}
+                
+                {/* Share Buttons */}
+                <ShareButtons title={m.title} id={m.id} type="movie" />
+              </div>
+
               {/* Description */}
               {m.description && (
                 <div className="relative">
