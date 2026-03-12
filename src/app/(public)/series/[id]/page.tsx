@@ -7,6 +7,7 @@ import AnalyticsTracker from '@/components/AnalyticsTracker'
 import TelegramButton from '@/components/TelegramButton'
 import ShareButtons from '@/components/ShareButtons'
 import { Metadata } from 'next'
+import Image from 'next/image'
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params
@@ -80,14 +81,15 @@ export default async function SeriesDetailPage({ params }: { params: Promise<{ i
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <AnalyticsTracker id={s.id} />
-      {/* Cinematic Backdrop */}
       <div className="absolute inset-0 z-0 h-[70vh] w-full overflow-hidden pointer-events-none">
         {s.poster_url && (
           <>
-            <img
+            <Image
               src={s.poster_url}
               alt=""
-              className="w-full h-full object-cover opacity-20 blur-3xl scale-110"
+              fill
+              className="object-cover opacity-20 blur-3xl scale-110"
+              priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/80 to-transparent" />
           </>
@@ -109,10 +111,13 @@ export default async function SeriesDetailPage({ params }: { params: Promise<{ i
           <div className="lg:col-span-4 xl:col-span-3">
             <div className="relative aspect-[2/3] rounded-3xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10 group">
               {s.poster_url && (
-                <img
+                <Image
                   src={s.poster_url}
                   alt={s.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />

@@ -8,6 +8,7 @@ import { createClient } from '@/lib/supabase/client'
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
 import { Search } from 'lucide-react'
+import Image from 'next/image'
 
 function HomeContent() {
   const searchParams = useSearchParams()
@@ -65,12 +66,17 @@ function HomeContent() {
             <CarouselContent>
 
               {/* Dynamic Slides - Featured Movies */}
-              {movies.slice(0, 3).map((movie) => (
+              {movies.slice(0, 3).map((movie, index) => (
                 <CarouselItem key={movie.id} className="relative">
                   <div className="py-8 sm:py-12 lg:py-20 relative w-full rounded-3xl overflow-hidden px-6 lg:px-16 flex flex-col md:flex-row items-center gap-8 lg:gap-16 border border-white/5 shadow-2xl">
-                     {/* Slide Background for the specific movie */}
                      <div className="absolute inset-0 z-0">
-                       <img src={movie.poster_url || ''} className="w-full h-full object-cover opacity-20 blur-xl scale-110" alt="Background Backdrop" />
+                       <Image 
+                         src={movie.poster_url || ''} 
+                         alt="Background Backdrop" 
+                         fill
+                         className="object-cover opacity-20 blur-xl scale-110" 
+                         priority={index === 0}
+                       />
                        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-t md:from-black/90 md:to-black/40 from-[#0a0a0f] via-[#0a0a0f]/80 to-[#0a0a0f]/40" />
                      </div>
 
@@ -93,12 +99,17 @@ function HomeContent() {
                        </div>
                      </div>
                      
-                     {/* Poster Image */}
-                     <div className="relative z-10 w-48 sm:w-60 md:w-72 lg:w-80 flex-shrink-0 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                       <div className="aspect-[2/3] rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
-                         <img src={movie.poster_url || ''} alt={movie.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                       </div>
-                     </div>
+                      <div className="relative z-10 w-48 sm:w-60 md:w-72 lg:w-80 flex-shrink-0 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                        <div className="aspect-[2/3] rounded-2xl overflow-hidden shadow-2xl border border-white/10 group relative">
+                          <Image 
+                            src={movie.poster_url || ''} 
+                            alt={movie.title} 
+                            fill
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                        </div>
+                      </div>
                   </div>
                 </CarouselItem>
               ))}
