@@ -126,8 +126,8 @@ export default async function SeriesDetailPage({ params }: { params: Promise<{ i
 
           {/* Right Column: Info */}
           <div className="lg:col-span-8 xl:col-span-9 flex flex-col">
-            {/* Sticky Title & Metadata Hub on Desktop */}
-            <div className="lg:sticky lg:top-24 z-20 bg-transparent lg:pb-8 lg:mb-4">
+            {/* Expanded Sticky Header on Desktop: Title, Meta & Buttons */}
+            <div className="lg:sticky lg:top-16 z-30 lg:bg-[#0a0a0f]/60 lg:backdrop-blur-xl lg:border-b lg:border-white/5 lg:-mx-6 lg:px-6 lg:py-8 lg:mb-10 transition-all duration-300">
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-black tracking-widest border border-emerald-500/30">SERIES</span>
                 <span className="px-3 py-1 rounded-full bg-white/5 text-zinc-400 text-xs font-black tracking-widest border border-white/10">{s.release_year}</span>
@@ -142,25 +142,24 @@ export default async function SeriesDetailPage({ params }: { params: Promise<{ i
                 {s.title}
               </h1>
 
-              <div className="flex flex-wrap gap-2 mb-2">
-                {s.genre?.map((g) => (
-                  <span key={g} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-zinc-300 text-sm font-bold hover:bg-white/10 hover:border-[#d4a853]/30 transition-all cursor-default">
-                    {g}
-                  </span>
-                ))}
+              <div className="flex flex-wrap items-center justify-between gap-6">
+                <div className="flex flex-wrap gap-2">
+                  {s.genre?.map((g) => (
+                    <span key={g} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-zinc-300 text-sm font-bold hover:bg-white/10 hover:border-[#d4a853]/30 transition-all cursor-default">
+                      {g}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Action Buttons integrated into Sticky Header */}
+                <div className="flex flex-wrap items-center gap-4 lg:gap-6">
+                  <TelegramButton href={SERIES_TELEGRAM_LINK} id={s.id} />
+                  <ShareButtons title={s.title} id={s.id} type="series" />
+                </div>
               </div>
             </div>
 
             <div className="flex flex-col gap-10 flex-1">
-              {/* Action Buttons Hub */}
-              <div className="flex flex-wrap items-center gap-6 lg:gap-10">
-                {/* Watch Button Container */}
-                <TelegramButton href={SERIES_TELEGRAM_LINK} id={s.id} />
-                
-                {/* Share Buttons */}
-                <ShareButtons title={s.title} id={s.id} type="series" />
-              </div>
-
               {/* Description */}
               {s.description && (
                 <div className="relative">
