@@ -7,6 +7,7 @@ import { Movie } from '@/lib/types'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Plus, Clapperboard, Tv, LayoutDashboard, Edit } from 'lucide-react'
+import Image from 'next/image'
 
 export default function AdminDashboard() {
   const [movies, setMovies] = useState<Movie[]>([])
@@ -119,9 +120,9 @@ export default function AdminDashboard() {
           <div className="divide-y divide-white/5">
             {recentItems.map((item) => (
               <div key={item.id} className="px-6 py-4 flex items-center gap-4 hover:bg-white/[0.02] transition-colors group">
-                <div className="w-12 h-16 rounded-md overflow-hidden flex-shrink-0 bg-zinc-900 border border-white/10 shadow-sm">
+                <div className="w-12 h-16 rounded-md overflow-hidden flex-shrink-0 bg-zinc-900 border border-white/10 shadow-sm relative">
                   {item.poster_url ? (
-                    <img src={item.poster_url} alt="" className="w-full h-full object-cover" />
+                    <Image src={item.poster_url} alt="" fill className="object-cover" />
                   ) : (
                      <div className="w-full h-full flex flex-col items-center justify-center text-zinc-700">
                         <Clapperboard className="w-4 h-4" />

@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Pagination } from '@/components/ui/pagination'
 import { Plus, Search, Edit2, Trash2, Film, SlidersHorizontal, LayoutGrid, List } from 'lucide-react'
+import Image from 'next/image'
 
 export default function AdminMoviesPage() {
   const [movies, setMovies] = useState<Movie[]>([])
@@ -24,7 +25,7 @@ export default function AdminMoviesPage() {
   const [pageSize] = useState(10)
   const [viewMode, setViewMode] = useState<'table' | 'grid'>('table')
   const [deleting, setDeleting] = useState<string | null>(null)
-  const router = useRouter()
+  const [deleting, setDeleting] = useState<string | null>(null)
 
   useEffect(() => {
     fetchMovies()
@@ -285,9 +286,9 @@ export default function AdminMoviesPage() {
                       <TableRow key={movie.id} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors group">
                         <TableCell className="py-4">
                           <div className="flex items-center gap-4">
-                            <div className="w-10 h-14 rounded-md overflow-hidden flex-shrink-0 bg-zinc-900 border border-white/5 shadow-sm">
+                            <div className="w-10 h-14 rounded-md overflow-hidden flex-shrink-0 bg-zinc-900 border border-white/5 shadow-sm relative">
                               {movie.poster_url ? (
-                                <img src={movie.poster_url} alt="" className="w-full h-full object-cover" />
+                                <Image src={movie.poster_url} alt="" fill className="object-cover" />
                               ) : (
                                 <div className="w-full h-full flex items-center justify-center">
                                   <Film className="w-4 h-4 text-zinc-700" />
@@ -362,9 +363,9 @@ export default function AdminMoviesPage() {
                       key={movie.id}
                       className="rounded-xl border border-white/10 bg-[#0c0c12] overflow-hidden flex"
                     >
-                      <div className="w-24 h-32 sm:w-28 sm:h-36 flex-shrink-0 bg-zinc-900 border-r border-white/10">
+                      <div className="w-24 h-32 sm:w-28 sm:h-36 flex-shrink-0 bg-zinc-900 border-r border-white/10 relative">
                         {movie.poster_url ? (
-                          <img src={movie.poster_url} alt="" className="w-full h-full object-cover" />
+                          <Image src={movie.poster_url} alt="" fill className="object-cover" />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center">
                             <Film className="w-5 h-5 text-zinc-700" />

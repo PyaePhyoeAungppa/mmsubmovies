@@ -139,18 +139,18 @@ function HomeContent() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 -mt-7 relative z-20">
         <div className="flex flex-wrap items-center justify-center gap-2 mb-8 bg-[#12121a]/80 backdrop-blur-xl p-2 rounded-2xl border border-white/5 shadow-xl w-fit mx-auto">
           {/* Type filters */}
-          <a href="/"
+          <Link href="/"
             className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 ${!typeFilter ? 'bg-white text-zinc-900 shadow-md' : 'text-zinc-400 hover:bg-white/10 hover:text-white'}`}>
             All
-          </a>
-          <a href="/?type=movie"
+          </Link>
+          <Link href="/?type=movie"
             className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 ${typeFilter === 'movie' ? 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30' : 'text-zinc-400 hover:bg-white/10 hover:text-white'}`}>
             🎬 Movies
-          </a>
-          <a href="/?type=series"
+          </Link>
+          <Link href="/?type=series"
             className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 ${typeFilter === 'series' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'text-zinc-400 hover:bg-white/10 hover:text-white'}`}>
             📺 Series
-          </a>
+          </Link>
 
           <div className="w-px h-6 bg-white/10 mx-2 hidden sm:block" />
 
