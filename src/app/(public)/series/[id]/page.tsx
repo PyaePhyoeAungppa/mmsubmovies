@@ -107,8 +107,8 @@ export default async function SeriesDetailPage({ params }: { params: Promise<{ i
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Left Column: Poster */}
-          <div className="lg:col-span-4 xl:col-span-3">
+          {/* Left Column: Poster - Sticky on Desktop */}
+          <div className="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-24 self-start">
             <div className="relative aspect-[2/3] rounded-3xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10 group">
               {s.poster_url && (
                 <Image
@@ -126,26 +126,29 @@ export default async function SeriesDetailPage({ params }: { params: Promise<{ i
 
           {/* Right Column: Info */}
           <div className="lg:col-span-8 xl:col-span-9 flex flex-col">
-            <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-black tracking-widest border border-emerald-500/30">SERIES</span>
-              <span className="px-3 py-1 rounded-full bg-white/5 text-zinc-400 text-xs font-black tracking-widest border border-white/10">{s.release_year}</span>
-              {s.rating > 0 && (
-                <span className="px-3 py-1 rounded-full bg-[#d4a853]/10 text-[#d4a853] text-xs font-black tracking-widest border border-[#d4a853]/20 flex items-center gap-1.5">
-                  <span className="text-base leading-none pt-0.5">★</span> {s.rating}
-                </span>
-              )}
-            </div>
+            {/* Sticky Title & Metadata Hub on Desktop */}
+            <div className="lg:sticky lg:top-24 z-20 bg-transparent lg:pb-8 lg:mb-4">
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-black tracking-widest border border-emerald-500/30">SERIES</span>
+                <span className="px-3 py-1 rounded-full bg-white/5 text-zinc-400 text-xs font-black tracking-widest border border-white/10">{s.release_year}</span>
+                {s.rating > 0 && (
+                  <span className="px-3 py-1 rounded-full bg-[#d4a853]/10 text-[#d4a853] text-xs font-black tracking-widest border border-[#d4a853]/20 flex items-center gap-1.5">
+                    <span className="text-base leading-none pt-0.5">★</span> {s.rating}
+                  </span>
+                )}
+              </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight tracking-tighter">
-              {s.title}
-            </h1>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight tracking-tighter">
+                {s.title}
+              </h1>
 
-            <div className="flex flex-wrap gap-2 mb-8">
-              {s.genre?.map((g) => (
-                <span key={g} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-zinc-300 text-sm font-bold hover:bg-white/10 hover:border-[#d4a853]/30 transition-all cursor-default">
-                  {g}
-                </span>
-              ))}
+              <div className="flex flex-wrap gap-2 mb-2">
+                {s.genre?.map((g) => (
+                  <span key={g} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-zinc-300 text-sm font-bold hover:bg-white/10 hover:border-[#d4a853]/30 transition-all cursor-default">
+                    {g}
+                  </span>
+                ))}
+              </div>
             </div>
 
             <div className="flex flex-col gap-10 flex-1">
