@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState, useCallback, Suspense } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import MovieCard from '@/components/MovieCard'
