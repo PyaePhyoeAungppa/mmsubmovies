@@ -65,7 +65,7 @@ export default function SearchBar({ onResultClick }: { onResultClick?: () => voi
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => { if (query.trim() !== '') setIsOpen(true) }}
           placeholder="Search for movies, series, or genres..." 
-          className="pl-11 pr-10 w-full h-11 bg-[#12121a]/80 backdrop-blur-md border-white/5 hover:border-white/10 hover:bg-[#1a1a24]/80 focus-visible:bg-[#0a0a0f]/90 focus-visible:ring-1 focus-visible:ring-[#d4a853]/50 focus-visible:border-[#d4a853]/50 transition-all duration-300 rounded-2xl text-sm font-medium shadow-inner"
+          className="pl-11 pr-10 w-full h-11 bg-[#12121a]/80 backdrop-blur-md border-white/5 hover:border-white/10 hover:bg-[#1a1a24]/80 focus-visible:bg-[#0a0a0f]/90 focus-visible:ring-1 focus-visible:ring-[#d4a853]/50 focus-visible:border-[#d4a853]/50 transition-all duration-300 rounded-2xl text-base font-medium shadow-inner"
         />
         {isSearching && (
           <div className="absolute right-4 z-10">

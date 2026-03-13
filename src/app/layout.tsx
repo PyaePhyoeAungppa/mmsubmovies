@@ -11,8 +11,12 @@ export const metadata: Metadata = {
     default: "MMSubMovie - Best Platform for Myanmar Subtitled Movies & Series",
     template: "%s | MMSubMovie - Myanmar Subtitles"
   },
-  description: "Watch and download the latest movies, KDramas, and series with ultra-clear Myanmar subtitles. Join our exclusive VIP lifetime membership to browse our premium collection. Watch directly on Telegram effortlessly.",
-  keywords: ["myanmar", "subtitles", "movies", "series", "kdrama", "streaming", "telegram", "mmsub", "myanmar sub movie", "channel myanmar", "mmsubmovie vip", "buy movie myanmar"],
+  description: "မြန်မာစာတန်းထိုး ရုပ်ရှင်နှင့် ဇာတ်လမ်းတွဲများကို တစ်နေရာတည်းတွင် ကြည့်ရှုနိုင်ပါသည်။ Watch and download the latest movies, KDramas, and series with ultra-clear Myanmar subtitles. Watch directly on Telegram effortlessly.",
+  keywords: [
+    "myanmar", "subtitles", "movies", "series", "kdrama", "streaming", "telegram", "mmsub", "myanmar sub movie", "channel myanmar", "mmsubmovie vip", "buy movie myanmar", 
+    "မြန်မာစာတန်းထိုး", "ရုပ်ရှင်", "ဇာတ်လမ်းတွဲ", "မြန်မာစာတန်းထိုးရုပ်ရှင်",
+    "Action", "အက်ရှင်", "Comedy", "ဟာသ", "Drama", "ဒရာမာ", "Horror", "သရဲကား", "ထိတ်လန့်ဖွယ်", "Sci-Fi", "သိပ္ပံ", "Romance", "အချစ်", "Thriller", "သည်းထိတ်ရင်ဖို", "Animation", "အန်နီမေးရှင်း"
+  ],
   authors: [{ name: "MMSubMovie" }],
   creator: "MMSubMovie",
   publisher: "MMSubMovie",

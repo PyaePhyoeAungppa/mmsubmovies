@@ -6,8 +6,6 @@ import { useSearchParams } from 'next/navigation'
 import MovieCard from '@/components/MovieCard'
 import { Movie } from '@/lib/types'
 import { createClient } from '@/lib/supabase/client'
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
-import Autoplay from "embla-carousel-autoplay"
 import { Search } from 'lucide-react'
 import Image from 'next/image'
 
@@ -22,7 +20,7 @@ function HomeContent() {
   const fetchMovies = useCallback(async () => {
     setLoading(true)
     const supabase = createClient()
-    let query = supabase.from('movies').select('*').order('created_at', { ascending: false })
+    let query = supabase.from('movies').select('*')
 
     if (typeFilter) {
       query = query.eq('type', typeFilter)
@@ -39,7 +37,13 @@ function HomeContent() {
     const { data, error } = await query
 
     if (!error && data) {
-      setMovies(data as Movie[])
+      // Fisher-Yates shuffle algorithm
+      const shuffled = [...data]
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+      }
+      setMovies(shuffled as Movie[])
     }
     setLoading(false)
   }, [typeFilter, searchQuery, activeGenre])
@@ -53,69 +57,20 @@ function HomeContent() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-12 pb-16 sm:pt-16 sm:pb-24 px-4 border-b border-white/5 bg-gradient-to-b from-[#d4a853]/5 to-transparent">
+      <section className="relative overflow-hidden pt-20 pb-20 px-4 border-b border-white/5 bg-gradient-to-b from-[#d4a853]/5 to-transparent">
         {/* Background Decorative Blurs */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#d4a853]/10 rounded-full blur-[128px] pointer-events-none -z-10" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-[128px] pointer-events-none -z-10" />
         
-        <div className="max-w-7xl mx-auto relative z-10 w-full">
-          <Carousel
-            opts={{ loop: true }}
-            plugins={[Autoplay({ delay: 5000 })]}
-            className="w-full"
-          >
-            <CarouselContent>
+        <div className="max-w-7xl mx-auto relative z-10 w-full text-center mb-12">
+          <h1 className="text-4xl sm:text-6xl font-black tracking-tighter mb-6 text-white drop-shadow-2xl">
+            MMSubMovie
+          </h1>
+          <p className="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+            The best platform for Myanmar subtitled movies and series. Watch directly on Telegram with one click.
+          </p>
 
-              {/* Dynamic Slides - Featured Movies */}
-              {movies.slice(0, 3).map((movie, index) => (
-                <CarouselItem key={movie.id} className="relative">
-                  <div className="py-8 sm:py-12 lg:py-20 relative w-full rounded-3xl overflow-hidden px-6 lg:px-16 flex flex-col md:flex-row items-center gap-8 lg:gap-16 border border-white/5 shadow-2xl">
-                     <div className="absolute inset-0 z-0">
-                       <Image 
-                         src={movie.poster_url || ''} 
-                         alt="Background Backdrop" 
-                         fill
-                         className="object-cover opacity-20 blur-xl scale-110" 
-                         priority={index === 0}
-                       />
-                       <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-t md:from-black/90 md:to-black/40 from-[#0a0a0f] via-[#0a0a0f]/80 to-[#0a0a0f]/40" />
-                     </div>
-
-                     {/* Text Content */}
-                     <div className="relative z-10 flex-1 animate-fade-in-up text-center md:text-left flex flex-col items-center md:items-start">
-                       <div className="bg-[#d4a853] text-[#0a0a0f] text-[10px] sm:text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 sm:mb-6 shadow-xl shadow-[#d4a853]/20">
-                         Featured {movie.type === 'movie' ? 'Movie' : 'Series'}
-                       </div>
-                       <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-4 text-white drop-shadow-2xl line-clamp-2">
-                          {movie.title}
-                       </h1>
-                       <p className="text-zinc-300 text-sm sm:text-base md:text-lg max-w-2xl mb-8 leading-relaxed drop-shadow-xl line-clamp-3">
-                          {movie.description || "Watch directly on Telegram with one click."}
-                       </p>
-                       <div className="flex flex-wrap gap-4 items-center justify-center md:justify-start">
-                         <a href={`/${movie.type === 'movie' ? 'movies' : 'series'}/${movie.id}`} className="bg-white text-black font-bold py-3 px-8 rounded-full hover:bg-zinc-200 transition-colors shadow-xl shadow-white/10 hover:shadow-white/20 active:scale-95 duration-200 flex items-center gap-2 text-sm sm:text-base">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                            Watch Now
-                         </a>
-                       </div>
-                     </div>
-                     
-                      <div className="relative z-10 w-48 sm:w-60 md:w-72 lg:w-80 flex-shrink-0 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                        <div className="aspect-[2/3] rounded-2xl overflow-hidden shadow-2xl border border-white/10 group relative">
-                          <Image 
-                            src={movie.poster_url || ''} 
-                            alt={movie.title} 
-                            fill
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          />
-                        </div>
-                      </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
+          {/* Search Bar */}
 
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto animate-fade-in-up relative z-30" style={{ animationDelay: '0.2s' }}>
@@ -128,7 +83,7 @@ function HomeContent() {
                   placeholder="Search movies & series..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-14 pr-4 py-4 rounded-2xl bg-[#0a0a0f]/90 backdrop-blur-md text-white placeholder-zinc-500 border border-white/10 focus:border-[#d4a853]/50 focus:ring-1 focus:ring-[#d4a853]/50 transition-all outline-none shadow-2xl"
+                  className="w-full pl-14 pr-4 py-4 rounded-2xl bg-[#0a0a0f]/90 backdrop-blur-md text-white text-base placeholder-zinc-500 border border-white/10 focus:border-[#d4a853]/50 focus:ring-1 focus:ring-[#d4a853]/50 transition-all outline-none shadow-2xl"
                 />
               </div>
             </div>
