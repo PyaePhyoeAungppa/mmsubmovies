@@ -38,7 +38,15 @@ export async function POST(request: NextRequest) {
   }
 
   const body = await request.json()
-  const { data, error } = await supabase.from('movies').insert([body]).select().single()
+  const isArray = Array.isArray(body)
+  
+  let query = supabase.from('movies').insert(isArray ? body : [body]).select()
+  
+  if (!isArray) {
+    query = query.single() as any
+  }
+
+  const { data, error } = await query
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 })

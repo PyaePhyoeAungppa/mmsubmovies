@@ -10,6 +10,8 @@ import { Button } from '@/components/ui/button'
 import { Pagination } from '@/components/ui/pagination'
 import { Plus, Search, Edit2, Trash2, Tv, LayoutGrid, List, SlidersHorizontal } from 'lucide-react'
 import Image from 'next/image'
+import { ExcelImport } from '@/components/admin/ExcelImport'
+import { MovieFormData } from '@/lib/types'
 
 export default function AdminSeriesPage() {
   const [series, setSeries] = useState<Movie[]>([])
@@ -49,6 +51,21 @@ export default function AdminSeriesPage() {
       setSeries((prev) => prev.filter((m) => m.id !== id))
     }
     setDeleting(null)
+  }
+
+  async function handleImportSeries(data: MovieFormData[]) {
+    const res = await fetch('/api/movies', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+
+    if (res.ok) {
+      fetchSeries()
+    } else {
+      const error = await res.json()
+      throw new Error(error.error || 'Failed to import series.')
+    }
   }
 
   const toggleGenre = (genre: string) => {
@@ -141,6 +158,7 @@ export default function AdminSeriesPage() {
               Add Series
             </Button>
           </Link>
+          <ExcelImport type="series" onImport={handleImportSeries} />
         </div>
       </div>
 
