@@ -32,7 +32,7 @@ export function ExcelImport({ onImport, type }: ExcelImportProps) {
         const workbook = XLSX.read(data, { type: 'array' })
         const sheetName = workbook.SheetNames[0]
         const worksheet = workbook.Sheets[sheetName]
-        const jsonData = XLSX.utils.sheet_to_json(worksheet) as any[]
+        const jsonData = XLSX.utils.sheet_to_json(worksheet) as Record<string, unknown>[]
 
         if (jsonData.length === 0) {
           throw new Error('The Excel file is empty.')
@@ -59,9 +59,10 @@ export function ExcelImport({ onImport, type }: ExcelImportProps) {
         await onImport(formattedData)
         setSuccess(`Successfully imported ${formattedData.length} ${type === 'movie' ? 'movies' : 'series'}.`)
         if (fileInputRef.current) fileInputRef.current.value = ''
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error('Import error:', err)
-        setError(err.message || 'Failed to import data. Please check the file format.')
+        const errorMessage = err instanceof Error ? err.message : 'Failed to import data. Please check the file format.'
+        setError(errorMessage)
       } finally {
         setImporting(false)
       }

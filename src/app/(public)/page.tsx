@@ -7,7 +7,6 @@ import MovieCard from '@/components/MovieCard'
 import { Movie } from '@/lib/types'
 import { createClient } from '@/lib/supabase/client'
 import { Search } from 'lucide-react'
-import Image from 'next/image'
 
 function HomeContent() {
   const searchParams = useSearchParams()

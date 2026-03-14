@@ -43,7 +43,8 @@ export async function POST(request: NextRequest) {
   let query = supabase.from('movies').insert(isArray ? body : [body]).select()
   
   if (!isArray) {
-    query = query.single() as any
+    // @ts-expect-error - single() changes the return type complexity, simpler to ignore for now than to reconstruct the type
+    query = query.single()
   }
 
   const { data, error } = await query
